@@ -19,7 +19,7 @@ let rentals = [
         address: '86 E Center St, Alpine, UT 84004',
         imageUrl: "http://clipart-library.com/images/pi78gEyyT.png"
     },
-    },
+    
     {
         id: id++,
         price: 1100,
@@ -28,8 +28,8 @@ let rentals = [
         sqfeet: 2000,
         address: '65 East 100 South, Alpine, UT 84004',
         imageUrl: "http://clipart-library.com/images/pi78gEyyT.png"
-    },
     }
+    
 
 ]
 

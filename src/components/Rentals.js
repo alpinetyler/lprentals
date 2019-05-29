@@ -26,11 +26,7 @@ export default class Rentals extends Component {
             <div>
                {this.state.rentals.map(rental => {
                    return(
-                       <div>
-                           <div>{rental.imageUrl}</div>
-                            <div>Address:{rental.address}</div>
-                       <    div>Price:{rental.price}</div>
-                       </div>
+                       
                        
                    )
                }) }
