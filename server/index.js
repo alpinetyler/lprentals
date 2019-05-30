@@ -7,12 +7,12 @@ const port = 5005
 
 app.use(express.json())
 
-app.get('/api/rentals', RentalCtrl.read)
-app.post('/api/rentals', RentalCtrl.create)
-app.put('/api/rentals/:id', RentalCtrl.update)
-// app.delete('/api/rentals/:id', AnimalCtrl.delete)
+app.post('/api/rentals', RentalCtrl.create)//create property
+app.get('/api/rentals', RentalCtrl.read)//read properties
+app.put('/api/rentals/:id', RentalCtrl.update)//update property
+app.delete('/api/rentals/:id', RentalCtrl.delete)//delete property--CRUD!
 
 app.listen(port, () => {
-    console.log('we are listening on port', port)
+    console.log('we be listening on port', port)
 })
 

@@ -66,6 +66,12 @@ module.exports = {
 
         rentals.splice(index, 1, updatedRental)
         res.send(rentals)
+    },
+    delete: (req, res) => {
+        let {id} = req.params//get this from param on url
+        let index = rentals.findIndex(rental => +rental.id === +id)
+        rentals.splice(index, 1)
+        res.send(rentals)
     }
 
 }

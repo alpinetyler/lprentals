@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import DisplayRental from './DisplayRental';
-import EditRental from './EditRental';
 
 import CreateRental from './CreateRental'
 
@@ -37,6 +36,12 @@ export default class Rentals extends Component {
         .catch(err => console.log(err))
     }
 
+    deleteRental = id => {
+        axios.delete(`/api/rentals/${id}`)
+        .then(res => this.setState({rentals: res.data}))
+        .catch(err => console.log(err))
+    }
+
     render(){
         return (
            
@@ -49,7 +54,8 @@ export default class Rentals extends Component {
                     <DisplayRental
                         key={rental.id}
                         rental={rental}
-                        updateRental={this.updateRental}/>
+                        updateRental={this.updateRental}
+                        deleteRental={() => this.deleteRental(rental.id)}/>
                         
                        
                    )
