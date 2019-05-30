@@ -15,6 +15,7 @@ export default class DisplayRental extends Component {
             edit: false
         }
     }
+    
     toggleEdit = () =>
     this.setState({
         edit: !this.state.edit
@@ -34,7 +35,7 @@ export default class DisplayRental extends Component {
                    
                     <div>
                     <h1></h1>
-                    <img src={rental.imageUrl} alt="RentalPic" width="200"/>
+                    <img src={rental.imageUrl} alt="RentalPic" width="200" className="houseImage"/>
                     <div>Monthly Price: {formatter.format(rental.price)}</div>
                     <div>bedrooms: {rental.bd}</div>
                     <div>bathrooms: {rental.bth}</div>

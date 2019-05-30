@@ -4,7 +4,7 @@ function Header(props){
     return(
         <header>
             <section className="headerSection1">
-                Lamppost Properties Logo
+                Lamppost Properties
             </section>
             <section className="headerSection2">
                 Search:<br></br><input type="text" placeholder="search"/>

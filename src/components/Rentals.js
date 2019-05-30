@@ -10,7 +10,7 @@ export default class Rentals extends Component {
         super()
 
         this.state = {
-            rentals: []
+            rentals: [],
         }
     }
 
@@ -43,16 +43,24 @@ export default class Rentals extends Component {
         .catch(err => console.log(err))
     }
 
+    toggleAdd = () =>
+    this.setState({
+        edit: !this.state.add
+    })
+
+
     render(){
         return (
             <div>
             <Header />
             <div className="displayWrapper">
-                
-                <section className="newRental">
-                <p>New Rental</p>
-                <CreateRental createRental={this.createRental}/>
+                <section className="addRentalSection">
+                    <section>
+                    <CreateRental createRental={this.createRental}/>
+                    </section>
                 </section>
+
+                
                {this.state.rentals.map(rental => {
                    return(
                    

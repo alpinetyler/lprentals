@@ -12,7 +12,9 @@ export default class CreateRental extends Component {
             sqfeet: '',
             address: '',
             zip: '',
-            imageUrl: ''
+            imageUrl: '',
+
+            add: false
 
         }
     }
@@ -29,9 +31,18 @@ export default class CreateRental extends Component {
         this.props.createRental(newRental)
     }
 
+    toggleAdd = () =>
+    this.setState({
+        add: !this.state.add
+    })
+
+
     render() {
         return (
         <div className="inputForm">
+            {this.state.add ?
+            <div>
+                <h1>Add Rental</h1>
             <input
                 type="number"
                 name="price"
@@ -74,8 +85,15 @@ export default class CreateRental extends Component {
                 placeholder="imgUrl"
                 onChange={this.handleChange}
                 value={this.state.imgUrl}/>
-                <button onClick={this.handleClick}>Add Rental</button>
-        </div>
+                <button onClick={this.handleClick}>Submit</button>
+                <button onClick={this.toggleAdd}>Cancel</button>
+                </div>
+                :
+                <div>
+                <button className="addRentalButton" onClick={this.toggleAdd}>Add Rental</button>
+                </div>
+            }
+               </div>
         )
 
     }
