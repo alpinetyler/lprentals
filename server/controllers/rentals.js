@@ -9,7 +9,7 @@ let rentals = [
         sqfeet: 1200,
         address: '58 E Center St',
         zip: '84004',
-        imageUrl: "http://clipart-library.com/images/pi78gEyyT.png"
+        imageUrl: "https://previews.123rf.com/images/welcomia/welcomia1403/welcomia140300112/26623239-small-house-isolated-on-white-background-single-family-home-3d-illustration-.jpg"
      },
     {
         id: id++,
@@ -19,7 +19,7 @@ let rentals = [
         sqfeet: 1800,
         address: '86 E Center St',
         zip: '84004',
-        imageUrl: "http://clipart-library.com/images/pi78gEyyT.png"
+        imageUrl: "https://previews.123rf.com/images/maxxyustas/maxxyustas1409/maxxyustas140900024/31615660-house-on-white-background-three-dimensional-image-3d.jpg"
     },
     
     {
@@ -30,7 +30,7 @@ let rentals = [
         sqfeet: 2000,
         address: '65 E 100 S',
         zip: '84004',
-        imageUrl: "http://clipart-library.com/images/pi78gEyyT.png"
+        imageUrl: "https://previews.123rf.com/images/mrgao/mrgao1506/mrgao150600014/41917681-white-3d-house-with-red-roof-on-white-background-illustration.jpg"
     },
 
     {
@@ -41,7 +41,7 @@ let rentals = [
         sqfeet: 1800,
         address: '65 E 100 S',
         zip: '84004',
-        imageUrl: "http://clipart-library.com/images/pi78gEyyT.png"
+        imageUrl: "https://previews.123rf.com/images/cherezoff/cherezoff1102/cherezoff110200022/8785486-a-small-house-with-red-roof-on-a-white-background.jpg"
     },
     
 
@@ -54,6 +54,16 @@ module.exports = {
         newRental.id = id++
         rentals.push(newRental)
 
+        res.send(rentals)
+    },
+    update: (req, res) => {
+        let {id} = req.params
+        let updatedRental = req.body
+        updatedRental.id = id
+
+        let index = rentals.findIndex(rental => +rental.id === +id)
+
+        rentals.splice(index, 1, updatedRental)
         res.send(rentals)
     }
 

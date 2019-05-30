@@ -31,6 +31,13 @@ export default class Rentals extends Component {
         }).catch(err => console.log(err))
     }
 
+    updateRental = rental => {
+        axios.put(`/api/rentals/${rental.id}`, rental)
+        .then(res => this.setState({
+            rentals: res.data}))
+        .catch(err => console.log(err))
+    }
+
     render(){
         return (
             <div className="displayWrapper">
