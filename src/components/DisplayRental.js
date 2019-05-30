@@ -47,11 +47,11 @@ export default class DisplayRental extends Component {
                     
                 }
                 {this.state.edit ?
-                    <button onClick={this.toggleEdit}>cancel</button>
+                    <button className="displaybutton" onClick={this.toggleEdit}>cancel</button>
                     :
-                    <button onClick={this.toggleEdit}>edit</button>
+                    <button className="displaybutton" onClick={this.toggleEdit}>edit</button>
                 } 
-                <button onClick={this.props.deleteRental}>delete</button>   
+                <button className="displaybutton" onClick={this.props.deleteRental}>delete</button>   
             </div>
         )
             

@@ -34,7 +34,7 @@
   .houseImage{
       /* width: 150px; */
       height: 150px;
-      border: 2px black solid;
+      /* border: 2px black solid; */
   }
 
   .displayWrapper{
@@ -104,7 +104,7 @@
 
 .addbutton{
 
-    height: 60px;
+    /* height: 60px; */
     border: none;
     
 }
@@ -117,7 +117,7 @@
     font-weight: bold;
 }
 
-button{
+.displaybutton{
     font-size: 12px;
     font-weight: bold;
     border: 1px gray solid;
