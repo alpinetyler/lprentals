@@ -34,6 +34,7 @@ export default class Rentals extends Component {
     render(){
         return (
             <div className="displayWrapper">
+                <p>New Rental</p>
                 <CreateRental createRental={this.createRental}/>
                {this.state.rentals.map(rental => {
                    return(
