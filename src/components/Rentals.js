@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
 import axios from 'axios'
+import DisplayRental from './DisplayRental';
 
 //import displayRental from './DisplayRental'
-//import CreateRental from './CreateRental'
+import CreateRental from './CreateRental'
 
 export default class Rentals extends Component {
     constructor(){
@@ -23,10 +24,13 @@ export default class Rentals extends Component {
 
     render(){
         return (
-            <div>
+            <div className="displayWrapper">
                {this.state.rentals.map(rental => {
                    return(
-                       
+                    <DisplayRental
+                        key={rental.id}
+                        rental={rental}/>
+                        
                        
                    )
                }) }
