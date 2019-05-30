@@ -27,9 +27,14 @@ export default class EditRental extends Component {
 
         handleClick = () => {
             let updatedRental = {...this.props.rental, ...this.state}
+            // console.log(11111111, updatedRental)
             this.props.updateRental(updatedRental)
+            this.props.toggleEdit()//takes display back to original display
         }
+        
         render() {
+
+            console.log(this.props.rental)
             return(
             <div className="editForm">
             <input

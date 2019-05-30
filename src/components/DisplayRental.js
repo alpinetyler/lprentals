@@ -21,13 +21,15 @@ export default class DisplayRental extends Component {
     })
 
     render() {
-        let { rental } = this.props
+        let { rental, updateRental } = this.props
+
         return(
             <div className="rentalDisplay">
                 {this.state.edit?
                   <EditRental
                     rental={rental}
-                    updateRental={this.props.updateRental}/>
+                    toggleEdit={this.toggleEdit}
+                    updateRental={updateRental}/>
                     :
                     <div>
                     <img src={rental.imageUrl} alt="RentalPic" width="200"/>

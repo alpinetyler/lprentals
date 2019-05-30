@@ -15,3 +15,4 @@ app.put('/api/rentals/:id', RentalCtrl.update)
 app.listen(port, () => {
     console.log('we are listening on port', port)
 })
+
