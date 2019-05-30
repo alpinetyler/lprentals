@@ -36,7 +36,9 @@ export default class EditRental extends Component {
 
             console.log(this.props.rental)
             return(
+            
             <div className="editForm">
+            <h2>Edit Rental</h2>
             <input
                 type="number"
                 name="price"

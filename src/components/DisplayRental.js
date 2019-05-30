@@ -31,15 +31,19 @@ export default class DisplayRental extends Component {
                     toggleEdit={this.toggleEdit}
                     updateRental={updateRental}/>
                     :
+                   
                     <div>
+                    <h1></h1>
                     <img src={rental.imageUrl} alt="RentalPic" width="200"/>
-                    <div>Street Address: {rental.address}</div>
-                    <div>Zip Code: {rental.zip}</div>
                     <div>Monthly Price: {formatter.format(rental.price)}</div>
                     <div>bedrooms: {rental.bd}</div>
                     <div>bathrooms: {rental.bth}</div>
                     <div>square feet: {rental.sqfeet}</div>
+                    <div>Street Address: {rental.address}</div>
+                    <div>Zip Code: {rental.zip}</div>
+                    
                     </div>
+                    
                 }
                 {this.state.edit ?
                     <button onClick={this.toggleEdit}>cancel</button>

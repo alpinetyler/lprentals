@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import DisplayRental from './DisplayRental';
+import Header from './Header'
 
 import CreateRental from './CreateRental'
 
@@ -44,13 +45,17 @@ export default class Rentals extends Component {
 
     render(){
         return (
-           
+            <div>
+            <Header />
             <div className="displayWrapper">
-            
+                
+                <section className="newRental">
                 <p>New Rental</p>
                 <CreateRental createRental={this.createRental}/>
+                </section>
                {this.state.rentals.map(rental => {
                    return(
+                   
                     <DisplayRental
                         key={rental.id}
                         rental={rental}
@@ -60,6 +65,7 @@ export default class Rentals extends Component {
                        
                    )
                }) }
+            </div>
             </div>
         )
     }
