@@ -51,7 +51,7 @@ export default class Rentals extends Component {
 
     render(){
         return (
-            <div>
+            <div className="docWrapper">
             <Header />
             <div className="displayWrapper">
                 <section className="addRentalSection">

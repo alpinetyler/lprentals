@@ -36,12 +36,12 @@ export default class DisplayRental extends Component {
                     <div>
                     <h1></h1>
                     <img src={rental.imageUrl} alt="RentalPic" width="200" className="houseImage"/>
-                    <div>Monthly Price: {formatter.format(rental.price)}</div>
-                    <div>bedrooms: {rental.bd}</div>
-                    <div>bathrooms: {rental.bth}</div>
-                    <div>square feet: {rental.sqfeet}</div>
-                    <div>Street Address: {rental.address}</div>
-                    <div>Zip Code: {rental.zip}</div>
+                    <div><span className="bold">Monthly Rent: </span>{formatter.format(rental.price)}</div>
+                    <div><span className="bold">Bedrooms: </span> {rental.bd}</div>
+                    <div><span className="bold">bathrooms: </span>{rental.bth}</div>
+                    <div><span className="bold">square feet: </span>{rental.sqfeet}</div>
+                    <div><span className="bold">Street Address: </span>{rental.address}</div>
+                    <div><span className="bold">Zip Code: </span>{rental.zip}</div>
                     
                     </div>
                     

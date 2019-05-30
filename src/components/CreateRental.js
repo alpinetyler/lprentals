@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import plus from './images/plus.png'
 
 export default class CreateRental extends Component {
     constructor(props){
@@ -90,7 +91,7 @@ export default class CreateRental extends Component {
                 </div>
                 :
                 <div>
-                <button className="addRentalButton" onClick={this.toggleAdd}>Add Rental</button>
+                <button className="addbutton" onClick={this.toggleAdd}><img src={plus}/></button>
                 </div>
             }
                </div>
