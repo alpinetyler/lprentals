@@ -30,6 +30,17 @@ export default class CreateRental extends Component {
     handleClick = () => {
         let newRental = this.state
         this.props.createRental(newRental)
+        this.setState({
+            price: '',
+            bd: '',
+            bth: '',
+            sqfeet: '',
+            address: '',
+            zip: '',
+            imageUrl: '',
+
+            add: false
+        })
     }
 
     toggleAdd = () =>
@@ -42,50 +53,50 @@ export default class CreateRental extends Component {
         return (
         <div className="inputForm">
             {this.state.add ?
-            <div>
+            <div className="addRentalForm">
                 <h1>Add Rental</h1>
-            <input
-                type="number"
+            <p>Monthly Rent:<input
+                type="text"
                 name="price"
                 placeholder="price"
                 onChange={this.handleChange}
-                value={this.state.price}/>
-            <input
-                type="number"
+                value={this.state.price}/></p>
+            <p>Bedrooms: <input
+                type="text"
                 name="bd"
                 placeholder="bd"
                 onChange={this.handleChange}
-                value={this.state.bd}/>
-            <input
-                type="number"
+                value={this.state.bd}/></p>
+            <p>Bathrooms: <input
+                type="text"
                 name="bth"
                 placeholder="bth"
                 onChange={this.handleChange}
-                value={this.state.bth}/>
-            <input
-                type="number"
+                value={this.state.bth}/></p>
+            <p>Square Feet: <input
+                type="text"
                 name="sqfeet"
                 placeholder="sqfeet"
                 onChange={this.handleChange}
-                value={this.state.sqfeet}/>
-            <input
+                value={this.state.sqfeet}/></p>
+            <p>Address: <input
                 type="text"
                 name="address"
                 placeholder="address"
                 onChange={this.handleChange}
-                value={this.state.address}/>
-            <input
+                value={this.state.address}/></p>
+            <p>Zip Code: <input
                 type="text"
                 name="zip"
                 placeholder="zip"
                 onChange={this.handleChange}
-                value={this.state.zip}/>
-            <input
+                value={this.state.zip}/></p>
+            <p>Image Url: <input
                 type="text"
                 name="imageUrl"
                 placeholder="imgUrl"
                 onChange={this.handleChange}
-                value={this.state.imgUrl}/>
+                value={this.state.imgUrl}/></p>
                 <button onClick={this.handleClick}>Submit</button>
                 <button onClick={this.toggleAdd}>Cancel</button>
                 </div>

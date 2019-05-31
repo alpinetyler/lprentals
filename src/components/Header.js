@@ -1,13 +1,14 @@
 import React from 'react'
+import LPLogo from './images/LPLogo.png'
 
 function Header(props){
     return(
         <header>
             <section className="headerSection1">
-                Lamppost Properties
+            <img src={LPLogo}/>            
             </section>
             <section className="headerSection2">
-                Search:<br></br><input type="text" placeholder="search"/>
+            Search by Zip:<br></br><input type="text" placeholder="Enter Zip Code"/>
             </section>
         </header>
             

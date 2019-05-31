@@ -65,56 +65,80 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        background-image: url('https://norcalfsbo.files.wordpress.com/2017/03/cropped-beautiful-house-and-nature-landscape-website-header.jpg');
+        /* background-image: url('https://norcalfsbo.files.wordpress.com/2017/03/cropped-beautiful-house-and-nature-landscape-website-header.jpg'); */
         background-size: 100%;
         font-size: 15px;
+        border-bottom: 1px black solid;
 
   }
 
   .headerSection1{
       /* border: 1px black solid; */
-      height: 50px;
+      height: 70px;
       width: 300px;
       margin: 30px;
       color: white;
       font-size: 15px;
+      /* border: 2px black solid; */
 
 
   }
 
+  .headerSection1 img{
+      height: 100%;
+  }
+
   .headerSection2{
     /* border: 1px black solid; */
-    height: 20px;
+    height: 40px;
     width: 250px;
-    color: white;
+    color: black;  
     
-    
-    
+}
+
+.headerSection2 input{
+    font-size: 15px;
 }
 
 .addRentalSection{
     width: 100%;
-    height: 100px;
+    height: 100%;
     display: flex;
     align-items: center;
     justify-content: flex-end;
     padding: 0 0px 0 0;
-    background: white;
+    /* background: lightyellow; */
+
+}
+
+.addRentalForm {
+    width: 300px;
+    border: 1px black solid;
+    padding: 15px;
+    background: lightsteelblue;
+    text: 15px;
+}
+
+.addRentalForm input{
+    float: right;
+}
+
+.addRentalForm button{
+    margin: 10px;
+
 }
 
 .addbutton{
-
-    /* height: 60px; */
     border: none;
-    
 }
-
 .addbutton img {
     height: 60px;
+    border: none;
 }
 
 .bold{
     font-weight: bold;
+
 }
 
 .displaybutton{

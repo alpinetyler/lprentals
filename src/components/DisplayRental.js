@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import EditRental from './EditRental'
 
+
 const formatter = new Intl.NumberFormat('en-US', {
     style: 'currency',
     currency: 'USD',
@@ -27,10 +28,11 @@ export default class DisplayRental extends Component {
         return(
             <div className="rentalDisplay">
                 {this.state.edit?
+                    <div>
                   <EditRental
                     rental={rental}
                     toggleEdit={this.toggleEdit}
-                    updateRental={updateRental}/>
+                    updateRental={updateRental}/></div>
                     :
                    
                     <div>
@@ -42,16 +44,17 @@ export default class DisplayRental extends Component {
                     <div><span className="bold">square feet: </span>{rental.sqfeet}</div>
                     <div><span className="bold">Street Address: </span>{rental.address}</div>
                     <div><span className="bold">Zip Code: </span>{rental.zip}</div>
-                    
                     </div>
-                    
                 }
+               
                 {this.state.edit ?
                     <button className="displaybutton" onClick={this.toggleEdit}>cancel</button>
                     :
                     <button className="displaybutton" onClick={this.toggleEdit}>edit</button>
-                } 
-                <button className="displaybutton" onClick={this.props.deleteRental}>delete</button>   
+                    } 
+                    <button className="displaybutton" onClick={this.props.deleteRental}>delete</button> 
+                    
+                
             </div>
         )
             
