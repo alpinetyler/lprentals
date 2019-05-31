@@ -51,60 +51,70 @@ export default class CreateRental extends Component {
 
     render() {
         return (
-        <div className="inputForm">
+        <div className="addRentalSection">
             {this.state.add ?
+            <section>
             <div className="addRentalForm">
                 <h1>Add Rental</h1>
             <p>Monthly Rent:<input
                 type="text"
                 name="price"
-                placeholder="price"
+                placeholder="Monthly Rent"
                 onChange={this.handleChange}
                 value={this.state.price}/></p>
             <p>Bedrooms: <input
                 type="text"
                 name="bd"
-                placeholder="bd"
+                placeholder="Bedrooms"
                 onChange={this.handleChange}
                 value={this.state.bd}/></p>
             <p>Bathrooms: <input
                 type="text"
                 name="bth"
-                placeholder="bth"
+                placeholder="Bathrooms"
                 onChange={this.handleChange}
                 value={this.state.bth}/></p>
             <p>Square Feet: <input
                 type="text"
                 name="sqfeet"
-                placeholder="sqfeet"
+                placeholder="Square Feet"
                 onChange={this.handleChange}
                 value={this.state.sqfeet}/></p>
             <p>Address: <input
                 type="text"
                 name="address"
-                placeholder="address"
+                placeholder="Address"
                 onChange={this.handleChange}
                 value={this.state.address}/></p>
             <p>Zip Code: <input
                 type="text"
                 name="zip"
-                placeholder="zip"
+                placeholder="Zip Code"
                 onChange={this.handleChange}
                 value={this.state.zip}/></p>
             <p>Image Url: <input
                 type="text"
                 name="imageUrl"
-                placeholder="imgUrl"
+                placeholder="Image Url"
                 onChange={this.handleChange}
                 value={this.state.imgUrl}/></p>
                 <button onClick={this.handleClick}>Submit</button>
                 <button onClick={this.toggleAdd}>Cancel</button>
                 </div>
+                
+                <section>
+                {/* <button className="addbutton" onClick={this.toggleAdd}><img src={plus}/></button> */}
+                </section> 
+
+                </section>
+                
+                
                 :
-                <div>
+                <section>
                 <button className="addbutton" onClick={this.toggleAdd}><img src={plus}/></button>
-                </div>
+                </section>
             }
+                
                </div>
         )
 

@@ -57,6 +57,17 @@
       margin: 10;
       display: flex;
       flex-direction: column;
+      font-size: 15px;
+      font-family: 'Times New Roman', Times, serif;
+  }
+
+  .editForm p{
+      margin: 5px;
+  }
+
+  .editForm input{
+      float: right;
+      margin: 0 100px 0 0;
   }
   
   header{
@@ -104,23 +115,36 @@
     width: 100%;
     height: 100%;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: flex-end;
-    padding: 0 0px 0 0;
-    /* background: lightyellow; */
+    /* border: 2px green solid; */
+   
 
 }
 
+.test{
+    border: green solid 2px;
+}
+
+
 .addRentalForm {
     width: 300px;
-    border: 1px black solid;
+    /* border: 1px black solid; */
     padding: 15px;
     background: lightsteelblue;
     text: 15px;
+    margin: 5px;
+    font-family: 'Times New Roman', Times, serif;
+    /* font-weight: bold; */
+    /* border: blue 2px solid; */
 }
 
 .addRentalForm input{
     float: right;
+}
+
+.addRentalForm p{
+    margin: 5px;
 }
 
 .addRentalForm button{

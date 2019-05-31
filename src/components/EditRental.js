@@ -39,48 +39,48 @@ export default class EditRental extends Component {
             
             <div className="editForm">
             <h2>Edit Rental</h2>
-            <input
+             <p>Monthly Rent: <input
                 type="number"
                 name="price"
                 placeholder="price"
                 onChange={this.handleChange}
-                value={this.state.price}/>
-            <input
+                value={this.state.price}/></p>
+            <p>Bedrooms: <input
                 type="number"
                 name="bd"
                 placeholder="bd"
                 onChange={this.handleChange}
-                value={this.state.bd}/>
-            <input
+                value={this.state.bd}/></p>
+            <p>Bathrooms: <input
                 type="number"
                 name="bth"
                 placeholder="bth"
                 onChange={this.handleChange}
-                value={this.state.bth}/>
-            <input
+                value={this.state.bth}/></p>
+            <p>Square Feet: <input
                 type="number"
                 name="sqfeet"
                 placeholder="sqfeet"
                 onChange={this.handleChange}
-                value={this.state.sqfeet}/>
-            <input
+                value={this.state.sqfeet}/></p>
+            <p>Street Address: <input
                 type="text"
                 name="address"
                 placeholder="address"
                 onChange={this.handleChange}
-                value={this.state.address}/>
-            <input
+                value={this.state.address}/></p>
+            <p>Zip Code: <input
                 type="text"
                 name="zip"
                 placeholder="zip"
                 onChange={this.handleChange}
-                value={this.state.zip}/>
-            <input
+                value={this.state.zip}/></p>
+            <p>Image Url: <input
                 type="text"
                 name="imageUrl"
                 placeholder="imageUrl"
                 onChange={this.handleChange}
-                value={this.state.imageUrl}/>
+                value={this.state.imageUrl}/></p>
                 <button className="displaybutton" onClick={this.handleClick}>Update Rental</button>
                 </div>
             )
