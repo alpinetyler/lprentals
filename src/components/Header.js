@@ -8,7 +8,7 @@ function Header(props){
             <img src={LPLogo}/>            
             </section>
             <section className="headerSection2">
-            Search by Zip:<br></br><input type="text" placeholder="Enter Zip Code"/>
+            Search by Zip:<br></br><input onChange={props.handleSearch} type="number" placeholder="Enter Zip Code"/>
             </section>
         </header>
             

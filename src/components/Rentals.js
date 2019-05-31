@@ -11,6 +11,7 @@ export default class Rentals extends Component {
 
         this.state = {
             rentals: [],
+            filterString:''
         }
     }
 
@@ -47,12 +48,19 @@ export default class Rentals extends Component {
     this.setState({
         edit: !this.state.add
     })
+     
+    handleSearch=(e)=>{
+        this.setState({
+            filterString: e.target.value
+        })
 
+    }
 
     render(){
+
         return (
             <div className="docWrapper">
-            <Header />
+            <Header handleSearch={this.handleSearch}/>
             <div className="displayWrapper">
                 <section className="addRentalSection">
                     <section>
@@ -61,7 +69,7 @@ export default class Rentals extends Component {
                 </section>
 
                 
-               {this.state.rentals.map(rental => {
+               {this.state.rentals.filter(rental => rental.zip.startsWith(this.state.filterString)).map(rental => {
                    return(
                    
                     <DisplayRental
