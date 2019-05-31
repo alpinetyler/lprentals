@@ -50,6 +50,7 @@ export default class CreateRental extends Component {
 
 
     render() {
+
         return (
         <div className="addRentalSection">
             {this.state.add ?
@@ -111,7 +112,7 @@ export default class CreateRental extends Component {
                 
                 :
                 <section>
-                <button className="addbutton" onClick={this.toggleAdd}><img src={plus}/></button>
+                <p><button className="addbutton" onClick={this.toggleAdd}>Add Rental</button></p>
                 </section>
             }
                 

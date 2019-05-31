@@ -27,6 +27,8 @@ export default class DisplayRental extends Component {
 
         return(
             <div className="rentalDisplay">
+
+                
                 {this.state.edit?
                     <div>
                   <EditRental

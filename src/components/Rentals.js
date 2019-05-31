@@ -56,15 +56,23 @@ export default class Rentals extends Component {
 
     }
 
-    render(){
+    search = (searchType) => { console.log('search')
+        axios.get(`/api/searchrentals?searchinput=${this.state.filterString}&searchType=${searchType}`)
 
+    }
+    
+
+    render(){
+            
         return (
             <div className="docWrapper">
-            <Header handleSearch={this.handleSearch}/>
+            <Header handleSearch={this.handleSearch}
+                    search={this.search}/>
             <div className="displayWrapper">
                 <section className="addRentalSection">
                     <section>
-                    <CreateRental createRental={this.createRental}/>
+                    <CreateRental createRental={this.createRental}
+                    numberDisplayed={this.state.rentals}/>
                     </section>
                 </section>
 

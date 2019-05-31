@@ -81,7 +81,7 @@ export default class EditRental extends Component {
                 placeholder="imageUrl"
                 onChange={this.handleChange}
                 value={this.state.imageUrl}/></p>
-                <button className="displaybutton" onClick={this.handleClick}>Update Rental</button>
+                <button className="updaterentalbutton" onClick={this.handleClick}>Update Rental</button>
                 </div>
             )
         }
