@@ -25,11 +25,11 @@ let rentals = [
     
     {
         id: id++,
-        price: 1100,
-        bd: 5,
-        bth: 3,
-        sqfeet: 2000,
-        address: '465 N Main',
+        price: 2000,
+        bd: 8,
+        bth: 6,
+        sqfeet: 3500,
+        address: 'Neuschwansteinstrasse 20',
         zip: '84004',
         imageUrl: "https://i.pinimg.com/originals/55/35/67/553567671e07049c38991485779ef99d.jpg"
     },
@@ -69,13 +69,13 @@ let rentals = [
 
     {
         id: id++,
-        price: 1800,
-        bd: 5,
-        bth: 2,
-        sqfeet: 3500,
-        address: '88 First Ave West',
+        price: 20000,
+        bd: 14,
+        bth: 14,
+        sqfeet: 65000,
+        address: 'Neuschwansteinstrasse 20',
         zip: '84061',
-        imageUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQt7IHmR9d-I40h9CjYxb1WcTZBXjy0qIrHJR4_EtoZuMC_t9GhPA"
+        imageUrl: "https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fcdn-image.travelandleisure.com%2Fsites%2Fdefault%2Ffiles%2Fstyles%2F1600x1000%2Fpublic%2F1493157743%2F01-neuschwanstein-castle-bavaria-NEUSCHWANSTEIN0417.jpg%3Fitok%3DMtYBat6V&q=85"
     },
 
     {
@@ -92,9 +92,9 @@ let rentals = [
     {
         id: id++,
         price: 1800,
-        bd: 3,
+        bd: 4,
         bth: 2,
-        sqfeet: 2100,
+        sqfeet: 1899,
         address: '55 Maple St',
         zip: '92256',
         imageUrl: "https://i1.wp.com/www.ourkerrazyadventure.com/wp-content/uploads/2015/09/Taylor-House-Provo-Utah-copy.jpg?ssl=1"
@@ -134,6 +134,6 @@ module.exports = {
 
     //     //rentals.filter()
     // }
-
+//
 }
 

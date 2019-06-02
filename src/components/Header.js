@@ -29,7 +29,7 @@ class Header extends Component {
                         <option value="bd">Number of Bedrooms</option>
                         <option value="bth">Number of Bathrooms</option>
                     </select><br></br><input onChange={this.props.handleSearch} type="number" placeholder="Enter Zip Code"/>
-                    <button onClick={() => this.props.search(this.state.filter)}>Search</button>
+                    {/* <button onClick={() => this.props.search(this.state.filter)}>Search</button> */}
             </section>
         </header>
             

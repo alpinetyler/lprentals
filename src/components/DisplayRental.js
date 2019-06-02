@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import EditRental from './EditRental'
 
-
+//display number in us currency format
 const formatter = new Intl.NumberFormat('en-US', {
     style: 'currency',
     currency: 'USD',
