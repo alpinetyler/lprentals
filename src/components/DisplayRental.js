@@ -23,6 +23,7 @@ export default class DisplayRental extends Component {
         }
     }
     
+    //function to toggle between display rental and edit rental
     toggleEdit = () =>
     this.setState({
         edit: !this.state.edit
@@ -71,11 +72,11 @@ export default class DisplayRental extends Component {
                 }
                
                 {this.state.edit ?
-                    <button className="displaybutton" onClick={this.toggleEdit}>cancel</button>
+                    <button className="cancelbutton" onClick={this.toggleEdit}>cancel</button>
                     :
-                    <button className="displaybutton" onClick={this.toggleEdit}>edit</button>
+                    <button className="editbutton" onClick={this.toggleEdit}>edit</button>
                     } 
-                    <button className="displaybutton" onClick={this.props.deleteRental}>delete</button> 
+                    <button className="deletebutton" onClick={this.props.deleteRental}>delete</button> 
                     
                 
             </div>

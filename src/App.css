@@ -135,19 +135,19 @@
 
 }
 
-.test{
-    /* border: green solid 2px; */
-}
+
 
 
 .addRentalForm {
     width: 300px;
-    /* border: 1px black solid; */
+    border: 1px black solid;
     padding: 15px;
-    background: lightseagreen;
+    background: ;
     text: 15px;
-    margin: 5px;
+    margin: 20px 40px 5px 20px;
     font-family: 'Times New Roman', Times, serif;
+    box-shadow: 10px 10px 5px grey;
+
     /* font-weight: bold; */
     /* border: blue 2px solid; */
 }
@@ -166,12 +166,23 @@
 }
 
 .addbutton{
-    background: lightseagreen;
+    background: green;
     font-size: 20px;
     color: white;
-    border-radius: 10%;
+    border-radius: 5px;
     margin: 0 20px 0 0;
+    opacity: 1;
+    transition: 0.3s;
+    cursor: pointer;
+    
+
 }
+
+
+.addbutton:hover {
+    opacity: 0.6;
+}
+
 .addbutton img {
     height: 60px;
     border: none;
@@ -182,7 +193,82 @@
 
 }
 
-.updaterentalbutton{
+.saveChangesButton{
    width: 30%;
+   background: green;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+    font-size: 12px;
+    margin: 40px 0 0 0;
+    opacity: 1;
+    transition: 0.3s;
+    cursor: pointer;
+
+
 }
+
+.saveChangesButton:hover {
+    opacity: 0.6;
+}
+
+.deletebutton{
+ 
+    background: red;
+    margin: 0 0 0 150px;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+    font-size: 12px;
+    opacity: 1;
+    transition: 0.3s;
+    cursor: pointer;
+
+
+}
+
+.deletebutton:hover {
+    opacity: 0.6;
+}
+
+.editbutton{
+ 
+    background: green;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+    font-size: 12px;
+    opacity: 1;
+    transition: 0.3s;
+    cursor: pointer;
+
+
+}
+
+.editbutton:hover {
+    opacity: 0.6;
+}
+
+.cancelbutton{
+ 
+    background: rgb(31, 19, 83);
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+    font-size: 12px;
+    opacity: 1;
+    transition: 0.3s;
+    cursor: pointer;
+
+
+}
+
+.cancelbutton:hover {
+    opacity: 0.6;
+}
+
+input{
+    
+}
+
 

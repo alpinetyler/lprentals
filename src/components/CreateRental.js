@@ -56,7 +56,7 @@ export default class CreateRental extends Component {
             {this.state.add ?
             <section>
             <div className="addRentalForm">
-                <h1>Add Rental</h1>
+                <h2>Add Rental</h2>
             <p>Monthly Rent:<input
                 type="text"
                 name="price"
@@ -84,7 +84,7 @@ export default class CreateRental extends Component {
             <p>Address: <input
                 type="text"
                 name="address"
-                placeholder="Address"
+                placeholder="Street Address"
                 onChange={this.handleChange}
                 value={this.state.address}/></p>
             <p>Zip Code: <input
@@ -99,8 +99,8 @@ export default class CreateRental extends Component {
                 placeholder="Image Url"
                 onChange={this.handleChange}
                 value={this.state.imgUrl}/></p>
-                <button onClick={this.handleClick}>Submit</button>
-                <button onClick={this.toggleAdd}>Cancel</button>
+                <button className="saveChangesButton" onClick={this.handleClick}>Add Rental</button>
+                <button className="cancelbutton" onClick={this.toggleAdd}>Cancel</button>
                 </div>
                 
                 <section>
