@@ -11,7 +11,7 @@ let rentals = [
         address: '58 E Center St',
         zip: '84611',
         imageUrl: "http://www.priceypads.com/wp-content/uploads/2015/11/I0F4781_2_3_4_5_6_7-Edit.jpg"
-     },
+    },
     {
         id: id++,
         price: 1000,
@@ -22,7 +22,7 @@ let rentals = [
         zip: '84003',
         imageUrl: "https://i.pinimg.com/originals/c7/6d/39/c76d393e93bdb8d5ec1c195814256530.jpg"
     },
-    
+
     {
         id: id++,
         price: 2000,
@@ -44,7 +44,7 @@ let rentals = [
         zip: '84065',
         imageUrl: "https://www.provo-utah.us/uploads/7/8/6/6/7866822/dsc-0162_7_orig.jpg"
     },
-    
+
     {
         id: id++,
         price: 1200,
@@ -103,19 +103,19 @@ let rentals = [
 ]
 
 module.exports = {
-    read: (req,res) => {
-        
-        if(req.query.searchinput){
-          console.log(req.query.searchinput)  
-        let searchResult = rentals.filter(rental => {
-            return +rental.zip === +req.query.searchinput
-            
-        })
-        // console.log(searchResult)
-        return res.send(searchResult)
+    read: (req, res) => {
+
+        if (req.query.searchinput) {
+            // console.log(req.query.searchinput)
+            let searchResult = rentals.filter(rental => {
+                return +rental.zip === +req.query.searchinput
+
+            })
+            // console.log(searchResult)
+            return res.send(searchResult)
         }
         res.send(rentals)
-        
+
     },
     create: (req, res) => {
         let newRental = req.body
@@ -125,7 +125,7 @@ module.exports = {
         res.send(rentals)
     },
     update: (req, res) => {
-        let {id} = req.params
+        let { id } = req.params
         let updatedRental = req.body
         updatedRental.id = id
 
@@ -135,18 +135,10 @@ module.exports = {
         res.send(rentals)
     },
     delete: (req, res) => {
-        let {id} = req.params//get this from param on url
+        let { id } = req.params//get this from param on url
         let index = rentals.findIndex(rental => +rental.id === +id)
         rentals.splice(index, 1)
         res.send(rentals)
-    },
-    // search: (req, res) => {
-    //     console.log(req.query)
-    
-    //     {searchinput} = req.query
-
-    //     //rentals.filter()
-    // }
-//
+    }
 }
 
