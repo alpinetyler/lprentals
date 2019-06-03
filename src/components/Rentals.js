@@ -56,8 +56,11 @@ export default class Rentals extends Component {
 
     }
 
-    search = (searchType) => { console.log('search')
-        axios.get(`/api/searchrentals?searchinput=${this.state.filterString}&searchType=${searchType}`)
+    search = (search) => { 
+        console.log(search)
+        axios.get(`/api/rentals?searchinput=${search}`)
+        .then(res => this.setState({rentals: res.data }))
+        .catch(err => console.log(err))
 
     }
     
@@ -67,7 +70,8 @@ export default class Rentals extends Component {
         return (
             <div className="docWrapper">
             <Header handleSearch={this.handleSearch}
-                    search={this.search}/>
+                    search={this.search}
+                    filterString={this.state.filterString}/>
             <div className="displayWrapper">
                 <section className="addRentalSection">
                     <section>
@@ -77,7 +81,7 @@ export default class Rentals extends Component {
                 </section>
 
                 
-               {this.state.rentals.filter(rental => rental.zip.startsWith(this.state.filterString)).map(rental => {
+               {this.state.rentals.map(rental => {
                    return(
                    
                     <DisplayRental

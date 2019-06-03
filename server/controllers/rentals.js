@@ -103,7 +103,20 @@ let rentals = [
 ]
 
 module.exports = {
-    read: (req,res) => res.send(rentals),
+    read: (req,res) => {
+        
+        if(req.query.searchinput){
+          console.log(req.query.searchinput)  
+        let searchResult = rentals.filter(rental => {
+            return +rental.zip === +req.query.searchinput
+            
+        })
+        // console.log(searchResult)
+        return res.send(searchResult)
+        }
+        res.send(rentals)
+        
+    },
     create: (req, res) => {
         let newRental = req.body
         newRental.id = id++
@@ -130,7 +143,7 @@ module.exports = {
     // search: (req, res) => {
     //     console.log(req.query)
     
-    //     //{searchinput, searchType} = req.query
+    //     {searchinput} = req.query
 
     //     //rentals.filter()
     // }

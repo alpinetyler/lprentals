@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import plus from './images/plus.png'
+import Headings from './Headings'
 
 export default class CreateRental extends Component {
     constructor(props){
@@ -56,7 +57,7 @@ export default class CreateRental extends Component {
             {this.state.add ?
             <section>
             <div className="addRentalForm">
-                <h2>Add Rental</h2>
+                <Headings addRental={true} />
             <p>Monthly Rent:<input
                 type="text"
                 name="price"

@@ -1,4 +1,8 @@
 import React, {Component} from 'react'
+import Headings from './Headings'
+
+
+
 
 export default class EditRental extends Component {
     constructor(props) {
@@ -38,7 +42,7 @@ export default class EditRental extends Component {
             return(
             
             <div className="editForm">
-            <h2>Edit Rental</h2>
+            <Headings editRental={true}/>
              <p>Monthly Rent: <input
                 type="number"
                 name="price"
