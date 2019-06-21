@@ -121,21 +121,33 @@ module.exports = {
 
     },
     create: (req, res) => {
-        let newRental = req.body
-        newRental.id = id++
-        rentals.push(newRental)
+        let db = req.app.get('db')
+        db.createRental(req.body).then(response => {
+            res.send(response)
+        }).catch(err => console.log(err))
 
-        res.send(rentals)
+        // let newRental = req.body
+        // newRental.id = id++
+        // rentals.push(newRental)
+
+        // res.send(rentals)
     },
     update: (req, res) => {
         let { id } = req.params
-        let updatedRental = req.body
-        updatedRental.id = id
+        let db = req.app.get('db')
+        let rentals = req.body
+        rentals.id = id
+        db.updateRentals(rentals).then(response => {
+            res.send(response)
+        }).catch(err => console.log(err))
 
-        let index = rentals.findIndex(rental => +rental.id === +id)
+        // let updatedRental = req.body
+        // updatedRental.id = id
 
-        rentals.splice(index, 1, updatedRental)
-        res.send(rentals)
+        // let index = rentals.findIndex(rental => +rental.id === +id)
+
+        // rentals.splice(index, 1, updatedRental)
+        // res.send(rentals)
     },
     delete: (req, res) => {
         let { id } = req.params//get this from param on url

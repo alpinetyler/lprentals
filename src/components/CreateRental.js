@@ -14,7 +14,7 @@ export default class CreateRental extends Component {
             sqfeet: '',
             address: '',
             zip: '',
-            imageUrl: '',
+            imageurl: '',
 
             add: false
 
@@ -38,7 +38,7 @@ export default class CreateRental extends Component {
             sqfeet: '',
             address: '',
             zip: '',
-            imageUrl: '',
+            imageurl: '',
 
             add: false
         })
@@ -96,7 +96,7 @@ export default class CreateRental extends Component {
                                 value={this.state.zip} /></p>
                             <p>Image Url: <input
                                 type="text"
-                                name="imageUrl"
+                                name="imageurl"
                                 placeholder="Image Url"
                                 onChange={this.handleChange}
                                 value={this.state.imgUrl} /></p>

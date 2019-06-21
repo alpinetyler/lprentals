@@ -8,7 +8,7 @@ export default class EditRental extends Component {
     constructor(props) {
         super(props)
 
-        let { price, bd, bth, sqfeet, address, zip, imageUrl } = props.rental
+        let { price, bd, bth, sqfeet, address, zip, imageurl } = props.rental
 
         this.state = {
             price,
@@ -17,7 +17,7 @@ export default class EditRental extends Component {
             sqfeet,
             address,
             zip,
-            imageUrl
+            imageurl
         }
     }
 
@@ -81,10 +81,10 @@ export default class EditRental extends Component {
                     value={this.state.zip} /></p>
                 <p>Image Url: <input
                     type="text"
-                    name="imageUrl"
-                    placeholder="imageUrl"
+                    name="imageurl"
+                    placeholder="image Url"
                     onChange={this.handleChange}
-                    value={this.state.imageUrl} /></p>
+                    value={this.state.imageurl} /></p>
                 <button className="saveChangesButton" onClick={this.handleClick}>Save Changes</button>
             </div>
         )
