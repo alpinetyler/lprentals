@@ -48,18 +48,19 @@ export default class DisplayRental extends Component {
                         <EditRental
                             rental={rental}
                             toggleEdit={this.toggleEdit}
-                            updateRental={updateRental} /></div>
+                            updateRental={updateRental} />
+                    </div>
                     :
 
                     <div>
                         <h1></h1>
                         {this.state.display ?
                             <span>
-                                <img src={rental.imageUrl} alt="RentalPic" width="300" onClick={this.toggleDisplay} className="houseImageBig" />
+                                <img src={rental.imageurl} alt="RentalPic" width="300" onClick={this.toggleDisplay} className="houseImageBig" />
                             </span>
                             :
                             <span>
-                                <img src={rental.imageUrl} alt="RentalPic" width="200" onClick={this.toggleDisplay} className="houseImage" />
+                                <img src={rental.imageurl} alt="RentalPic" width="200" onClick={this.toggleDisplay} className="houseImage" />
                             </span>}
 
                         <div><span className="bold">Monthly Rent: </span>{formatter.format(rental.price)}</div>
