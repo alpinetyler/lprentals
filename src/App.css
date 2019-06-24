@@ -7,7 +7,7 @@
 
   .docWrapper{
       width: 100vw;
-      border: black 2px solid;
+      /* border: black 2px solid; */
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -93,6 +93,7 @@
         background-size: 100%;
         font-size: 15px;
         border-bottom: 1px black solid;
+        /* position: fixed; */
 
   }
 
@@ -266,9 +267,4 @@
 .cancelbutton:hover {
     opacity: 0.6;
 }
-
-input{
-    
-}
-
 

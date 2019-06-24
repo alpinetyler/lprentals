@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import axios from 'axios'
 import DisplayRental from './DisplayRental';
 import Header from './Header'
-
 import CreateRental from './CreateRental'
 
 export default class Rentals extends Component {

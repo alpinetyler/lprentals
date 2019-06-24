@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import plus from './images/plus.png'
 import Headings from './Headings'
 
 export default class CreateRental extends Component {
@@ -115,6 +114,7 @@ export default class CreateRental extends Component {
                     <section>
                         <p><button className="addbutton" onClick={this.toggleAdd}>Add Rental</button></p>
                     </section>
+                    
                 }
 
             </div>

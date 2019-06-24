@@ -1,12 +1,18 @@
 import React from 'react';
 import './App.css';
 import Rentals from './components/Rentals'
+import { HashRouter } from 'react-router-dom'
+import routes from './routes'
 
 function App() {
   return (
-    <div className="App">
-      <Rentals />
-    </div>
+    <HashRouter>
+      <div className="App">
+        <Rentals />
+        {routes}
+      </div>
+    </HashRouter>
+
   );
 }
 

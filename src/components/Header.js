@@ -1,13 +1,19 @@
-import React, { Component } from 'react'
+import React from 'react'
 import LPLogo from './images/LPLogo.png'
 import Headings from './Headings'
+import LandingPage from './LandingPage'
+import { logout } from '../redux/reducers/user'
 
 function Header(props) {
 
     return (
         <header>
             <section className="headerSection1">
-                <img src={LPLogo} />
+                <img src={LPLogo} alt="Company Logo"/>
+            </section>
+            <section className="headerSectionMiddle">
+            
+            <LandingPage />
             </section>
             <section className="headerSection2">
                 <Headings enterSearch={true} />
