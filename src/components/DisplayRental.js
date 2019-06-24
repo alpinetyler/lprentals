@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
-import {connect} from 'react-redux'
 
 import EditRental from './EditRental'
 
+//connect redux
+import {connect} from 'react-redux'
 import { getUser } from '../redux/reducers/user'
 
 
@@ -41,6 +42,7 @@ class DisplayRental extends Component {
             display: !this.state.display
         })
 
+     //keep user on state if screen is re-fresheed   
     componentDidMount(){
         this.props.getUser()
     }
@@ -95,7 +97,7 @@ class DisplayRental extends Component {
                 }
 
 
-                {//Display all buttons if user is an admin, otherwise show 'See Details' button only
+                {//Display all buttons if user is an admin, otherwise show 'See More Photos' button only
                 }
                 {admin?
                 <div>
@@ -111,7 +113,7 @@ class DisplayRental extends Component {
                 </div>
                 :
                 <div>
-                    <button className="editbutton">See Details</button>
+                    <button className="editbutton">See More Photos</button>
                 </div>
                     
                 }
@@ -132,6 +134,7 @@ class DisplayRental extends Component {
 
 }
 
+//connect redux
 let mapStateToProps = state => {
     let { data: user } = state.user 
     return { user }

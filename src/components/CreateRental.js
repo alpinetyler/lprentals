@@ -1,7 +1,12 @@
 import React, { Component } from 'react'
 import Headings from './Headings'
 
-export default class CreateRental extends Component {
+//connect redux
+import { getUser } from '../redux/reducers/user'
+import { connect } from 'react-redux'
+
+
+class CreateRental extends Component {
     constructor(props) {
         super(props)
 
@@ -50,7 +55,10 @@ export default class CreateRental extends Component {
 
 
     render() {
-
+        //de-structure user from redux props
+        let { user } = this.props
+        // separate out admin property to test if user is admin
+        let admin = user && user.isadmin
         return (
             <div className="addRentalSection">
                 {this.state.add ?
@@ -103,18 +111,20 @@ export default class CreateRental extends Component {
                             <button className="cancelbutton" onClick={this.toggleAdd}>Cancel</button>
                         </div>
 
-                        <section>
-                            {/* <button className="addbutton" onClick={this.toggleAdd}><img src={plus}/></button> */}
-                        </section>
+
 
                     </section>
 
 
                     :
                     <section>
-                        <p><button className="addbutton" onClick={this.toggleAdd}>Add Rental</button></p>
+                        {admin && //if user is admin, display the Add Rental button, otherwise hide it
+                            <section>
+                                <p><button className="addbutton" onClick={this.toggleAdd}>Add Rental</button></p>
+                            </section>
+                        }
                     </section>
-                    
+
                 }
 
             </div>
@@ -122,3 +132,10 @@ export default class CreateRental extends Component {
 
     }
 }
+
+//connect redux
+let mapStateToProps = state => {
+    let { data: user } = state.user
+    return { user }
+}
+export default connect(mapStateToProps, { getUser })(CreateRental)
