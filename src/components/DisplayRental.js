@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
 
 import EditRental from './EditRental'
+import SignUp from './SignUp'
 
 //connect redux
 import { connect } from 'react-redux'
 import { getUser } from '../redux/reducers/user'
-
 
 //display number in us currency format
 const formatter = new Intl.NumberFormat('en-US', {
@@ -28,6 +28,8 @@ class DisplayRental extends Component {
             display: false
         }
     }
+
+    
 
     //function to toggle between display rental and edit rental
     toggleEdit = () =>
@@ -52,10 +54,7 @@ class DisplayRental extends Component {
         let { user } = this.props
         let admin = user && user.isadmin
         return (
-            
-         
-           
-            <div className = "rentalDisplay">
+             <div className="rentalDisplay">
 
                 {
                     this.state.edit ?
@@ -103,8 +102,7 @@ class DisplayRental extends Component {
 
                 {//Display all buttons if user is an admin, otherwise show 'See More Photos' button only
         }
-        {
-            admin ?
+            {admin ?
                 <div>
                     {this.state.edit ?
                         <button className="cancelbutton" onClick={this.toggleEdit}>cancel</button>
@@ -118,26 +116,24 @@ class DisplayRental extends Component {
                 </div>
                 :
                 <div>
-                    <button className="editbutton">See More Photos</button>
+                    <button className="editbutton">More Photos</button>
                 </div>
 
-        }
-               
-        </div >
-            
-        
-        
+            }
+        </div>
         )
 }
 
 
 }
 
+
 //connect redux
 let mapStateToProps = state => {
     let { data: user } = state.user
     return { user }
 }
+
 export default connect(mapStateToProps, { getUser })(DisplayRental)
 
 

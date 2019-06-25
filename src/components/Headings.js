@@ -11,6 +11,10 @@ const Headings = (props) => {
     if (props.enterSearch) {
         return 'Search by Zip Code'
     }
+    if (props.signUp) {
+        return <h2>Sign Up</h2>
+    }
+
 }
 
 

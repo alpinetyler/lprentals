@@ -2,7 +2,9 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
 import { login } from '../redux/reducers/user'
-import { maxHeaderSize } from 'http';
+// import { maxHeaderSize } from 'http';
+
+import SignUp from './SignUp'
 
 class LoginForm extends Component {
     constructor(props) {
@@ -15,9 +17,7 @@ class LoginForm extends Component {
             password: ''
         }
     }
-
-
-
+    
     handleChange = e => {
         let { name, value } = e.target 
         this.setState({
@@ -33,18 +33,22 @@ class LoginForm extends Component {
     render() {
         return (
             <div>
+                <h1>Welcome to Lamppost Properties!</h1>
+                <div style={styles.login}>To see our available rentals, please login below</div>
+                <p></p>
                 <input 
                     name="email" 
                     type="text" 
                     placeholder="email" 
-                    onChange={this.handleChange}/>
+                    onChange={this.handleChange}/>{' '}
                 <input 
                     name="password" 
                     type="password" 
                     placeholder="password" 
-                    onChange={this.handleChange}/>
+                    onChange={this.handleChange}/>{' '}
                 <button onClick={this.handleSubmit}>login</button>
-                <p style={styles.login}>Or sign up here</p>
+                <p style={styles.login}>Or sign up here:</p>
+                <p><SignUp /></p>
             </div>
         )
     }
@@ -54,7 +58,8 @@ export default connect(null, { login })(LoginForm)
 
 let styles = {
     login: {
-        fontSize: 12
+        fontSize: 18,
+        fontFamily: 'times'
     },
     logo: {
         flex: 4,

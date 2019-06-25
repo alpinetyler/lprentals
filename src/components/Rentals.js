@@ -3,8 +3,14 @@ import axios from 'axios'
 import DisplayRental from './DisplayRental';
 import Header from './Header'
 import CreateRental from './CreateRental'
+import SignUp from './SignUp'
+import LandingPage from './LandingPage'
 
-export default class Rentals extends Component {
+//connect redux
+import { connect } from 'react-redux'
+import { getUser } from '../redux/reducers/user'
+
+class Rentals extends Component {
     constructor() {
         super()
 
@@ -20,6 +26,9 @@ export default class Rentals extends Component {
                 rentals: res.data
             })
         }).catch(err => console.log('error getting rentals:', err))
+
+        //keep user logged in after refresh
+        this.props.getUser()
     }
 
     createRental = newRental => {
@@ -58,17 +67,18 @@ export default class Rentals extends Component {
     search = (search) => {
         console.log(search)
         axios.get(`/api/rentals?searchinput=${search}`)
-            .then(res => this.setState({ 
-            rentals: res.data,
-            filterString:''
+            .then(res => this.setState({
+                rentals: res.data,
+                filterString: ''
             }))
             .catch(err => console.log(err))
 
-           
+
     }
 
 
     render() {
+        let { user } = this.props
 
         return (
             <section className="docWrapper">
@@ -83,21 +93,40 @@ export default class Rentals extends Component {
                         </section>
                     </section>
 
+                    <span>
+                        {user? // if user is logged in, display rentals
+                        <div className="displayWrapper">
+                            {this.state.rentals.map((rental, index) => {
+                                return (
 
-                    {this.state.rentals.map(rental => {
-                        return (
+                                    <DisplayRental
+                                        key={rental.id}
+                                        index={index}
+                                        rental={rental}
+                                        updateRental={this.updateRental}
+                                        deleteRental={() => this.deleteRental(rental.id)} />
 
-                            <DisplayRental
-                                key={rental.id}
-                                rental={rental}
-                                updateRental={this.updateRental}
-                                deleteRental={() => this.deleteRental(rental.id)} />
+                                )
+                            })}
+                        </div>
+                        :
+                        <span>
+                            <LandingPage />
+                        </span>
+                        }
 
-
-                        )
-                    })}
+                    </span>
                 </section>
             </section>
         )
     }
 }
+
+
+//connect redux
+let mapStateToProps = state => {
+    let { data: user } = state.user
+    return { user }
+}
+
+export default connect(mapStateToProps, { getUser })(Rentals)

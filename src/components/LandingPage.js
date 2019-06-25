@@ -9,7 +9,7 @@ function Landing(props) {
 
 
 
-console.log(props)
+// console.log(props)
     let { user } = props
     return (
         <div>
