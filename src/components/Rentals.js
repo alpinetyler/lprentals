@@ -82,9 +82,9 @@ class Rentals extends Component {
 
         return (
             <section className="docWrapper">
-                <Header handleSearch={this.handleSearch}
+                {/* <Header handleSearch={this.handleSearch}
                     search={this.search}
-                    filterString={this.state.filterString} />
+                    filterString={this.state.filterString} /> */}
                 <section className="displayWrapper">
                     <section className="addRentalSection">
                         <section>

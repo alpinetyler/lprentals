@@ -1,13 +1,14 @@
 import React from 'react';
-import { Switch } from 'react-router-dom';
-// import CreateRental from './components/CreateRental';
-// import RentalDetails from './components/RentalDetails';
-// import DisplayRental from './components/DisplayRental'
+import { Switch, Route} from 'react-router-dom';
+import Rentals from './components/Rentals';
+import AddAppliance from './components/AddAppliance';
+import AddExpense from './components/AddExpense';
+
 
 export default (
   <Switch>
-    {/* <Route exact path="/" component={DisplayRental} />
-    <Route path="/CreateRental" component={CreateRental} />
-    <Route path="/RentalDetails" component={RentalDetails} /> */}
+    <Route exact path="/" component={Rentals} />
+    <Route path="/AddAppliance" component={AddAppliance} />
+    <Route path="/AddExpense" component={AddExpense} /> 
   </Switch>
 );

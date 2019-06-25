@@ -34,7 +34,7 @@ class LoginForm extends Component {
         return (
             <div>
                 <h1>Welcome to Lamppost Properties!</h1>
-                <div style={styles.login}>To see our available rentals, please login below</div>
+                <div style={styles.login}>To browse rentals, please login below</div>
                 <p></p>
                 <input 
                     name="email" 
