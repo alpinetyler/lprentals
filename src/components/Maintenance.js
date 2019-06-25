@@ -6,12 +6,12 @@ import { connect } from 'react-redux'
 import { getUser } from '../redux/reducers/user'
 
 
-class AddAppliance extends Component{
+class Maintenance extends Component{
 
     render (){
         return(
             <div style={styles.addappliance}>
-                <h3>Add Appliance</h3>
+                <h3>Maintenance</h3>
                 <Link to={'/'}>
                     <button>Main</button>
                 </Link>
@@ -26,7 +26,7 @@ let mapStateToProps = state => {
     return { user }
 }
 
-export default connect(mapStateToProps, {getUser})(AddAppliance)
+export default connect(mapStateToProps, {getUser})(Maintenance)
 
 let styles = {
     addappliance: {
