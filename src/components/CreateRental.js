@@ -53,6 +53,11 @@ class CreateRental extends Component {
             add: !this.state.add
         })
 
+           //keep user on state if screen is re-fresheed   
+    componentDidMount() {
+        this.props.getUser()
+    }
+
 
     render() {
         //de-structure user from redux props

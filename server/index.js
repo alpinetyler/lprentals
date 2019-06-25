@@ -6,6 +6,7 @@ const session = require('express-session')
 
 const RentalCtrl = require('./controllers/rentals')
 const AuthCtrl = require('./controllers/auth')
+const ApplianceCtrl = require('./controllers/appliances')//
 
 const app = express()
 
@@ -31,14 +32,20 @@ app.listen(SERVER_PORT, () => {
     console.log('we be listening on port', SERVER_PORT)
 })
 
-//Full CRUD for managing rentals
+// Full CRUD for managing rentals
 app.post('/api/rentals', RentalCtrl.create)//create property
 app.get('/api/rentals', RentalCtrl.read)//read properties
 app.put('/api/rentals/:id', RentalCtrl.update)//update property
 app.delete('/api/rentals/:id', RentalCtrl.delete)//delete property--CRUD!
 
-//Register and login endpoints
+// Register and login endpoints
 app.post('/auth/register', AuthCtrl.register)
 app.post('/auth/login', AuthCtrl.login)
 app.get('/auth/logout', AuthCtrl.logout)
 app.get('/auth/currentUser', AuthCtrl.currentUser)
+
+// Full CRUD for managing appliances
+app.post('/api/appliances', ApplianceCtrl.create)//create appliance
+app.get('/api/appliances', ApplianceCtrl.read)//read appliances
+app.put('/api/appliances/:id', ApplianceCtrl.update)//update appliance
+app.delete('/api/appliances/:id', ApplianceCtrl.delete)//delete appliance

@@ -12,3 +12,12 @@ VALUES(
 .95
 );
 
+INSERT INTO appliances(name, brand, datepurchased, serialnumber, rentalid)
+VALUES(
+'Gas Stove',
+'General Electric',
+'2019-05-01',
+'GE201981101',
+14
+);
+

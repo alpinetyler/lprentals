@@ -25,16 +25,18 @@ function Header(props) {
             <section className="headerSectionMiddle">
             {admin && 
                 <section className="headerMenu">
-                   
-                    <Link to={'/AddExpense'}>
-                        <button>Add Expense</button>
-                    </Link>
                     <Link to={'/AddAppliance'}>
                         <button>Add Appliance</button>
                     </Link>
+
+                    <Link to={'/AddExpense'}>
+                        <button>Add Expense</button>
+                    </Link>
+                    
                     <Link to={'/Maintenance'}>
                         <button>Maintenance</button>
                     </Link>
+                    
                     <Link to={'/Reports'}>
                         <button>Reports</button>
                     </Link>
