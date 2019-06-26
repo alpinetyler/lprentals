@@ -11,13 +11,14 @@ const GET_RENTAL_PENDING = 'GET_RENTAL_PENDING'
 let initialState = {
     data: [],
     loading: false,
-    selected: null
+    selected: null,
+    rentals: []
 }
 
 export default function(state = initialState, action) {
     switch (action.type) {
         case GET_RENTALS_PENDING:
-            return { ...state, loading: true }
+            return { ...state, loading: true}
         case GET_RENTALS_FULFILLED:
             return { ...state, loading: false, data: action.payload.data }
 
@@ -34,6 +35,7 @@ export function getRentals() {
     return {
         type: GET_RENTALS,
         payload: axios.get('/api/rentals')
+    
     }
 }
 

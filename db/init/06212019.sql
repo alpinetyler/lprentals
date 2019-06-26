@@ -28,7 +28,7 @@ CREATE TABLE appliances(
 id SERIAL PRIMARY KEY,
 name VARCHAR,
 brand VARCHAR,
-datepurchased DATE,
+datepurchased VARCHAR,
 serialnumber VARCHAR,
 rentalid INT REFERENCES rentals(id)
 );
