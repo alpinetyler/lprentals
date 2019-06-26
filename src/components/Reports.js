@@ -12,6 +12,9 @@ class Reports extends Component{
         return(
             <div style={styles.addappliance}>
                 <h3>Reports</h3>
+                <Link to={'/ListAppliances'}>
+                    <button>List Appliances</button>
+                </Link>
                 <Link to={'/'}>
                     <button>Main</button>
                 </Link>

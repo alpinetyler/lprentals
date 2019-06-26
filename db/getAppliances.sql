@@ -1,2 +1,2 @@
 SELECT * FROM appliances
-ORDER BY id;
+ORDER BY rentalid;

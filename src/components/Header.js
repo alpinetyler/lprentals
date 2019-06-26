@@ -25,6 +25,9 @@ function Header(props) {
             <section className="headerSectionMiddle">
             {admin && 
                 <section className="headerMenu">
+                    <Link to={'/'}>
+                        <button>Home</button>
+                    </Link>
                     <Link to={'/AddAppliance'}>
                         <button>Add Appliance</button>
                     </Link>

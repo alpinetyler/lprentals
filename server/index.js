@@ -6,7 +6,8 @@ const session = require('express-session')
 
 const RentalCtrl = require('./controllers/rentals')
 const AuthCtrl = require('./controllers/auth')
-const ApplianceCtrl = require('./controllers/appliances')//
+const ApplianceCtrl = require('./controllers/appliances')
+const ExpenseCtrl = require('./controllers/expenses')
 
 const app = express()
 
@@ -49,3 +50,9 @@ app.post('/api/appliances', ApplianceCtrl.create)//create appliance
 app.get('/api/appliances', ApplianceCtrl.read)//read appliances
 app.put('/api/appliances/:id', ApplianceCtrl.update)//update appliance
 app.delete('/api/appliances/:id', ApplianceCtrl.delete)//delete appliance
+
+// Full CRUD for managing expenses
+app.post('/api/expenses', ExpenseCtrl.create)//create appliance
+app.get('/api/expenses', ExpenseCtrl.read)//read appliances
+app.put('/api/expenses/:id', ExpenseCtrl.update)//update appliance
+app.delete('/api/expenses/:id', ExpenseCtrl.delete)//delete appliance

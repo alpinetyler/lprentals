@@ -122,9 +122,9 @@ class AddAppliance extends Component {
                 <Link to={'/'}>
                     <button>Back to Main</button>
                 </Link>
-                
+
                 <div>
-                    <ListAppliances />
+                    {this.props.appliance}
                 </div>
 
             </div>
