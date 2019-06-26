@@ -2,7 +2,11 @@ import React, { Component } from 'react'
 import axios from 'axios'
 import AddAppliance from './AddAppliance'
 
-export default class ListAppliances extends Component {
+//connect redux
+import { connect } from 'react-redux'
+import { getUser } from '../redux/reducers/user'
+
+class ListAppliances extends Component {
 
     constructor(props) {
         super(props)
@@ -16,19 +20,29 @@ export default class ListAppliances extends Component {
                 appliances: res.data
             })
         }).catch(err => console.log('error getting appliances:', err))
+
+        this.props.getUser();
+    }
+
+    deleteAppliance = id => {
+        console.log(2344, id)
+        axios.delete(`/api/appliances/${id}`)
+            .then(res => this.setState({ appliances: res.data }))
+            .catch(err => console.log(err))
     }
 
     render() {
         return (
             <div>
-                {this.state.appliances.map((appliance) => {
+                {this.state.appliances.map((appliance, index) => {
                     return (
-                        <div style={styles.addappliance}> 
+                        <div key={appliance.id} style={styles.addappliance}> 
                             <h3>Name: {appliance.name}</h3>
                             Brand: {appliance.brand} /
                             Serial Number: {appliance.serialnumber} / 
                             Rental Id: {appliance.rentalid} /
                             Date Purchased: {appliance.datepurchased}
+                            <button className="deletebutton" onClick={() => this.deleteAppliance(appliance.id)} >delete</button>
                         </div>
 
 
@@ -41,6 +55,16 @@ export default class ListAppliances extends Component {
 
     }
 }
+
+let mapStateToProps = state => {
+    let { data: user } = state.user
+    let { rentals } = state.rental
+    return { user, rentals }
+
+}
+
+
+export default connect(mapStateToProps, { getUser })(ListAppliances)
 
 let styles = {
     addappliance: {

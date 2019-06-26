@@ -65,7 +65,6 @@ class Rentals extends Component {
     }
 
     search = (search) => {
-        console.log(search)
         axios.get(`/api/rentals?searchinput=${search}`)
             .then(res => this.setState({
                 rentals: res.data,
@@ -79,8 +78,6 @@ class Rentals extends Component {
 
     render() {
         let { user } = this.props
-        console.log(1111, this.state.rentals)
-
         return (
             <section className="docWrapper">
                 {/* <Header handleSearch={this.handleSearch}

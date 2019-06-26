@@ -6,6 +6,8 @@ import AddExpense from './components/AddExpense';
 import Maintenance from './components/Maintenance';
 import Reports from './components/Reports';
 import ListAppliances from './components/ListAppliances'
+import ListExpenses from './components/ListExpenses'
+
 
 
 
@@ -17,5 +19,6 @@ export default (
     <Route path="/Maintenance" component={Maintenance} /> 
     <Route path="/Reports" component={Reports} /> 
     <Route path="/ListAppliances" component={ListAppliances}/>
+    <Route path="/ListExpenses" component={ListExpenses}/>
   </Switch>
 );
