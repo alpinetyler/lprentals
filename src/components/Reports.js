@@ -18,9 +18,13 @@ class Reports extends Component{
                 <Link to={'/ListExpenses'}>
                     <button>List Expenses</button>
                 </Link>
+                <Link to={'/Tester'}>
+                    <button>Tester</button>
+                </Link>
                 <Link to={'/'}>
                     <button>Main</button>
                 </Link>
+                
                 
             </div>
         )

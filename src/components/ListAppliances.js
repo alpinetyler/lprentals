@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 
 import EditAppliance from './EditAppliance'
+import Tester from './Tester'
 
 //connect redux
 import { connect } from 'react-redux'
@@ -44,24 +45,23 @@ class ListAppliances extends Component {
                                         appliance={appliance}
                                         toggleEdit={this.toggleEdit}
                                         updateAppliance={updateAppliance} />
+                                         <button className="cancelbutton" onClick={this.toggleEdit}>cancel</button>
                                         
                                 </div>
                                 :
-                                <div>
-                                    Name: {appliance.name} /
-                                    Brand: {appliance.brand} /
-                                    Serial Number: {appliance.serialnumber} /
+                                <div className="applianceDisplay">
+                                    <span className="displaytable">{appliance.name}</span>
+                                    {appliance.brand} /
+                                    {appliance.serialnumber} /
                                     Rental Id: {appliance.rentalid} /
                                     Date Purchased: {appliance.datepurchased} /
+                                    <button className="editbutton" onClick={this.toggleEdit}>edit</button> /
+                                    <button className="appliancedeletebutton" onClick={this.props.deleteAppliance} >delete</button>
+
+
                                 </div>
                         }
 
-                        {this.state.edit ?
-                            <button className="cancelbutton" onClick={this.toggleEdit}>cancel</button>
-                            :
-                            <button className="editbutton" onClick={this.toggleEdit}>edit</button>
-                        }
-                        <button className="deletebutton" onClick={this.props.deleteAppliance} >delete</button>
 
                        
                     
