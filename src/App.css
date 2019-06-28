@@ -298,6 +298,8 @@
     
 
 .rTable {
+
+    margin: 100px;
     display: block;
     width: 100%;
 }
@@ -314,7 +316,7 @@
     height: 17px;
     overflow: hidden;
     padding: 3px 1.8%;
-    width: 8%;
+    width: 25%;
     overflow: scroll;
 }
 .rTable:after {

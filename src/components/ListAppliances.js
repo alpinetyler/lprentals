@@ -16,56 +16,60 @@ class ListAppliances extends Component {
             edit: false
         }
     }
-   
 
-     //function to toggle between display appliance and edit appliance
-     toggleEdit = () =>
-     this.setState({
-         edit: !this.state.edit
-     })
 
-     componentDidMount() {
+    //function to toggle between display appliance and edit appliance
+    toggleEdit = () =>
+        this.setState({
+            edit: !this.state.edit
+        })
+
+    componentDidMount() {
         //keep user on state if screen is re-freshed        
         this.props.getUser();
     }
 
     render() {
-        let {appliance, updateAppliance} = this.props
-        let {user} = this.props
+        let { appliance, updateAppliance } = this.props
+        let { user } = this.props
         let admin = user && user.isadmin
 
         return (
             <div style={styles.addappliance}>
-                
-                   
-                        {
-                            this.state.edit ?
-                                <div>
-                                    <EditAppliance
-                                        appliance={appliance}
-                                        toggleEdit={this.toggleEdit}
-                                        updateAppliance={updateAppliance} />
-                                         <button className="cancelbutton" onClick={this.toggleEdit}>cancel</button>
-                                        
-                                </div>
-                                :
-                                <div className="applianceDisplay">
-                                    <span className="displaytable">{appliance.name}</span>
-                                    {appliance.brand} /
-                                    {appliance.serialnumber} /
-                                    Rental Id: {appliance.rentalid} /
-                                    Date Purchased: {appliance.datepurchased} /
-                                    <button className="editbutton" onClick={this.toggleEdit}>edit</button> /
-                                    <button className="appliancedeletebutton" onClick={this.props.deleteAppliance} >delete</button>
 
 
-                                </div>
+                {
+                    this.state.edit ?
+                        <div>
+                            <EditAppliance
+                                appliance={appliance}
+                                toggleEdit={this.toggleEdit}
+                                updateAppliance={updateAppliance} />
+                            <button className="cancelbutton" onClick={this.toggleEdit}>cancel</button>
+
+                        </div>
+                        :
+                        <div>
+                            {/* <div className="rTable"> */}
+                                <div className="rTableRow">
+                                    <div className="rTableCell"><strong>{appliance.name}</strong></div>
+                                    <div className="rTableCell">{appliance.brand}</div>
+                                    <div className="rTableCell">{appliance.serialnumber}</div>
+                                    <div className="rTableCell">{appliance.datepurchased} </div>
+                                    <div className="rTableCell">{appliance.rentalid}</div>
+                                    <div className="rTableCell">
+                                        <button className="editbutton" onClick={this.toggleEdit}>edit</button> /
+                                        <button className="appliancedeletebutton" onClick={this.props.deleteAppliance} >delete</button>
+                                    </div>
+                                {/* </div> */}
+                            </div>
+                        </div>
                         }
 
 
-                       
-                    
-                
+
+
+
             </div>
         )
 
