@@ -1,6 +1,6 @@
 import React from 'react'
 import LPLogo from './images/LPLogo.png'
-import Headings from './Headings'
+// import Headings from './Headings'
 import LandingPage from './LandingPage'
 // import { logout } from '../redux/reducers/user'
 import { Link } from 'react-router-dom';
@@ -29,11 +29,11 @@ function Header(props) {
                         <button>Home</button>
                     </Link>
                     <Link to={'/AddAppliance'}>
-                        <button>Add Appliance</button>
+                        <button>Appliances</button>
                     </Link>
 
                     <Link to={'/AddExpense'}>
-                        <button>Add Expense</button>
+                        <button>Expenses</button>
                     </Link>
                     
                     <Link to={'/Maintenance'}>

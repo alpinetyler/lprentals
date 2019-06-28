@@ -25,6 +25,7 @@ class AddAppliance extends Component {
 
             appliances: [],
             rentals: []
+            
 
 
         }
@@ -36,14 +37,7 @@ class AddAppliance extends Component {
         })
     }
 
-    createAppliance = newAppliance => {
-        axios.post('/api/appliances', newAppliance)
-            .then(res => {
-                this.setState({
-                    appliances: res.data
-                })
-            }).catch(err => console.log(err))
-    }
+    
 
     handleClick = () => {
         let newAppliance = this.state
@@ -53,7 +47,9 @@ class AddAppliance extends Component {
             brand: '',
             datepurchased: '',
             serialnumber: '',
-            rentalid: ''
+            rentalid: '',
+            state: this.state
+
         })
     }
 
@@ -64,6 +60,7 @@ class AddAppliance extends Component {
             })
         }).catch(err => console.log('error getting appliances:', err))
 
+        //get list of rental properties for rental id menu
         axios.get('/api/rentals').then((res) => {
             this.setState({
                 rentals: res.data
@@ -124,7 +121,7 @@ class AddAppliance extends Component {
                 </Link>
 
                 <div>
-                    {this.props.appliance}
+                    <ListAppliances />
                 </div>
 
             </div>

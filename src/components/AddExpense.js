@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom';
 import axios from 'axios'
+import ListExpenses from './ListExpenses'
 
 //connect redux
 import { connect } from 'react-redux'
@@ -121,7 +122,7 @@ class AddExpense extends Component {
                 <Link to={'/'}>
                     <button>Back to Main</button>
                 </Link>
-
+                <ListExpenses />
 
             </div>
         )

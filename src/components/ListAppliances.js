@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import AddAppliance from './AddAppliance'
+import EditAppliance from './EditAppliance'
 
 //connect redux
 import { connect } from 'react-redux'
@@ -11,7 +12,8 @@ class ListAppliances extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            appliances: []
+            appliances: [],
+            edit: false
         }
     }
     componentDidMount() {
@@ -31,21 +33,52 @@ class ListAppliances extends Component {
             .catch(err => console.log(err))
     }
 
+    updateAppliance = appliance => {
+        axios.put(`/api/appliances/${appliance.id}`, appliance)
+            .then(res => this.setState({ appliances: res.data }))
+            .catch(err => console.log(err))
+    }
+
+     //function to toggle between display rental and edit rental
+     toggleEdit = () =>
+     this.setState({
+         edit: !this.state.edit
+     })
+
     render() {
         return (
-            <div>
+            <div style={styles.addappliance}>
+                
                 {this.state.appliances.map((appliance, index) => {
                     return (
-                        <div key={appliance.id} style={styles.addappliance}> 
-                            <h3>Name: {appliance.name}</h3>
-                            Brand: {appliance.brand} /
-                            Serial Number: {appliance.serialnumber} / 
-                            Rental Id: {appliance.rentalid} /
-                            Date Purchased: {appliance.datepurchased}
-                            <button className="deletebutton" onClick={() => this.deleteAppliance(appliance.id)} >delete</button>
-                        </div>
+                        <>
+                        {
+                            this.state.edit ?
+                                <div>
+                                    <EditAppliance
+                                        appliance={appliance}
+                                        toggleEdit={this.toggleEdit}
+                                        updateAppliance={this.updateAppliance} />
+                                        
+                                </div>
+                                :
+                                <div>
+                                    Name: {appliance.name} /
+                                    Brand: {appliance.brand} /
+                                    Serial Number: {appliance.serialnumber} /
+                                    Rental Id: {appliance.rentalid} /
+                                    Date Purchased: {appliance.datepurchased}
+                                </div>
+                        }
 
+                        {this.state.edit ?
+                            <button className="cancelbutton" onClick={this.toggleEdit}>cancel</button>
+                            :
+                            <button className="editbutton" onClick={this.toggleEdit}>edit</button>
+                        }
+                        <button className="deletebutton" onClick={() => this.deleteAppliance(appliance.id)} >delete</button>
 
+                        </>
                     )
                 })}
             </div>

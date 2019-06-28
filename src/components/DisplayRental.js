@@ -29,7 +29,7 @@ class DisplayRental extends Component {
         }
     }
 
-    
+
 
     //function to toggle between display rental and edit rental
     toggleEdit = () =>
@@ -54,75 +54,75 @@ class DisplayRental extends Component {
         let { user } = this.props
         let admin = user && user.isadmin
         return (
-             <div className="rentalDisplay">
+            <div className="rentalDisplay">
 
                 {
                     this.state.edit ?
-                    <div>
-                        <EditRental
-                            rental={rental}
-                            toggleEdit={this.toggleEdit}
-                            updateRental={updateRental} />
-                    </div>
-                    :
+                        <div>
+                            <EditRental
+                                rental={rental}
+                                toggleEdit={this.toggleEdit}
+                                updateRental={updateRental} />
+                        </div>
+                        :
 
-                    <div>
-                        <p></p>
-                        {this.state.display ?
-                            <span>
-                                <img src={rental.imageurl}
-                                    alt="RentalPic"
-                                    width="300"
-                                    onClick={this.toggleDisplay}
-                                    className="houseImageBig" />
-                            </span>
-                            :
-                            <span>
-                                <img src={rental.imageurl}
-                                    alt="RentalPic" width="200"
-                                    onClick={this.toggleDisplay}
-                                    className="houseImage" />
-                            </span>}
+                        <div>
+                            <p></p>
+                            {this.state.display ?
+                                <span>
+                                    <img src={rental.imageurl}
+                                        alt="RentalPic"
+                                        width="300"
+                                        onClick={this.toggleDisplay}
+                                        className="houseImageBig" />
+                                </span>
+                                :
+                                <span>
+                                    <img src={rental.imageurl}
+                                        alt="RentalPic" width="200"
+                                        onClick={this.toggleDisplay}
+                                        className="houseImage" />
+                                </span>}
 
-                        <div><span className="bold">
-                            Monthly Rent: </span>{formatter.format(rental.price)}</div>
-                        <div><span className="bold">
-                            Bedrooms: </span> {rental.bd}</div>
-                        <div><span className="bold">
-                            bathrooms: </span>{rental.bth}</div>
-                        <div><span className="bold">
-                            square feet: </span>{formatNumber(rental.sqfeet)}</div>
-                        <div><span className="bold">
-                            Street Address: </span>{rental.address}</div>
-                        <div><span className="bold">
-                            Zip Code: </span>{rental.zip}</div>
-                    </div>
+                            <div><span className="bold">
+                                Monthly Rent: </span>{formatter.format(rental.price)}</div>
+                            <div><span className="bold">
+                                Bedrooms: </span> {rental.bd}</div>
+                            <div><span className="bold">
+                                bathrooms: </span>{rental.bth}</div>
+                            <div><span className="bold">
+                                square feet: </span>{formatNumber(rental.sqfeet)}</div>
+                            <div><span className="bold">
+                                Street Address: </span>{rental.address}</div>
+                            <div><span className="bold">
+                                Zip Code: </span>{rental.zip}</div>
+                        </div>
                 }
 
 
                 {//Display all buttons if user is an admin, otherwise show 'See More Photos' button only
-        }
-            {admin ?
-                <div>
-                    {this.state.edit ?
-                        <button className="cancelbutton" onClick={this.toggleEdit}>cancel</button>
-                        :
-                        <button className="editbutton" onClick={this.toggleEdit}>edit</button>
-                    }
+                }
+                {admin ?
+                    <div>
+                        {this.state.edit ?
+                            <button className="cancelbutton" onClick={this.toggleEdit}>cancel</button>
+                            :
+                            <button className="editbutton" onClick={this.toggleEdit}>edit</button>
+                        }
 
-                    {/* {admin && <button>Admin</button>} */}
+                        {/* {admin && <button>Admin</button>} */}
 
-                    <button className="deletebutton" onClick={this.props.deleteRental}>delete</button>
-                </div>
-                :
-                <div>
-                    <button className="editbutton">More Photos</button>
-                </div>
+                        <button className="deletebutton" onClick={this.props.deleteRental}>delete</button>
+                    </div>
+                    :
+                    <div>
+                        <button className="editbutton">More Photos</button>
+                    </div>
 
-            }
-        </div>
+                }
+            </div>
         )
-}
+    }
 
 
 }

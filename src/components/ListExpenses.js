@@ -9,6 +9,7 @@ class ListExpenses extends Component {
 
     constructor(props) {
         super(props)
+        
         this.state = {
             expenses: []
         }
@@ -23,17 +24,25 @@ class ListExpenses extends Component {
         this.props.getUser();
     }
 
+    deleteExpense = id => {
+        console.log(2344, id)
+        axios.delete(`/api/expenses/${id}`)
+            .then(res => this.setState({ appliances: res.data }))
+            .catch(err => console.log(err))
+    }
+
     render() {
         return (
             <div>
                 {this.state.expenses.map((expense) => {
                     return (
                         <div style={styles.addappliance}> 
-                            <h3>Name: {expense.name}</h3>
+                            Name: {expense.name} / 
                             Date: {expense.date} /
                             Amount: {expense.amount} / 
                             Category: {expense.category} /
                             Rental ID: {expense.rentalid}
+                            <button className="deletebutton" onClick={() => this.deleteExpense(expense.id)} >delete</button>
                         </div>
 
 

@@ -2,7 +2,9 @@ import React, { Component } from 'react'
 import Headings from './Headings'
 
 
-
+//connect redux
+import { connect } from 'react-redux'
+import { getUser } from '../redux/reducers/user'
 
 export default class EditRental extends Component {
     constructor(props) {
@@ -37,7 +39,6 @@ export default class EditRental extends Component {
 
     render() {
 
-        console.log(this.props.rental)
         return (
 
             <div className="editForm">
