@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 
 import EditRental from './EditRental'
-import SignUp from './SignUp'
+// import SignUp from './SignUp'
 
 //connect redux
 import { connect } from 'react-redux'

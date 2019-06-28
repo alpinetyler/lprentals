@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
-import axios from 'axios'
-import AddAppliance from './AddAppliance'
+
 import EditAppliance from './EditAppliance'
 
 //connect redux
@@ -11,54 +10,40 @@ class ListAppliances extends Component {
 
     constructor(props) {
         super(props)
+
         this.state = {
-            appliances: [],
             edit: false
         }
     }
-    componentDidMount() {
-        axios.get('/api/appliances').then((res) => {
-            this.setState({
-                appliances: res.data
-            })
-        }).catch(err => console.log('error getting appliances:', err))
+   
 
-        this.props.getUser();
-    }
-
-    deleteAppliance = id => {
-        console.log(2344, id)
-        axios.delete(`/api/appliances/${id}`)
-            .then(res => this.setState({ appliances: res.data }))
-            .catch(err => console.log(err))
-    }
-
-    updateAppliance = appliance => {
-        axios.put(`/api/appliances/${appliance.id}`, appliance)
-            .then(res => this.setState({ appliances: res.data }))
-            .catch(err => console.log(err))
-    }
-
-     //function to toggle between display rental and edit rental
+     //function to toggle between display appliance and edit appliance
      toggleEdit = () =>
      this.setState({
          edit: !this.state.edit
      })
 
+     componentDidMount() {
+        //keep user on state if screen is re-freshed        
+        this.props.getUser();
+    }
+
     render() {
+        let {appliance, updateAppliance} = this.props
+        let {user} = this.props
+        let admin = user && user.isadmin
+
         return (
             <div style={styles.addappliance}>
                 
-                {this.state.appliances.map((appliance, index) => {
-                    return (
-                        <>
+                   
                         {
                             this.state.edit ?
                                 <div>
                                     <EditAppliance
                                         appliance={appliance}
                                         toggleEdit={this.toggleEdit}
-                                        updateAppliance={this.updateAppliance} />
+                                        updateAppliance={updateAppliance} />
                                         
                                 </div>
                                 :
@@ -67,7 +52,7 @@ class ListAppliances extends Component {
                                     Brand: {appliance.brand} /
                                     Serial Number: {appliance.serialnumber} /
                                     Rental Id: {appliance.rentalid} /
-                                    Date Purchased: {appliance.datepurchased}
+                                    Date Purchased: {appliance.datepurchased} /
                                 </div>
                         }
 
@@ -76,11 +61,11 @@ class ListAppliances extends Component {
                             :
                             <button className="editbutton" onClick={this.toggleEdit}>edit</button>
                         }
-                        <button className="deletebutton" onClick={() => this.deleteAppliance(appliance.id)} >delete</button>
+                        <button className="deletebutton" onClick={this.props.deleteAppliance} >delete</button>
 
-                        </>
-                    )
-                })}
+                       
+                    
+                
             </div>
         )
 

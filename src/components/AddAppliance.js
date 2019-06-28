@@ -24,8 +24,10 @@ class AddAppliance extends Component {
             rentalid: '',
 
             appliances: [],
-            rentals: []
-            
+            rentals: [],
+
+            add: false
+
 
 
         }
@@ -37,28 +39,28 @@ class AddAppliance extends Component {
         })
     }
 
-    
+
 
     handleClick = () => {
         let newAppliance = this.state
-        this.createAppliance(newAppliance)
+        this.props.createAppliance(newAppliance)
         this.setState({
             name: '',
             brand: '',
             datepurchased: '',
             serialnumber: '',
             rentalid: '',
-            state: this.state
 
+            add: false
         })
     }
 
+    toggleAdd = () =>
+        this.setState({
+            add: !this.state.add
+        })
+
     componentDidMount() {
-        axios.get('/api/appliances').then((res) => {
-            this.setState({
-                appliances: res.data
-            })
-        }).catch(err => console.log('error getting appliances:', err))
 
         //get list of rental properties for rental id menu
         axios.get('/api/rentals').then((res) => {
@@ -71,88 +73,104 @@ class AddAppliance extends Component {
         this.props.getUser()
     }
 
-
-
-
     render() {
+        //de-structure user from redux props
+        let { user } = this.props
+        // separate out admin property to test if user is admin
+        let admin = user && user.isadmin
         return (
-            <div style={styles.addappliance}>
-                <h3>Add Appliance</h3>
-                <p>Name:<input
-                    type="text"
-                    name="name"
-                    placeholder="Name"
-                    onChange={this.handleChange}
-                    value={this.state.name} /></p>
-                <p>Brand:<input
-                    type="text"
-                    name="brand"
-                    placeholder="Brand Name"
-                    onChange={this.handleChange}
-                    value={this.state.brand} /></p>
-                <p>Date Purchased: <input
-                    type="text"
-                    name="datepurchased"
-                    placeholder="Date Purchased"
-                    onChange={this.handleChange}
-                    value={this.state.datepurchased} /></p>
-                <p>Serial Number: <input
-                    type="text"
-                    name="serialnumber"
-                    placeholder="Serial Number"
-                    onChange={this.handleChange}
-                    value={this.state.serialnumber} /></p>
+            <div className="addRentalSection">
+                {this.state.add ?
+                    <section>
+                        <div className="addRentalForm">
+                            <p>Name:<input
+                                type="text"
+                                name="name"
+                                placeholder="Name"
+                                onChange={this.handleChange}
+                                value={this.state.name} /></p>
+                            <p>Brand: <input
+                                type="text"
+                                name="brand"
+                                placeholder="Brand"
+                                onChange={this.handleChange}
+                                value={this.state.brand} /></p>
+                            <p>Serial Number: <input
+                                type="text"
+                                name="serialnumber"
+                                placeholder="Serial Number"
+                                onChange={this.handleChange}
+                                value={this.state.serialnumber} /></p>
+                            <p>Rental Id: <select name="rentalid" onChange={this.handleChange}>
+                                <option>Choose Address</option>
+                                {this.state.rentals.map((rental, index) => {
+                                    return (
+                                        <option
+                                            key={rental.id}
+                                            value={rental.id}>{rental.address}</option>
+                                    )
+                                })}
+                            </select></p>
+                            <p>Date Purchased: <input
+                                type="text"
+                                name="datepurchased"
+                                placeholder="Date Purchased"
+                                onChange={this.handleChange}
+                                value={this.state.datepurchased} /></p>
+                
+                            <button className="saveChangesButton" onClick={this.handleClick}>Add Appliance</button>
+                            <button className="cancelbutton" onClick={this.toggleAdd}>Cancel</button>
+                        </div>
 
-                <p><select name="rentalid" onChange={this.handleChange}>
-                    <option>Choose Address</option>
-                    {this.state.rentals.map((rental, index) => {
-                        return (
-                            <option
-                                key={rental.id}
-                                value={rental.id}>{rental.address}</option>
-                        )
-                    })}
-                </select>
 
-                </p><p></p>
-                <button onClick={this.handleClick}>Add Appliance</button><p></p>
-                <Link to={'/'}>
-                    <button>Back to Main</button>
-                </Link>
 
-                <div>
-                    <ListAppliances />
-                </div>
+                    </section>
+
+
+                    :
+                    <section>
+                        {admin && //if user is admin, display the Add Rental button, otherwise hide it
+                            <section>
+                                <p><button className="addbutton" onClick={this.toggleAdd}>Add Appliance</button></p>
+                            </section>
+                        }
+                    </section>
+
+                }
 
             </div>
         )
-    }
-}
 
+    }
+
+
+    
+}
+                    
 let mapStateToProps = state => {
-    let { data: user } = state.user
-    let { rentals } = state.rental
-    return { user, rentals }
-
-}
-
-
-export default connect(mapStateToProps, { getUser, getRentals })(AddAppliance)
-
+                            let { data: user } = state.user
+    let {rentals} = state.rental
+    return {user, rentals }
+                    
+                    }
+                    
+                    
+export default connect(mapStateToProps, {getUser, getRentals })(AddAppliance)
+                        
 let styles = {
-    addappliance: {
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center'
-    },
+                            addappliance: {
+                            display: 'flex',
+                        flexDirection: 'column',
+                        alignItems: 'center'
+                    },
     logo: {
-        flex: 4,
-        display: 'flex',
-        justifyContent: 'flex-start'
-    },
+                            flex: 4,
+                        display: 'flex',
+                        justifyContent: 'flex-start'
+                    },
     navbar: {
-        flex: 1,
-        display: 'flex',
-        justifyContent: 'space-between'
-    }
+                            flex: 1,
+                        display: 'flex',
+                        justifyContent: 'space-between'
+                    }
 }
