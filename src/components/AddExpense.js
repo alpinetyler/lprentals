@@ -24,7 +24,9 @@ class AddExpense extends Component {
             rentalid: '',
 
             expenses: [],
-            rentals: []
+            rentals: [],
+
+            add: false
 
 
         }
@@ -36,34 +38,30 @@ class AddExpense extends Component {
         })
     }
 
-    createExpense = newExpense => {
-        axios.post('/api/expenses', newExpense)
-            .then(res => {
-                this.setState({
-                    expenses: res.data
-                })
-            }).catch(err => console.log(err))
-    }
+    
 
     handleClick = () => {
         let newExpense = this.state
-        this.createExpense(newExpense)
+        this.props.createExpense(newExpense)
         this.setState({
             name: '',
             date: '',
             amount: '',
             category: '',
-            rentalid: ''
+            rentalid: '',
+
+            add: false
         })
     }
 
-    componentDidMount() {
-        axios.get('/api/expenses').then((res) => {
-            this.setState({
-                appliances: res.data
-            })
-        }).catch(err => console.log('error getting expenses:', err))
+    toggleAdd = () =>
+        this.setState({
+            add: !this.state.add
+        })
 
+    componentDidMount() {
+
+        //get list of rental properties for rental id menu
         axios.get('/api/rentals').then((res) => {
             this.setState({
                 rentals: res.data
@@ -78,54 +76,74 @@ class AddExpense extends Component {
 
 
     render() {
+        //de-structure user from redux props
+        let { user } = this.props
+        // separate out admin property to test if user is admin
+        let admin = user && user.isadmin
         return (
-            <div style={styles.addappliance}>
-                <h3>Add Expense</h3>
-                <p>Name:<input
-                    type="text"
-                    name="name"
-                    placeholder="Name"
-                    onChange={this.handleChange}
-                    value={this.state.name} /></p>
-                <p>Date:<input
-                    type="text"
-                    name="date"
-                    placeholder="Date"
-                    onChange={this.handleChange}
-                    value={this.state.date} /></p>
-                <p>Amount: <input
-                    type="text"
-                    name="amount"
-                    placeholder="Amount"
-                    onChange={this.handleChange}
-                    value={this.state.amount} /></p>
-                <p>Category: <input
-                    type="text"
-                    name="category"
-                    placeholder="Category"
-                    onChange={this.handleChange}
-                    value={this.state.category} /></p>
+            <div className="addRentalSection">
+                {this.state.add ?
+                    <section>
+                        <div className="addRentalForm">
+                            <p>Name:<input
+                                type="text"
+                                name="name"
+                                placeholder="Name"
+                                onChange={this.handleChange}
+                                value={this.state.name} /></p>
+                            <p>Date: <input
+                                type="text"
+                                name="date"
+                                placeholder="Date"
+                                onChange={this.handleChange}
+                                value={this.state.date} /></p>
+                            <p>Amount: <input
+                                type="text"
+                                name="amount"
+                                placeholder="Amount"
+                                onChange={this.handleChange}
+                                value={this.state.amount} /></p>
+                            <p>Category: <input
+                                type="text"
+                                name="category"
+                                placeholder="Category"
+                                onChange={this.handleChange}
+                                value={this.state.category} /></p>
+                            <p>Rental Id: <select name="rentalid" onChange={this.handleChange}>
+                                <option>Choose Address</option>
+                                {this.state.rentals.map((rental, index) => {
+                                    return (
+                                        <option
+                                            key={rental.id}
+                                            value={rental.id}>{rental.address}</option>
+                                    )
+                                })}
+                            </select></p>
+                            
+                
+                            <button className="saveChangesButton" onClick={this.handleClick}>Add Expense</button>
+                            <button className="cancelbutton" onClick={this.toggleAdd}>Cancel</button>
+                        </div>
 
-                <p><select name="rentalid" onChange={this.handleChange}>
-                    <option>Choose Rental</option>
-                    {this.state.rentals.map((rental, index) => {
-                        return (
-                            <option
-                                key={rental.id}
-                                value={rental.id}>{rental.address}</option>
-                        )
-                    })}
-                </select>
 
-                </p><p></p>
-                <button onClick={this.handleClick}>Add Expense</button><p></p>
-                <Link to={'/'}>
-                    <button>Back to Main</button>
-                </Link>
-                <ListExpenses />
+
+                    </section>
+
+
+                    :
+                    <section>
+                        {admin && //if user is admin, display the Add Rental button, otherwise hide it
+                            <section>
+                                <p><button className="addbutton" onClick={this.toggleAdd}>Add Expense</button></p>
+                            </section>
+                        }
+                    </section>
+
+                }
 
             </div>
         )
+
     }
 }
 

@@ -1,28 +1,26 @@
-import React, { Component } from 'react'
+import React, {Component} from 'react'
 import axios from 'axios'
-import ListAppliances from './ListAppliances';
-// import Header from './Header'
-import AddAppliance from './AddAppliance'
+import ListExpenses from './ListExpenses'
+import AddExpense from './AddExpense'
 
 
 //connect redux
-import { connect } from 'react-redux'
-import { getUser } from '../redux/reducers/user'
+import {connect} from 'react-redux'
+import {getUser } from '../redux/reducers/user'
 
-class Appliances extends Component {
-    constructor() {
+class Expenses extends Component {
+    constructor(){
         super()
 
         this.state = {
-            appliances: []
+            expenses: []
         }
     }
 
-
     componentDidMount() {
-        axios.get('/api/appliances').then((res) => {
+        axios.get('/api/expenses').then((res) => {
             this.setState({
-                appliances: res.data
+                expenses: res.data
             })
         }).catch(err => console.log('error getting appliances:', err))
 
@@ -37,49 +35,50 @@ class Appliances extends Component {
         this.props.getUser()
     }
 
-    createAppliance = newAppliance => {
-        axios.post('/api/appliances', newAppliance)
+    createExpense = newExpense => {
+        axios.post('/api/expenses', newExpense)
             .then(res => {
                 this.setState({
-                    appliances: res.data
+                    expenses: res.data
                 })
             }).catch(err => console.log(err))
     }
 
-
-    updateAppliance = appliance => {
-        axios.put(`/api/appliances/${appliance.id}`, appliance)
-            .then(res => this.setState({ appliances: res.data }))
+    updateExpense = expense => {
+        axios.put(`/api/expenses/${expense.id}`, expense)
+            .then(res => this.setState({ expenses: res.data }))
             .catch(err => console.log(err))
     }
 
-    deleteAppliance = id => {
-        axios.delete(`/api/appliances/${id}`)
+    deleteExpense = id => {
+        console.log(2344, id)
+        axios.delete(`/api/expenses/${id}`)
             .then(res => this.setState({ appliances: res.data }))
             .catch(err => console.log(err))
     }
 
     render() {
         let { user } = this.props
+        console.log(1111, this.state.expenses)
 
         return (
             <section className="docWrapper">
                 <section className="displayWrapper">
                     <section className="addRentalSection">
-                        <AddAppliance createAppliance={this.createAppliance} />
+                        <AddExpense createExpense={this.createExpense} />
                     </section>
                 </section>
                 <span>
                     {user && //if user is logged in, display appliances
                         <div className="displayWrapper">
-                            {this.state.appliances.map((appliance, index) => {
+                            {this.state.expenses.map((expense, index) => {
                                 return (
-                                    <ListAppliances
-                                        key={appliance.id}
+                                    <ListExpenses
+                                        key={expense.id}
                                         index={index}
-                                        appliance={appliance}
-                                        updateAppliance={this.updateAppliance}
-                                        deleteAppliance={() => this.deleteAppliance(appliance.id)} />
+                                        expense={expense}
+                                        updateExpense={this.updateExpense}
+                                        deleteExpense={() => this.deleteExpense(expense.id)} />
                                 )
                             })}
                         </div>
@@ -90,10 +89,13 @@ class Appliances extends Component {
             </section>
         )
     }
+
+
+
+
+
+
 }
-
-
-
 
 //connect redux
 let mapStateToProps = state => {
@@ -101,4 +103,4 @@ let mapStateToProps = state => {
     return { user }
 }
 
-export default connect(mapStateToProps, { getUser })(Appliances)
+export default connect(mapStateToProps, { getUser })(Expenses)

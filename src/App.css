@@ -270,10 +270,7 @@
     opacity: 0.6;
 }
 
-.applianceDisplay{
-    width: 900px;
-    /* border: 1px solid black; */
-}
+
 
 .appliancedeletebutton{
  
@@ -289,41 +286,7 @@
 
 }
 
-.displaytable{
-    border: 1px black solid;
-    width: 400px;
-    overflow: scroll;
+.appliancedeletebutton:hover {
+    opacity: 0.6;
+}
 
-}
-    
-
-.rTable {
-
-    margin: 100px;
-    display: block;
-    width: 100%;
-}
-.rTableHeading, .rTableBody, .rTableFoot, .rTableRow{
-    clear: both;
-}
-.rTableHead, .rTableFoot{
-    background-color: #DDD;
-    font-weight: bold;
-}
-.rTableCell, .rTableHead {
-    border: 1px solid #999999;
-    float: left;
-    height: 17px;
-    overflow: hidden;
-    padding: 3px 1.8%;
-    width: 25%;
-    overflow: scroll;
-}
-.rTable:after {
-    visibility: hidden;
-    display: block;
-    font-size: 0;
-    content: " ";
-    clear: both;
-    height: 0;
-}

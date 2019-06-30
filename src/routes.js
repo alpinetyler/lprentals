@@ -6,7 +6,7 @@ import AddExpense from './components/AddExpense';
 import Maintenance from './components/Maintenance';
 import Reports from './components/Reports';
 import Appliances from './components/Appliances'
-import ListExpenses from './components/ListExpenses'
+import Expenses from './components/Expenses'
 import Tester from './components/Tester'
 
 
@@ -20,7 +20,7 @@ export default (
     <Route path="/Maintenance" component={Maintenance} /> 
     <Route path="/Reports" component={Reports} /> 
     <Route path="/Appliances" component={Appliances}/>
-    <Route path="/ListExpenses" component={ListExpenses}/>
+    <Route path="/Expenses" component={Expenses}/>
     <Route path="/Tester" component={Tester}/>
 
   </Switch>

@@ -32,7 +32,7 @@ function Header(props) {
                         <button>Appliances</button>
                     </Link>
 
-                    <Link to={'/AddExpense'}>
+                    <Link to={'/Expenses'}>
                         <button>Expenses</button>
                     </Link>
                     

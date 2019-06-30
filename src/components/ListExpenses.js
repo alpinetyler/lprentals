@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
-import axios from 'axios'
+
+import EditExpense from './EditExpense'
+import Tester from './Tester'
 
 //connect redux
 import { connect } from 'react-redux'
@@ -9,46 +11,70 @@ class ListExpenses extends Component {
 
     constructor(props) {
         super(props)
-        
+
         this.state = {
-            expenses: []
+            edit: false
         }
     }
-    componentDidMount() {
-        axios.get('/api/expenses').then((res) => {
-            this.setState({
-                expenses: res.data
-            })
-        }).catch(err => console.log('error getting expenses:', err))
 
+
+    //function to toggle between display appliance and edit appliance
+    toggleEdit = () =>
+        this.setState({
+            edit: !this.state.edit
+        })
+
+    componentDidMount() {
+        //keep user on state if screen is re-freshed        
         this.props.getUser();
     }
 
-    deleteExpense = id => {
-        console.log(2344, id)
-        axios.delete(`/api/expenses/${id}`)
-            .then(res => this.setState({ appliances: res.data }))
-            .catch(err => console.log(err))
-    }
-
     render() {
+        let { expense, updateExpense } = this.props
+        let { user } = this.props
+        let admin = user && user.isadmin
+
         return (
+
+            
             <div>
-                {this.state.expenses.map((expense) => {
-                    return (
-                        <div style={styles.addappliance}> 
-                            Name: {expense.name} / 
-                            Date: {expense.date} /
-                            Amount: {expense.amount} / 
-                            Category: {expense.category} /
-                            Rental ID: {expense.rentalid}
-                            <button className="deletebutton" onClick={() => this.deleteExpense(expense.id)} >delete</button>
+               
+
+                {
+                    this.state.edit ?
+                        <div>
+                            <EditExpense
+                                expense={expense}
+                                toggleEdit={this.toggleEdit}
+                                updateExpense={updateExpense} />
+                            <button className="cancelbutton" onClick={this.toggleEdit}>cancel</button>
+
                         </div>
+                        :                                              
+                        <div> 
+            
+                           {expense.name} / 
+                            {expense.date} / 
+                            {expense.amount} / 
+                            {expense.category} /  
+                            {expense.rentalid} / 
+                                                     
+                            <button className="editbutton" onClick={this.toggleEdit}>edit</button> /
+                            <button className="appliancedeletebutton" onClick={this.props.deleteExpense} >delete</button>
+                         
+                        </div>
+                        
+                      
+                       
+                       
+                }
 
 
-                    )
-                })}
+
+
+            
             </div>
+            
         )
 
 

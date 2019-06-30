@@ -35,8 +35,10 @@ class ListAppliances extends Component {
         let admin = user && user.isadmin
 
         return (
-            <div style={styles.addappliance}>
 
+            
+            <div>
+               
 
                 {
                     this.state.edit ?
@@ -49,28 +51,32 @@ class ListAppliances extends Component {
 
                         </div>
                         :
-                        <div>
-                            {/* <div className="rTable"> */}
-                                <div className="rTableRow">
-                                    <div className="rTableCell"><strong>{appliance.name}</strong></div>
-                                    <div className="rTableCell">{appliance.brand}</div>
-                                    <div className="rTableCell">{appliance.serialnumber}</div>
-                                    <div className="rTableCell">{appliance.datepurchased} </div>
-                                    <div className="rTableCell">{appliance.rentalid}</div>
-                                    <div className="rTableCell">
-                                        <button className="editbutton" onClick={this.toggleEdit}>edit</button> /
-                                        <button className="appliancedeletebutton" onClick={this.props.deleteAppliance} >delete</button>
-                                    </div>
-                                {/* </div> */}
-                            </div>
+                        
+                      
+                        <div> 
+            
+                           {appliance.name} / 
+                            {appliance.brand} / 
+                            {appliance.serialnumber} / 
+                            {appliance.datepurchased} /  
+                            {appliance.rentalid} / 
+                                                     
+                            <button className="editbutton" onClick={this.toggleEdit}>edit</button> /
+                            <button className="appliancedeletebutton" onClick={this.props.deleteAppliance} >delete</button>
+                         
                         </div>
-                        }
+                        
+                      
+                       
+                       
+                }
 
 
 
 
-
+            
             </div>
+            
         )
 
 
