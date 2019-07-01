@@ -8,6 +8,7 @@ import Reports from './components/Reports';
 import Appliances from './components/Appliances'
 import Expenses from './components/Expenses'
 import Tester from './components/Tester'
+import PayRent from './components/PayRent'
 
 
 
@@ -22,6 +23,7 @@ export default (
     <Route path="/Appliances" component={Appliances}/>
     <Route path="/Expenses" component={Expenses}/>
     <Route path="/Tester" component={Tester}/>
+    <Route path="/PayRent" component={PayRent}/>
 
   </Switch>
 );

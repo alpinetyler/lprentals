@@ -8,6 +8,7 @@ const RentalCtrl = require('./controllers/rentals')
 const AuthCtrl = require('./controllers/auth')
 const ApplianceCtrl = require('./controllers/appliances')
 const ExpenseCtrl = require('./controllers/expenses')
+const PayCtrl = require('./controllers/payments')
 
 const app = express()
 
@@ -56,3 +57,6 @@ app.post('/api/expenses', ExpenseCtrl.create)//create appliance
 app.get('/api/expenses', ExpenseCtrl.read)//read appliances
 app.put('/api/expenses/:id', ExpenseCtrl.update)//update appliance
 app.delete('/api/expenses/:id', ExpenseCtrl.delete)//delete appliance
+
+//accept rental payments
+app.post('/api/payment', PayCtrl.pay)

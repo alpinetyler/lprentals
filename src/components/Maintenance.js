@@ -8,15 +8,38 @@ import { getUser } from '../redux/reducers/user'
 
 class Maintenance extends Component{
 
+    constructor(props){
+        super(props)
+
+        this.state = {
+
+        }
+
+
+    }
+    componentDidMount() {
+        //keep user logged in after refresh
+        this.props.getUser()
+    }
+
     render (){
+        console.log(this.props)
+        let user = this.props && this.props.user
+        let admin = user && user.isadmin
         return(
+        
             <div style={styles.addappliance}>
+            {user &&
+            <>
                 <h3>Maintenance</h3>
                 <Link to={'/'}>
                     <button>Main</button>
                 </Link>
+            </>
+            }
                 
             </div>
+            
         )
     }
 }

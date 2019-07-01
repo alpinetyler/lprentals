@@ -15,7 +15,7 @@ function Header(props) {
     let user = props && props.user
     let admin = user && user.isadmin
     return (
-        
+
         <header>
             <section className="headerSection1">
                 <Link to={'/'}>
@@ -23,29 +23,53 @@ function Header(props) {
                 </Link>
             </section>
             <section className="headerSectionMiddle">
-            {admin && 
-                <section className="headerMenu">
-                    <Link to={'/'}>
-                        <button>Home</button>
-                    </Link>
-                    <Link to={'/Appliances'}>
-                        <button>Appliances</button>
-                    </Link>
+                {admin &&
+                    <span className="headerMenu">
+                        
+                        <Link to={'/'}>
+                            <button>Home</button>
+                        </Link>
 
-                    <Link to={'/Expenses'}>
-                        <button>Expenses</button>
-                    </Link>
-                    
-                    <Link to={'/Maintenance'}>
-                        <button>Maintenance</button>
-                    </Link>
-                    
-                    <Link to={'/Reports'}>
-                        <button>Reports</button>
-                    </Link>
-                   
-                </section>
-            }
+                        <Link to={'/Maintenance'}>
+                            <button>Maintenance</button>
+                        </Link>
+
+                        <Link to={'/PayRent'}>
+                            <button>Pay Rent</button>
+                        </Link>
+
+                        
+                        <Link to={'/Appliances'}>
+                            <button>Appliances</button>
+                        </Link>
+
+                        <Link to={'/Expenses'}>
+                            <button>Expenses</button>
+                        </Link>
+
+
+                        <Link to={'/Reports'}>
+                            <button>Reports</button>
+                        </Link>
+
+                    </span>
+                }
+
+                {user && !admin &&
+                    <section className="headerMenu">
+                      <Link to={'/'}>
+                            <button>Home</button>
+                        </Link>  
+
+                        <Link to={'/Maintenance'}>
+                            <button>Maintenance</button>
+                        </Link>
+
+                        <Link to={'/PayRent'}>
+                            <button>Pay Rent</button>
+                        </Link>
+                    </section>
+                }
             </section>
             <section className="headerSection2">
                 {user && <LandingPage />}
