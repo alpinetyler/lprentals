@@ -2,6 +2,7 @@ const express = require('express')
 require('dotenv/config')
 const massive = require('massive')
 const session = require('express-session')
+const twilio = require('twilio');
 
 
 const RentalCtrl = require('./controllers/rentals')
@@ -9,6 +10,7 @@ const AuthCtrl = require('./controllers/auth')
 const ApplianceCtrl = require('./controllers/appliances')
 const ExpenseCtrl = require('./controllers/expenses')
 const PayCtrl = require('./controllers/payments')
+const MessageCtrl = require('./controllers/messages')
 
 const app = express()
 
@@ -60,3 +62,28 @@ app.delete('/api/expenses/:id', ExpenseCtrl.delete)//delete appliance
 
 //accept rental payments
 app.post('/api/payment', PayCtrl.pay)
+app.get('/api/payments', PayCtrl.read)
+
+//accept messages to send out as texts or email?
+app.get('/api/messages', MessageCtrl.read)//read messages
+app.post('/api/messages', MessageCtrl.create)//create message
+app.delete('./api/messages/:id', MessageCtrl.delete)//delete message
+
+
+
+
+///////////////////////
+//Twilio Test Code
+//////////////////////
+
+// var accountSid = 'ACf7457890df153a160a6cb3dbe60cc14a'; // Your Account SID from www.twilio.com/console
+// var authToken = '60d98598f8d51b2585adce1b9840a7d5';   // Your Auth Token from www.twilio.com/console
+
+// var client = new twilio(accountSid, authToken);
+
+// client.messages.create({
+//     body: 'Hello from Tyler in Node',
+//     to: '+8017875574',  // Text this number
+//     from: '+13852631663' // From a valid Twilio number
+// })
+// .then((message) => console.log(message.sid));
