@@ -11,6 +11,13 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux'
 import { getUser } from '../redux/reducers/user'
 
+//display number in US currency format
+const formatter = new Intl.NumberFormat('en-US', {
+    style: 'currency',
+    currency: 'USD',
+    minimumFractionDigits: 2
+})
+
 class PayRent extends Component {
 
     constructor(props){
@@ -32,10 +39,11 @@ class PayRent extends Component {
         let { amount } = this.state
         amount /= 100
         console.log(amount)
+        let formattedAmount = formatter.format(amount)
         token.card = void 0
         axios.post('/api/payment', { token, amount: this.state.amount }).then(res => {
           console.log(res)
-          alert(`Thanks! You paid Lamppost Properties ${amount}!`)
+          alert(`Thanks! You paid Lamppost Properties ${formattedAmount}!`)
         })
       }
 
@@ -81,7 +89,7 @@ class PayRent extends Component {
                   {/* <button>Checkout</button> */}
                 </StripeCheckout>
                 Enter Payment: <input value={this.state.amount}
-                type='number' thousandSeparator={true} prefix={'$'}
+                type='number'
                 onChange={e=>this.setState({amount:+e.target.value})}/>
               </div>
             }

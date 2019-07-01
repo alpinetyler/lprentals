@@ -7,6 +7,7 @@ module.exports = {
         //get today's date
         var today = new Date();
         var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+        
         console.log(id,amount,stripe, date)
         stripe.charges.create(
             {
