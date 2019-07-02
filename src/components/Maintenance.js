@@ -42,11 +42,11 @@ class Maintenance extends Component {
     }
 
     createMessage = newMessage => {
+        console.log(666, newMessage)
         axios.post('/api/messages', newMessage)
             .then(res => {
                 this.setState({
                     messages: res.data
-                    
                 })
                 alert(`Your message has been sent`)
             }).catch(err => alert(`Error sending message`))
@@ -68,21 +68,20 @@ class Maintenance extends Component {
 
     handleSelect = e => {
         let {value} = e.target
-        // console.log(5555, e.target)
         this.setState({
             rentalid: value,
-            address:  this.state.rentals.filter(rental => { if (rental.id === value) return rental.address})
+            address:  this.state.rentals.find(rental => rental.id == value ).address
         })
     }
 
     handleClick = () => {
-        console.log(33333, this.state)
+        // console.log(33333, this.state.address)
         let newMessage = this.state
         this.createMessage(newMessage)
         this.setState({
             title: '',
             text: '',
-            rentalid: 'Choose Address',
+            rentalid: '',
             address: ''
         })
         
@@ -107,7 +106,7 @@ class Maintenance extends Component {
                                     <option
                                         key={rental.id}
                                         value={rental.id}
-                                        id={rental.address}>{rental.address}
+                                       >{rental.address}
                                         </option>
                                         
                                 )
