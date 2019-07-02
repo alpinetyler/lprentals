@@ -4,5 +4,3 @@ VALUES(
     ${text},
     ${rentalid}
 );
-
-SELECT * FROM messages;

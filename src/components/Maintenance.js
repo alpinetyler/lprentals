@@ -17,6 +17,7 @@ class Maintenance extends Component {
             title: '',
             text: '',
             rentalid:'',
+            address: '',
 
             messages: [],
             rentals: []
@@ -45,11 +46,14 @@ class Maintenance extends Component {
             .then(res => {
                 this.setState({
                     messages: res.data
+                    
                 })
-            }).catch(err => console.log(err))
+                alert(`Your message has been sent`)
+            }).catch(err => alert(`Error sending message`))
+           
     }
 
-    deleteMessagre = id => {
+    deleteMessage = id => {
         axios.delete(`/api/messages/${id}`)
             .then(res => this.setState({ messages: res.data }))
             .catch(err => console.log(err))
@@ -62,15 +66,26 @@ class Maintenance extends Component {
         })
     }
 
+    handleSelect = e => {
+        let {value} = e.target
+        // console.log(5555, e.target)
+        this.setState({
+            rentalid: value,
+            address:  this.state.rentals.filter(rental => { if (rental.id === value) return rental.address})
+        })
+    }
+
     handleClick = () => {
+        console.log(33333, this.state)
         let newMessage = this.state
         this.createMessage(newMessage)
         this.setState({
             title: '',
             text: '',
-            rentalid: 'Choose Address'
+            rentalid: 'Choose Address',
+            address: ''
         })
-        alert(`Your message has been sent`)
+        
 
     }
 
@@ -78,21 +93,26 @@ class Maintenance extends Component {
     render() {
         let user = this.props && this.props.user
         let admin = user && user.isadmin
+        let {address} = this.state.rentals
         return (
 
             <div style={styles.addappliance}>
                 {user &&
                     <>
                         <h3>Maintenance</h3>
-                        <p>Address:<select name="rentalid" onChange={this.handleChange}>
+                        <p>Address:<select name="rentalid" onChange={this.handleSelect}>
                             <option>Choose Address</option>
                             {this.state.rentals.map((rental, index) => {
                                 return (
                                     <option
                                         key={rental.id}
-                                        value={rental.id}>{rental.address}</option>
+                                        value={rental.id}
+                                        id={rental.address}>{rental.address}
+                                        </option>
+                                        
                                 )
                             })}
+
                         </select></p>
                         <p>Title:<input
                             type="text"

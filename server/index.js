@@ -75,15 +75,18 @@ app.delete('./api/messages/:id', MessageCtrl.delete)//delete message
 ///////////////////////
 //Twilio Test Code
 //////////////////////
+// const {TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN, TWILIO_NUMBER, TWILIO_TO_NUMBER} = process.env
 
-// var accountSid = 'ACf7457890df153a160a6cb3dbe60cc14a'; // Your Account SID from www.twilio.com/console
-// var authToken = '60d98598f8d51b2585adce1b9840a7d5';   // Your Auth Token from www.twilio.com/console
+// var accountSid = TWILIO_ACCOUNT_SID; // Your Account SID from www.twilio.com/console
+// var authToken = TWILIO_AUTH_TOKEN;   // Your Auth Token from www.twilio.com/console
 
 // var client = new twilio(accountSid, authToken);
 
+
+
 // client.messages.create({
-//     body: 'Hello from Tyler in Node',
-//     to: '+8017875574',  // Text this number
-//     from: '+13852631663' // From a valid Twilio number
+//     body: 'Hi from Node',
+//     to: TWILIO_TO_NUMBER,  // Text this number
+//     from: TWILIO_NUMBER // From a valid Twilio number
 // })
 // .then((message) => console.log(message.sid));

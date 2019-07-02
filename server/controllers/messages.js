@@ -1,3 +1,6 @@
+const twilio = require('twilio');
+
+
 module.exports = {
     read: (req, res) => {
         let db = req.app.get('db')
@@ -7,10 +10,27 @@ module.exports = {
     },
 
     create: (req, res) => {
+        console.log(2222, req.body.title, req.body.text, 'Address: ', req.body.address )
         let db = req.app.get('db')
         db.createMessage(req.body).then(response => {
+
+            const { TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN, TWILIO_NUMBER, TWILIO_TO_NUMBER } = process.env
+
+            var accountSid = TWILIO_ACCOUNT_SID; // Your Account SID from www.twilio.com/console
+            var authToken = TWILIO_AUTH_TOKEN;   // Your Auth Token from www.twilio.com/console
+
+            var client = new twilio(accountSid, authToken);
+
+            client.messages.create({
+                //get message from front end and send it in a text to the rental property manager
+                body: `Message Title: ${req.body.title}, ${req.body.text} rental Property: ${req.body.address}`, 
+                // to: TWILIO_TO_NUMBER,  // Text this number
+                from: TWILIO_NUMBER // From a valid Twilio number
+            })
+                .then((message) => console.log(message.sid));
             res.send(response)
-        }).catch(err => console.log(err))
+        }).catch(err => res.sendStatus(500))
+
     },
 
     delete: (req, res) => {
