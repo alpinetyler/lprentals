@@ -85,31 +85,31 @@ class AddExpense extends Component {
                 {this.state.add ?
                     <section>
                         <div className="addRentalForm">
-                            <p>Name:<input
+                            <p><input
                                 type="text"
                                 name="name"
                                 placeholder="Name"
                                 onChange={this.handleChange}
                                 value={this.state.name} /></p>
-                            <p>Date: <input
+                            <p><input
                                 type="text"
                                 name="date"
                                 placeholder="Date"
                                 onChange={this.handleChange}
                                 value={this.state.date} /></p>
-                            <p>Amount: <input
+                            <p><input
                                 type="text"
                                 name="amount"
                                 placeholder="Amount"
                                 onChange={this.handleChange}
                                 value={this.state.amount} /></p>
-                            <p>Category: <input
+                            <p><input
                                 type="text"
                                 name="category"
                                 placeholder="Category"
                                 onChange={this.handleChange}
                                 value={this.state.category} /></p>
-                            <p>Rental Id: <select name="rentalid" onChange={this.handleChange}>
+                            <p><select name="rentalid" onChange={this.handleChange}>
                                 <option>Choose Address</option>
                                 {this.state.rentals.map((rental, index) => {
                                     return (
@@ -162,15 +162,5 @@ let styles = {
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center'
-    },
-    logo: {
-        flex: 4,
-        display: 'flex',
-        justifyContent: 'flex-start'
-    },
-    navbar: {
-        flex: 1,
-        display: 'flex',
-        justifyContent: 'space-between'
     }
 }

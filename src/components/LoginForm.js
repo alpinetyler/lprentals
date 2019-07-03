@@ -2,10 +2,8 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
 import { login } from '../redux/reducers/user'
-// import { maxHeaderSize } from 'http';
 
 import SignUp from './SignUp'
-import { NONAME } from 'dns';
 
 class LoginForm extends Component {
     constructor(props) {

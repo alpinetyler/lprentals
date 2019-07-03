@@ -16,7 +16,7 @@ class Maintenance extends Component {
         this.state = {
             title: '',
             text: '',
-            rentalid:'',
+            rentalid: '',
             address: '',
 
             messages: [],
@@ -48,9 +48,9 @@ class Maintenance extends Component {
                 this.setState({
                     messages: res.data
                 })
-                alert(`Your message has been sent`)
+                alert(`Your message has been sent, we will get back to you as soon as possible!`)
             }).catch(err => alert(`Error sending message`))
-           
+
     }
 
     deleteMessage = id => {
@@ -67,10 +67,10 @@ class Maintenance extends Component {
     }
 
     handleSelect = e => {
-        let {value} = e.target
+        let { value } = e.target
         this.setState({
             rentalid: value,
-            address:  this.state.rentals.find(rental => rental.id == value ).address
+            address: this.state.rentals.find(rental => rental.id == value).address
         })
     }
 
@@ -84,51 +84,49 @@ class Maintenance extends Component {
             rentalid: '',
             address: ''
         })
-        
+
 
     }
 
 
     render() {
         let user = this.props && this.props.user
-        let admin = user && user.isadmin
-        let {address} = this.state.rentals
+        // let admin = user && user.isadmin
+        // let { address } = this.state.rentals
         return (
 
             <div style={styles.addappliance}>
                 {user &&
                     <>
-                        <h3>Maintenance</h3>
-                        <p>Address:<select name="rentalid" onChange={this.handleSelect}>
+                        <h3>Send Maintenance Request</h3>
+                        <p><select name="rentalid" onChange={this.handleSelect}>
                             <option>Choose Address</option>
                             {this.state.rentals.map((rental, index) => {
                                 return (
                                     <option
                                         key={rental.id}
-                                        value={rental.id}
-                                       >{rental.address}
-                                        </option>
-                                        
+                                        value={rental.id}>{rental.address}</option>
+
                                 )
                             })}
 
                         </select></p>
-                        <p>Title:<input
+                        <p><input
                             type="text"
                             name="title"
-                            placeholder="Title"
+                            placeholder="Message Title"
                             onChange={this.handleChange}
                             value={this.state.title} /></p>
-                        <p>MessageText:<p></p><textarea
+                        <p><textarea
                             rows="6"
                             cols="60"
                             placeholder="Message Text"
                             name="text"
                             onChange={this.handleChange}
-                            value={this.state.text} 
-                            />
-                            </p>
-                            <button className="saveChangesButton" onClick={this.handleClick}>Send Message</button>
+                            value={this.state.text}
+                        />
+                        </p>
+                        <button className="saveChangesButton" onClick={this.handleClick}>Send Message</button>
 
                     </>
                 }

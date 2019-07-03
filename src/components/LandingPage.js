@@ -10,8 +10,9 @@ function Landing(props) {
     let { user } = props
     return (
         <div>
-            { user ? `Welcome, ${user.name} `   : <LoginForm></LoginForm>}
-            {props.user && <button onClick={props.logout}>Logout</button>}
+            <span className="userNameDisplay">
+            { user ? <button onClick={props.logout}>Logout</button>   : <LoginForm></LoginForm>}
+            </span>
 
         </div>
     )

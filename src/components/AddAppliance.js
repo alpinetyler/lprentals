@@ -83,25 +83,8 @@ class AddAppliance extends Component {
                 {this.state.add ?
                     <section>
                         <div className="addRentalForm">
-                            <p>Name:<input
-                                type="text"
-                                name="name"
-                                placeholder="Name"
-                                onChange={this.handleChange}
-                                value={this.state.name} /></p>
-                            <p>Brand: <input
-                                type="text"
-                                name="brand"
-                                placeholder="Brand"
-                                onChange={this.handleChange}
-                                value={this.state.brand} /></p>
-                            <p>Serial Number: <input
-                                type="text"
-                                name="serialnumber"
-                                placeholder="Serial Number"
-                                onChange={this.handleChange}
-                                value={this.state.serialnumber} /></p>
-                            <p>Rental Id: <select name="rentalid" onChange={this.handleChange}>
+                            <p><select style={styles.select}
+                                name="rentalid" onChange={this.handleChange}>
                                 <option>Choose Address</option>
                                 {this.state.rentals.map((rental, index) => {
                                     return (
@@ -111,13 +94,32 @@ class AddAppliance extends Component {
                                     )
                                 })}
                             </select></p>
-                            <p>Date Purchased: <input
+                            <p><input
+                                type="text"
+                                name="name"
+                                placeholder="Name"
+                                onChange={this.handleChange}
+                                value={this.state.name} /></p>
+                            <p><input
+                                type="text"
+                                name="brand"
+                                placeholder="Brand"
+                                onChange={this.handleChange}
+                                value={this.state.brand} /></p>
+                            <p><input
+                                type="text"
+                                name="serialnumber"
+                                placeholder="Serial Number"
+                                onChange={this.handleChange}
+                                value={this.state.serialnumber} /></p>
+
+                            <p><input
                                 type="text"
                                 name="datepurchased"
                                 placeholder="Date Purchased"
                                 onChange={this.handleChange}
                                 value={this.state.datepurchased} /></p>
-                
+
                             <button className="saveChangesButton" onClick={this.handleClick}>Add Appliance</button>
                             <button className="cancelbutton" onClick={this.toggleAdd}>Cancel</button>
                         </div>
@@ -144,33 +146,21 @@ class AddAppliance extends Component {
     }
 
 
-    
+
 }
-                    
+
 let mapStateToProps = state => {
-                            let { data: user } = state.user
-    let {rentals} = state.rental
-    return {user, rentals }
-                    
-                    }
-                    
-                    
-export default connect(mapStateToProps, {getUser, getRentals })(AddAppliance)
-                        
+    let { data: user } = state.user
+    let { rentals } = state.rental
+    return { user, rentals }
+
+}
+
+
+export default connect(mapStateToProps, { getUser, getRentals })(AddAppliance)
+
 let styles = {
-                            addappliance: {
-                            display: 'flex',
-                        flexDirection: 'column',
-                        alignItems: 'center'
-                    },
-    logo: {
-                            flex: 4,
-                        display: 'flex',
-                        justifyContent: 'flex-start'
-                    },
-    navbar: {
-                            flex: 1,
-                        display: 'flex',
-                        justifyContent: 'space-between'
-                    }
+    select: {
+       marginLeft: 30
+    }
 }

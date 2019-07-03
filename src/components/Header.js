@@ -24,69 +24,60 @@ function Header(props) {
                 </Link>
             </section>
             <section className="headerSectionMiddle">
-            <label for="toggle" class="label">&#9776;</label>
+            
             <input type="checkbox" id="toggle" />
                 {admin &&
                     <span className="menu">
                         
                         <Link to={'/'}>
-                            Home
+                            <a>Home</a>
                         </Link>
 
                         <Link to={'/Maintenance'}>
-                            Maintenance
+                            <a>Maintenance</a>
                         </Link>
 
                         <Link to={'/PayRent'}>
-                            Pay Rent
+                            <a>Pay Rent</a>
                         </Link>
 
                         
                         <Link to={'/Appliances'}>
-                            Appliances
+                            <a>Appliances</a>
                         </Link>
 
                         <Link to={'/Expenses'}>
-                            Expenses
+                            <a>Expenses</a>
                         </Link>
 
 
                         <Link to={'/Reports'}>
-                            Reports
+                            <a>Reports</a>
                         </Link>
 
                     </span>
                 }
 
                 {user && !admin &&
-                    <section className="headerMenu">
+                    <section className="menu">
                       <Link to={'/'}>
-                            <button>Home</button>
+                            <a>Home</a>
                         </Link>  
 
                         <Link to={'/Maintenance'}>
-                            <button>Maintenance</button>
+                            <a>Maintenance</a>
                         </Link>
 
                         <Link to={'/PayRent'}>
-                            <button>Pay Rent</button>
+                            <a>Pay Rent</a>
                         </Link>
                     </section>
                 }
             </section>
             <section className="headerSection2">
                 {user && <LandingPage />}
-                {/* <Headings enterSearch={true} />
-                <select value={this.state.filter} onChange={(e) => this.setState({filter:e.target.value})}>
-                        <option value="zip">Zip Code</option>
-                        <option value="bd">Number of Bedrooms</option>
-                        <option value="bth">Number of Bathrooms</option>
-                    </select>
-
-                <br></br><input onChange={props.handleSearch} value={props.filterString}
-                    type="number" placeholder="Enter Zip Code" />
-                <button onClick={() => props.search(props.filterString)}>Search</button>
-                <button onClick={() => props.search(props.filterString)}>See All</button> */}
+                <label for="toggle" class="label">&#9776;</label>
+                
             </section>
         </header>
 
