@@ -39,7 +39,7 @@ class ListAppliances extends Component {
             
             <div>
                
-
+                
                 {
                     this.state.edit ?
                         <div>
@@ -53,24 +53,28 @@ class ListAppliances extends Component {
                         :
                         
                       
-                        <div> 
-            
-                           {appliance.name} / 
-                            {appliance.brand} / 
-                            {appliance.serialnumber} / 
-                            {appliance.datepurchased} /  
-                            {appliance.rentalid} / 
-                                                     
-                            <button className="editbutton" onClick={this.toggleEdit}>edit</button> /
+                        <div style={styles.displayappliance}> 
+                            
+                            <tr>
+                            <td style={styles.colOne}>{appliance.name}</td>
+                            <td style={styles.colTwo}>{appliance.brand}</td>
+                            <td style={styles.colThree}>{appliance.datepurchased}</td>
+                            <td style={styles.colFour}>{appliance.serialnumber}</td> 
+                            <td style={styles.colFive}>{appliance.rentalid}</td>
+                            
+                            <td style={styles.colSix}>                        
+                            <button className="editbutton" onClick={this.toggleEdit}>edit</button>
                             <button className="appliancedeletebutton" onClick={this.props.deleteAppliance} >delete</button>
-                         
+                            </td>
+                            </tr>
+                        
                         </div>
                         
                       
                        
                        
                 }
-
+                
 
 
 
@@ -100,14 +104,27 @@ let styles = {
         flexDirection: 'column',
         alignItems: 'center'
     },
-    logo: {
-        flex: 4,
-        display: 'flex',
-        justifyContent: 'flex-start'
+    displayappliance: {
+        // width: 700,
+        // borderBottom: '1px solid gray'
+
     },
-    navbar: {
-        flex: 1,
-        display: 'flex',
-        justifyContent: 'space-between'
+    colOne: {
+        width: 200
+    },
+    colTwo: {
+        width: 100
+    },
+    colThree: {
+        width: 150
+    },
+    colFour: {
+        width: 200
+    },
+    colFive: {
+        width: 50
+    },
+    colSix: {
+        width: 200
     }
 }

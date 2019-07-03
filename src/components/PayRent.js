@@ -67,7 +67,7 @@ class PayRent extends Component {
         {user &&
 
           <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginTop: '50px' }}>
-            Enter Payment:
+            Enter Payment Amount:
                   <p><input value={this.state.amount}
                         type='number'
                         onChange={e => this.setState({ amount: +e.target.value })} />

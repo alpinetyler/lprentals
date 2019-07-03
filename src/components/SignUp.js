@@ -17,8 +17,7 @@ class SignUp extends Component {
             email: '',
             password: '',
             isadmin: '',
-            rentalid: null
-
+            rentalid: null,
         }
     }
     handleChange = e => {
@@ -28,7 +27,7 @@ class SignUp extends Component {
             [name]: value
         })
     }
-
+    
     handleClick = () => {
         let newUser = this.state
         this.createUser(newUser)
@@ -50,54 +49,52 @@ class SignUp extends Component {
             }).catch(err => console.log(err))
     }
 
-    toggleAdd = () =>
-        this.setState({
-            add: !this.state.add
-        })
-
 
     render() {
         //de-structure user from redux props
         let { user } = this.props
-       
         return (
             <div className="addRentalSection">
-               
-        
-                        <div className="addRentalForm">
-                            <Headings signUp={true} />
-                            <p>Name:<input
-                                type="text"
-                                name="name"
-                                placeholder="Name"
-                                onChange={this.handleChange}
-                                value={this.state.name} /></p>
-                            <p>Email Address: <input
-                                type="text"
-                                name="email"
-                                placeholder="E-mail"
-                                onChange={this.handleChange}
-                                value={this.state.email} /></p>
-                            <p>Password: <input
-                                type="password"
-                                name="password"
-                                placeholder="Password"
-                                onChange={this.handleChange}
-                                value={this.state.password} /></p>
-                                <p>Is this an Administrator?</p>
-                            <p><input
-                                type="radio"
-                                name="isadmin"
-                                onChange={this.handleChange}
-                                value="true"/>Yes</p>
-                                <p><input
-                                type="radio"
-                                name="isadmin"
-                                onChange={this.handleChange}
-                                value="false"/>No</p>
-                            <button className="saveChangesButton" onClick={this.handleClick}>Submit</button>
-                            {/* <button className="cancelbutton" onClick={this.toggleAdd}>Cancel</button> */}
-                        </div>
+
+
+                <div style={styles.addForm}>
+                    <Headings signUp={true} />
+                    <p><input
+                        style={styles.input}
+                        type="text"
+                        name="name"
+                        placeholder="Name"
+                        onChange={this.handleChange}
+                        value={this.state.name} /></p>
+                    <p><input
+                        style={styles.input}
+                        type="text"
+                        name="email"
+                        placeholder="E-mail"
+                        onChange={this.handleChange}
+                        value={this.state.email} /></p>
+                    <p><input
+                        style={styles.input}
+                        type="password"
+                        name="password"
+                        placeholder="Password"
+                        onChange={this.handleChange}
+                        value={this.state.password} /></p>
+                    <p>Administrator?</p>
+                    <p><input
+                        type="radio"
+                        name="isadmin"
+                        onChange={this.handleChange}
+                        value="true" />Yes</p>
+                    <p><input
+                        type="radio"
+                        name="isadmin"
+                        onChange={this.handleChange}
+                        value="false" />No</p>
+                    <button className="saveChangesButton" onClick={this.handleClick}>Submit</button>
+
+
+                </div>
 
             </div>
         )
@@ -111,3 +108,23 @@ let mapStateToProps = state => {
     return { user }
 }
 export default connect(mapStateToProps, { getUser })(SignUp)
+
+let styles = {
+    addForm: {
+
+        width: 300,
+        padding: 15,
+        text: 15,
+        margin: 20,
+        fontFamily: 'Times New Roman, Times, serif',
+        boxShadow: '10px gray'
+    },
+    input: {
+        border: 'none',
+        borderBottom: '1px solid lightgray',
+        width: 300,
+        fontSize: 15
+    }
+
+
+}

@@ -5,6 +5,7 @@ import { login } from '../redux/reducers/user'
 // import { maxHeaderSize } from 'http';
 
 import SignUp from './SignUp'
+import { NONAME } from 'dns';
 
 class LoginForm extends Component {
     constructor(props) {
@@ -14,10 +15,21 @@ class LoginForm extends Component {
 
         this.state = {
             email: '',
-            password: ''
+            password: '',
+            signup: false
+
+
         }
     }
     
+
+     //function to toggle between Login and Signup
+     toggleSignup = () =>
+     this.setState({
+         signup: !this.state.signup
+     })
+
+
     handleChange = e => {
         let { name, value } = e.target 
         this.setState({
@@ -31,25 +43,38 @@ class LoginForm extends Component {
     }
 
     render() {
+        console.log(this.state.signup)
         return (
             <div>
-                <h1>Welcome to Lamppost Properties!</h1>
-                <div style={styles.login}>To browse rentals, please login below</div>
-                <p></p>
-                <input 
+                {this.state.signup ?
+                <div>
+                    <SignUp />
+                    <button className="cancelbutton" onClick={this.toggleSignup}>Cancel</button>
+                </div>
+                :
+                <div>   
+                <div style={styles.login}>User Login</div>
+            
+                <p><input
+                    style={styles.input} 
                     name="email" 
                     type="text" 
                     placeholder="email" 
                     onChange={this.handleChange}/>{' '}
+                </p>
                 <input 
+                    style={styles.input} 
                     name="password" 
                     type="password" 
                     placeholder="password" 
                     onChange={this.handleChange}/>{' '}
-                <button onClick={this.handleSubmit}>login</button>
-                <p style={styles.login}>Or sign up here:</p>
-                <p><SignUp /></p>
+                <p><button onClick={this.handleSubmit}>login</button></p>
+                <button style={styles.button} onClick={this.toggleSignup} >Sign Up</button>
+                </div>
+                
+                }
             </div>
+
         )
     }
 }
@@ -59,16 +84,20 @@ export default connect(null, { login })(LoginForm)
 let styles = {
     login: {
         fontSize: 18,
-        fontFamily: 'times'
-    },
-    logo: {
-        flex: 4,
+        fontFamily: 'times', 
         display: 'flex',
-        justifyContent: 'flex-start'
+        alignItems: 'center',
+        justifyContent: 'center'
     },
-    navbar: {
-        flex: 1,
-        display: 'flex',
-        justifyContent: 'space-between'
+    input: {
+        border: 'none',
+        borderBottom: '1px solid lightgray',
+        width: 300,
+        fontSize: 15
+    },
+    button: {
+        border: 'none',
+        color: 'gray',
+        fontSize: 15
     }
 }

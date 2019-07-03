@@ -50,19 +50,25 @@ class ListExpenses extends Component {
                             <button className="cancelbutton" onClick={this.toggleEdit}>cancel</button>
 
                         </div>
-                        :                                              
-                        <div> 
-            
-                           {expense.name} / 
-                            {expense.date} / 
-                            {expense.amount} / 
-                            {expense.category} /  
-                            {expense.rentalid} / 
-                                                     
-                            <button className="editbutton" onClick={this.toggleEdit}>edit</button> /
-                            <button className="appliancedeletebutton" onClick={this.props.deleteExpense} >delete</button>
-                         
+                        :     
+                        
+                        <div style={styles.displayappliance}> 
+                            
+                        <tr>
+                        <td style={styles.colOne}>{expense.name}</td>
+                        <td style={styles.colTwo}>{expense.date}</td>
+                        <td style={styles.colThree}>{expense.amount}</td>
+                        <td style={styles.colFour}>{expense.category}</td> 
+                        <td style={styles.colFive}>{expense.rentalid}</td>
+                        
+                        <td style={styles.colSix}>                        
+                        <button className="editbutton" onClick={this.toggleEdit}>edit</button>{'     '}
+                        <button className="appliancedeletebutton" onClick={this.props.deleteExpense} >delete</button>
+                        </td>
+                        </tr>
+                    
                         </div>
+                       
                         
                       
                        
@@ -98,14 +104,22 @@ let styles = {
         flexDirection: 'column',
         alignItems: 'center'
     },
-    logo: {
-        flex: 4,
-        display: 'flex',
-        justifyContent: 'flex-start'
+    colOne: {
+        width: 200
     },
-    navbar: {
-        flex: 1,
-        display: 'flex',
-        justifyContent: 'space-between'
+    colTwo: {
+        width: 125
+    },
+    colThree: {
+        width: 100
+    },
+    colFour: {
+        width: 200
+    },
+    colFive: {
+        width: 50
+    },
+    colSix: {
+        width: 200
     }
 }

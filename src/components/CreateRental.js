@@ -70,43 +70,43 @@ class CreateRental extends Component {
                     <section>
                         <div className="addRentalForm">
                             <Headings addRental={true} />
-                            <p>Monthly Rent:<input
+                            <p><input
                                 type="text"
                                 name="price"
                                 placeholder="Monthly Rent"
                                 onChange={this.handleChange}
                                 value={this.state.price} /></p>
-                            <p>Bedrooms: <input
+                            <p><input
                                 type="text"
                                 name="bd"
                                 placeholder="Bedrooms"
                                 onChange={this.handleChange}
                                 value={this.state.bd} /></p>
-                            <p>Bathrooms: <input
+                            <p><input
                                 type="text"
                                 name="bth"
                                 placeholder="Bathrooms"
                                 onChange={this.handleChange}
                                 value={this.state.bth} /></p>
-                            <p>Square Feet: <input
+                            <p><input
                                 type="text"
                                 name="sqfeet"
                                 placeholder="Square Feet"
                                 onChange={this.handleChange}
                                 value={this.state.sqfeet} /></p>
-                            <p>Address: <input
+                            <p><input
                                 type="text"
                                 name="address"
                                 placeholder="Street Address"
                                 onChange={this.handleChange}
                                 value={this.state.address} /></p>
-                            <p>Zip Code: <input
+                            <p><input
                                 type="text"
                                 name="zip"
                                 placeholder="Zip Code"
                                 onChange={this.handleChange}
                                 value={this.state.zip} /></p>
-                            <p>Image Url: <input
+                            <p><input
                                 type="text"
                                 name="imageurl"
                                 placeholder="Image Url"
