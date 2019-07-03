@@ -1,0 +1,112 @@
+.label {
+    color: white;
+    font-size: 28px;
+    line-height: 100px;
+    width: 26px;
+    margin-right: 40px;
+    float: right;
+    display: none;
+}
+
+.menu{
+    margin-right: 40px;
+    
+
+}
+
+.menu a {
+    text-decoration: none;
+    margin: 0 10px;
+    line-height: 100px;
+    color: black;
+    font-size: 15px;
+    clear: right;
+    text-align: left;
+    padding-left: 20px;
+    font-family: sans-serif;
+    
+
+}
+
+#toggle {
+    display: none;
+}
+
+@media screen and (max-width: 950px){
+   
+    
+    .label{
+        display: block;
+    }
+    .menu{
+        text-align: left;
+        width: 100%;
+        z-index: 10;
+        display: none;
+        position: absolute;
+        left: 0;
+        top: 100px;
+        
+
+        
+
+    }
+    .menu a {
+        display: block;
+        background: black;
+        margin: 0;
+        line-height: 40px;
+        padding: 0 0 0 50px;
+
+    }
+    #toggle:checked + .menu{
+        display: block
+    }
+
+    .logo {
+        font-size: 25px;
+    }
+    
+}
+
+@media screen and (max-width: 500px){
+
+    .label{
+        display: block;
+    }
+    .menu{
+        text-align: left;
+        width: 100%;
+        z-index: 10;
+        display: none;
+    }
+    .menu a {
+        display: block;
+        background: black;
+        margin: 0;
+    }
+    #toggle:checked + .menu{
+        display: block
+    }
+
+    .logo {
+        font-size: 25px;
+    }
+
+    .mainHeading1{
+        padding: 200px 0 0 0;
+        font-size: 40px;
+        color: white;
+        font-style: italic;
+        }
+    
+    .mainHeading2{
+        margin: 20px 0 30px 0;
+        font-size: 45px;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-weight: bold;
+        color: white;
+    }
+
+    
+}

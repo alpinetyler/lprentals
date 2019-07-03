@@ -4,6 +4,7 @@ import LPLogo from './images/LPLogo.png'
 import LandingPage from './LandingPage'
 // import { logout } from '../redux/reducers/user'
 import { Link } from 'react-router-dom';
+import '../stylesheet.css'
 
 
 //connect redux
@@ -23,33 +24,35 @@ function Header(props) {
                 </Link>
             </section>
             <section className="headerSectionMiddle">
+            <label for="toggle" class="label">&#9776;</label>
+            <input type="checkbox" id="toggle" />
                 {admin &&
-                    <span className="headerMenu">
+                    <span className="menu">
                         
                         <Link to={'/'}>
-                            <button>Home</button>
+                            Home
                         </Link>
 
                         <Link to={'/Maintenance'}>
-                            <button>Maintenance</button>
+                            Maintenance
                         </Link>
 
                         <Link to={'/PayRent'}>
-                            <button>Pay Rent</button>
+                            Pay Rent
                         </Link>
 
                         
                         <Link to={'/Appliances'}>
-                            <button>Appliances</button>
+                            Appliances
                         </Link>
 
                         <Link to={'/Expenses'}>
-                            <button>Expenses</button>
+                            Expenses
                         </Link>
 
 
                         <Link to={'/Reports'}>
-                            <button>Reports</button>
+                            Reports
                         </Link>
 
                     </span>
