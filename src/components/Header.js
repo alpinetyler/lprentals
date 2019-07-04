@@ -24,7 +24,6 @@ function Header(props) {
                 </Link>
             </section>
             <section className="headerSectionMiddle">
-            
             <input type="checkbox" id="toggle" />
                 {admin &&
                     <span className="menu">
@@ -69,7 +68,7 @@ function Header(props) {
                         </Link>
 
                         <Link to={'/PayRent'}>
-                            <a>Pay Rent</a>
+                            <a>Make Payment</a>
                         </Link>
                     </section>
                 }
@@ -98,7 +97,8 @@ let styles = {
     headerSectionMiddle: {
         display: 'flex',
         justifyContent: 'center',
-        alignItems: 'center'
+        alignItems: 'center',
+        flexDirection: 'column'
     },
 
     headerMenu: {

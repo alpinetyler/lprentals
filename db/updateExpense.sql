@@ -7,4 +7,4 @@ rentalid = ${rentalid}
 WHERE id = ${id};
 
 SELECT * FROM expenses
-ORDER BY id;
+ORDER BY date ASC;

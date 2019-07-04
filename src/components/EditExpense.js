@@ -19,7 +19,7 @@ class EditExpense extends Component {
             date,
             amount,
             category,
-            rentalid, 
+            rentalid,
 
             expenses: [],
             rentals: []
@@ -56,43 +56,61 @@ class EditExpense extends Component {
         return (
 
             <div>
-                Name: <input
-                    type="text"
-                    name="name"
-                    placeholder="Name"
-                    onChange={this.handleChange}
-                    value={this.state.name} />
-                Date: <input
-                    type="text"
-                    name="date"
-                    placeholder="Date"
-                    onChange={this.handleChange}
-                    value={this.state.date} />
-                Amount: <input
-                    type="text"
-                    name="amount"
-                    placeholder="Amount"
-                    onChange={this.handleChange}
-                    value={this.state.amount} />
-                Category: <input
-                    type="text"
-                    name="category"
-                    placeholder="Category"
-                    onChange={this.handleChange}
-                    value={this.state.category} />
-                    
-                <select name="rentalid" onChange={this.handleChange}>
-                    <option>{this.state.rentalid}</option>
-                    {this.state.rentals.map((rental, index) => {
-                        return (
-                            <option
-                                key={rental.id}
-                                value={rental.id}>{rental.id} - {rental.address}</option>
-                        )
-                    })}
-                </select>
-
-                <button className="saveChangesButton" onClick={this.handleClick}>Save Changes</button>
+                <tr>
+                    <td style={styles.colOne}>
+                        <input
+                            style={styles.colOne}
+                            type="text"
+                            name="name"
+                            placeholder="Name"
+                            onChange={this.handleChange}
+                            value={this.state.name} />
+                    </td>
+                    <td style={styles.colTwo}>
+                        <input
+                            style={styles.colTwo}
+                            type="text"
+                            name="date"
+                            placeholder="Date"
+                            onChange={this.handleChange}
+                            value={this.state.date} />
+                    </td>
+                    <td style={styles.colThree}>
+                        <input
+                            style={styles.colThree}
+                            type="text"
+                            name="amount"
+                            placeholder="Amount"
+                            onChange={this.handleChange}
+                            value={this.state.amount} />
+                    </td>
+                    <td style={styles.colFour}>
+                        <input
+                            style={styles.colFour}
+                            type="text"
+                            name="category"
+                            placeholder="Category"
+                            onChange={this.handleChange}
+                            value={this.state.category} />
+                    </td>
+                    <td style={styles.colFive}>
+                        <select name="rentalid"
+                            style={styles.colFive}
+                            onChange={this.handleChange}>
+                            <option>{this.state.rentalid}</option>
+                            {this.state.rentals.map((rental, index) => {
+                                return (
+                                    <option
+                                        key={rental.id}
+                                        value={rental.id}>{rental.id} - {rental.address}</option>
+                                )
+                            })}
+                        </select>
+                    </td>
+                    <td style={styles.colSix}>
+                        <button className="editbutton" onClick={this.handleClick}>Save</button>
+                    </td>
+                </tr>
             </div>
         )
     }
@@ -110,3 +128,24 @@ let mapStateToProps = state => {
 
 
 export default connect(mapStateToProps, { getUser, getRentals })(EditExpense)
+
+let styles = {
+    colOne: {
+        width: 200
+    },
+    colTwo: {
+        width: 125
+    },
+    colThree: {
+        width: 100
+    },
+    colFour: {
+        width: 200
+    },
+    colFive: {
+        width: 50
+    },
+    colSix: {
+        width: 200
+    }
+}

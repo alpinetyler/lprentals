@@ -42,7 +42,7 @@
     }
     .menu{
         text-align: right;
-        width: 100%;
+        width: 300px;
         z-index: 10;
         display: none;
         position: absolute;
@@ -70,9 +70,9 @@
         font-size: 25px;
     }
 
-    .userNameDisplay{
+    /* .userNameDisplay{
         display: none;
-    }
+    } */
     
 }
 

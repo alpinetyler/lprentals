@@ -48,6 +48,7 @@ class Expenses extends Component {
         axios.put(`/api/expenses/${expense.id}`, expense)
             .then(res => this.setState({ expenses: res.data }))
             .catch(err => console.log(err))
+            // alert("Changes Saved")
     }
 
     deleteExpense = id => {
@@ -59,7 +60,7 @@ class Expenses extends Component {
 
     render() {
         let { user } = this.props
-        console.log(1111, this.state.expenses)
+        // console.log(1111, this.state.expenses)
 
         return (
             <section className="docWrapper">
@@ -71,6 +72,14 @@ class Expenses extends Component {
                 <span>
                     {user && //if user is logged in, display appliances
                         <div className="displayWrapper">
+                            <tr>
+                                <td style={styles.colOne}><h3>Name</h3></td>
+                                <td style={styles.colTwo}><h3>Date</h3></td>
+                                <td style={styles.colThree}><h3>Amount</h3></td>
+                                <td style={styles.colFour}><h3>Category</h3></td>
+                                <td style={styles.colFive}><h3>Rental</h3></td>
+                                <td style={styles.colSix}><h3></h3></td>
+                            </tr>
                             {this.state.expenses.map((expense, index) => {
                                 return (
                                     <ListExpenses
@@ -104,3 +113,24 @@ let mapStateToProps = state => {
 }
 
 export default connect(mapStateToProps, { getUser })(Expenses)
+
+let styles = {
+    colOne: {
+        width: 200
+    },
+    colTwo: {
+        width: 125
+    },
+    colThree: {
+        width: 100
+    },
+    colFour: {
+        width: 200
+    },
+    colFive: {
+        width: 50
+    },
+    colSix: {
+        width: 200
+    }
+}

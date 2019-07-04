@@ -51,6 +51,7 @@ class Appliances extends Component {
         axios.put(`/api/appliances/${appliance.id}`, appliance)
             .then(res => this.setState({ appliances: res.data }))
             .catch(err => console.log(err))
+            // alert("Changes Saved!")
     }
 
     deleteAppliance = id => {
@@ -72,6 +73,14 @@ class Appliances extends Component {
                 <span>
                     {user && //if user is logged in, display appliances
                         <div className="displayWrapper">
+                            <tr>
+                                <td style={styles.colOne}><h3>Name</h3></td>
+                                <td style={styles.colTwo}><h3>Brand</h3></td>
+                                <td style={styles.colThree}><h3>Date </h3></td>
+                                <td style={styles.colFour}><h3>Serial #</h3></td>
+                                <td style={styles.colFive}><h3>Rental</h3></td>
+                                <td style={styles.colSix}><h3></h3></td>
+                            </tr>
                             {this.state.appliances.map((appliance, index) => {
                                 return (
                                     <ListAppliances
@@ -102,3 +111,24 @@ let mapStateToProps = state => {
 }
 
 export default connect(mapStateToProps, { getUser })(Appliances)
+
+let styles = {
+    colOne: {
+        width: 200
+    },
+    colTwo: {
+        width: 100
+    },
+    colThree: {
+        width: 150
+    },
+    colFour: {
+        width: 175
+    },
+    colFive: {
+        width: 75
+    },
+    colSix: {
+        width: 200
+    }
+}

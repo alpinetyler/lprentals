@@ -1,2 +1,2 @@
 SELECT * FROM expenses
-ORDER BY id;
+ORDER BY date;

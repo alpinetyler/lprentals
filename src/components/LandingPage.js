@@ -11,7 +11,7 @@ function Landing(props) {
     return (
         <div>
             <span className="userNameDisplay">
-            { user ? <button onClick={props.logout}>Logout</button>   : <LoginForm></LoginForm>}
+            { user ? <div style={styles.logout} onClick={props.logout}>Logout</div>   : <LoginForm></LoginForm>}
             </span>
 
         </div>
@@ -24,3 +24,15 @@ let mapStateToProps = state => {
 }
 
 export default connect(mapStateToProps, {logout})(Landing)
+
+
+let styles = {
+    logout: {
+        display: 'flex',
+        // flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'flex-end',
+        paddingTop: 10
+
+    }
+}

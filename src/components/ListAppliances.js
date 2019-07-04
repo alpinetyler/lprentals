@@ -47,7 +47,7 @@ class ListAppliances extends Component {
                                 appliance={appliance}
                                 toggleEdit={this.toggleEdit}
                                 updateAppliance={updateAppliance} />
-                            <button className="cancelbutton" onClick={this.toggleEdit}>cancel</button>
+                            {/* <button className="cancelbutton" onClick={this.toggleEdit}>cancel</button> */}
 
                         </div>
                         :
@@ -105,8 +105,8 @@ let styles = {
         alignItems: 'center'
     },
     displayappliance: {
-        // width: 700,
-        // borderBottom: '1px solid gray'
+      fontFamily: 'times-NewRoman'
+      
 
     },
     colOne: {
@@ -119,10 +119,10 @@ let styles = {
         width: 150
     },
     colFour: {
-        width: 200
+        width: 175
     },
     colFive: {
-        width: 50
+        width: 75
     },
     colSix: {
         width: 200

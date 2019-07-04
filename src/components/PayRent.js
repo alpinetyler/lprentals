@@ -10,6 +10,8 @@ import { Link } from 'react-router-dom';
 //connect redux
 import { connect } from 'react-redux'
 import { getUser } from '../redux/reducers/user'
+import { getRentals } from '../redux/reducers/rental'
+
 
 //display number in US currency format
 const formatter = new Intl.NumberFormat('en-US', {
@@ -25,23 +27,40 @@ class PayRent extends Component {
 
     this.state = {
       amount: 0,
+      rentalid: '',
+      rentals: []  
+    
     }
   }
 
   componentDidMount() {
 
+    //get list of rental properties for rental id menu
+    axios.get('/api/rentals').then((res) => {
+      this.setState({
+        rentals: res.data
+      })
+    }).catch(err => console.log('error getting rentals:', err))
+
     //keep user logged in after refresh
     this.props.getUser()
   }
 
+  handleChange = e => {
+    let { value, name } = e.target
+    this.setState({
+      [name]: value
+    })
+  }
+
   onToken = (token) => {
-    console.log(token)
-    let { amount } = this.state
+    console.log(3333, token)
+    let { amount, rentalid } = this.state
     amount /= 100
     console.log(amount)
     let formattedAmount = formatter.format(amount)
     token.card = void 0
-    axios.post('/api/payment', { token, amount: this.state.amount }).then(res => {
+    axios.post('/api/payment', { token, amount: this.state.amount, rentalid}).then(res => {
       console.log(res)
       alert(`Thanks! You paid Lamppost Properties ${formattedAmount}!`)
     })
@@ -58,20 +77,31 @@ class PayRent extends Component {
 
 
   render() {
-
     let user = this.props && this.props.user
     //let admin = user && user.isadmin
+
     return (
 
       <div>
         {user &&
 
           <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginTop: '50px' }}>
+            <p><select style={styles.select}
+              name="rentalid" onChange={this.handleChange}>
+              <option>Choose Address</option>
+              {this.state.rentals.map((rental, index) => {
+                return (
+                  <option
+                    key={rental.id}
+                    value={rental.id}>{rental.address}</option>
+                )
+              })}
+            </select></p>
             Enter Payment Amount:
                   <p><input value={this.state.amount}
-                        type='number'
-                        onChange={e => this.setState({ amount: +e.target.value })} />
-                  </p>
+              type='number'
+              onChange={e => this.setState({ amount: +e.target.value })} />
+            </p>
             <StripeCheckout
               name='Rent payment' //header
               image={LPLogo}
@@ -107,7 +137,7 @@ let mapStateToProps = state => {
   return { user }
 }
 
-export default connect(mapStateToProps, { getUser })(PayRent)
+export default connect(mapStateToProps, { getUser, getRentals })(PayRent)
 
 let styles = {
   addappliance: {

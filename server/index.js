@@ -11,6 +11,7 @@ const ApplianceCtrl = require('./controllers/appliances')
 const ExpenseCtrl = require('./controllers/expenses')
 const PayCtrl = require('./controllers/payments')
 const MessageCtrl = require('./controllers/messages')
+const ReportCtrl = require('./controllers/reports')
 
 const app = express()
 
@@ -69,24 +70,5 @@ app.get('/api/messages', MessageCtrl.read)//read messages
 app.post('/api/messages', MessageCtrl.create)//create message
 app.delete('./api/messages/:id', MessageCtrl.delete)//delete message
 
-
-
-
-///////////////////////
-//Twilio Test Code
-//////////////////////
-// const {TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN, TWILIO_NUMBER, TWILIO_TO_NUMBER} = process.env
-
-// var accountSid = TWILIO_ACCOUNT_SID; // Your Account SID from www.twilio.com/console
-// var authToken = TWILIO_AUTH_TOKEN;   // Your Auth Token from www.twilio.com/console
-
-// var client = new twilio(accountSid, authToken);
-
-
-
-// client.messages.create({
-//     body: 'Hi from Node',
-//     to: TWILIO_TO_NUMBER,  // Text this number
-//     from: TWILIO_NUMBER // From a valid Twilio number
-// })
-// .then((message) => console.log(message.sid));
+//get reports from database
+app.get('/api/reports', ReportCtrl.totalPayments)

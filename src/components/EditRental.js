@@ -43,7 +43,7 @@ export default class EditRental extends Component {
 
             <div className="editForm">
                 <Headings editRental={true} />
-                <p>Monthly Rent: <input
+                <p>Rent: <input
                     type="number"
                     name="price"
                     placeholder="price"
@@ -67,13 +67,13 @@ export default class EditRental extends Component {
                     placeholder="sqfeet"
                     onChange={this.handleChange}
                     value={this.state.sqfeet} /></p>
-                <p>Street Address: <input
+                <p>Address: <input
                     type="text"
                     name="address"
                     placeholder="address"
                     onChange={this.handleChange}
                     value={this.state.address} /></p>
-                <p>Zip Code: <input
+                <p>Zip: <input
                     type="text"
                     name="zip"
                     placeholder="zip"

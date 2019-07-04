@@ -7,4 +7,5 @@ ${category},
 ${rentalid}
 );
 
-SELECT * FROM expenses;
+SELECT * FROM expenses
+ORDER BY date;

@@ -47,12 +47,12 @@ class ListExpenses extends Component {
                                 expense={expense}
                                 toggleEdit={this.toggleEdit}
                                 updateExpense={updateExpense} />
-                            <button className="cancelbutton" onClick={this.toggleEdit}>cancel</button>
+                            {/* <button className="cancelbutton" onClick={this.toggleEdit}>cancel</button> */}
 
                         </div>
                         :     
                         
-                        <div style={styles.displayappliance}> 
+                        <div style={styles.displayexpense}> 
                             
                         <tr>
                         <td style={styles.colOne}>{expense.name}</td>
@@ -104,6 +104,11 @@ let styles = {
         flexDirection: 'column',
         alignItems: 'center'
     },
+    displayexpense: {
+        fontFamily: 'times-NewRoman'
+        
+  
+      },
     colOne: {
         width: 200
     },

@@ -8,7 +8,8 @@ import { connect } from 'react-redux'
 import { getUser } from '../redux/reducers/user'
 import { getRentals } from '../redux/reducers/rental'
 
-
+var today = new Date();
+var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
 
 class AddAppliance extends Component {
 
@@ -19,7 +20,7 @@ class AddAppliance extends Component {
 
             name: '',
             brand: '',
-            datepurchased: '',
+            datepurchased: date,
             serialnumber: '',
             rentalid: '',
 
@@ -47,7 +48,7 @@ class AddAppliance extends Component {
         this.setState({
             name: '',
             brand: '',
-            datepurchased: '',
+            datepurchased: date,
             serialnumber: '',
             rentalid: '',
 

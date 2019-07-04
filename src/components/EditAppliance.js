@@ -6,6 +6,7 @@ import axios from 'axios'
 import { connect } from 'react-redux'
 import { getUser } from '../redux/reducers/user'
 import { getRentals } from '../redux/reducers/rental'
+import { tsTypeAliasDeclaration } from '@babel/types';
 
 
 class EditAppliance extends Component {
@@ -19,7 +20,7 @@ class EditAppliance extends Component {
             brand,
             serialnumber,
             rentalid,
-            datepurchased, 
+            datepurchased,
 
             rentals: []
         }
@@ -55,27 +56,46 @@ class EditAppliance extends Component {
         return (
 
             <div>
-                Name: <input
-                    type="text"
-                    name="name"
-                    placeholder="Name"
-                    onChange={this.handleChange}
-                    value={this.state.name} />
-                Brand: <input
+                <tr>
+                <td style={styles.colOne}>
+                    <input
+                        style={styles.colOne}
+                        type="text"
+                        name="name"
+                        placeholder="Name"
+                        onChange={this.handleChange}
+                        value={this.state.name} />
+                </td>
+                <td style={styles.colTwo}>
+
+                <input
+                    style={styles.colTwo}
                     type="text"
                     name="brand"
                     placeholder="Brand"
                     onChange={this.handleChange}
                     value={this.state.brand} />
-                Serial Number: <input
+                </td>
+                <td style={styles.colThree}>
+                <input
+                    style={styles.colThree}
+                    type="text"
+                    name="datepurchased"
+                    placeholder="address"
+                    onChange={this.handleChange}
+                    value={this.state.datepurchased} />
+                </td>
+                <td style={styles.colFour}>
+                <input
+                    style={styles.colFour}
                     type="text"
                     name="serialnumber"
                     placeholder="Serial Number"
                     onChange={this.handleChange}
                     value={this.state.serialnumber} />
-                    
-
-                <select name="rentalid" onChange={this.handleChange}>
+                </td>
+                <td style={styles.colFive}>
+                <select name="rentalid" style={styles.colFive}  onChange={this.handleChange}>
                     <option>{this.state.rentalid}</option>
                     {this.state.rentals.map((rental, index) => {
                         return (
@@ -85,14 +105,12 @@ class EditAppliance extends Component {
                         )
                     })}
                 </select>
-
-                Date Purchased <input
-                    type="text"
-                    name="datepurchased"
-                    placeholder="address"
-                    onChange={this.handleChange}
-                    value={this.state.datepurchased} />
-                <button className="saveChangesButton" onClick={this.handleClick}>Save Changes</button>
+                </td>
+                <td style={styles.colSix}>
+                <button className="editbutton" onClick={this.handleClick}>Save</button>
+                </td>
+                </tr>
+                
             </div>
         )
     }
@@ -110,3 +128,27 @@ let mapStateToProps = state => {
 
 
 export default connect(mapStateToProps, { getUser, getRentals })(EditAppliance)
+
+let styles = {
+    colOne: {
+        width: 200
+    },
+    colTwo: {
+        width: 100
+    },
+    colThree: {
+        width: 125
+    },
+    colFour: {
+        width: 175
+    },
+    colFive: {
+        width: 75
+    },
+    colSix: {
+        width: 200
+    },
+    colFourEdit: {
+        width: 100
+    }
+}
