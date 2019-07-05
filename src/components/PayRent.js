@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import '../App.css';
 import StripeCheckout from 'react-stripe-checkout'
 import axios from 'axios'
+import NumberFormat from 'react-number-format';
 
 import LPLogo from './images/LPLogo.png'
 import { Link } from 'react-router-dom';
@@ -26,7 +27,7 @@ class PayRent extends Component {
     super()
 
     this.state = {
-      amount: 0,
+      amount: '',
       rentalid: '',
       rentals: []  
     
@@ -61,7 +62,7 @@ class PayRent extends Component {
     let formattedAmount = formatter.format(amount)
     token.card = void 0
     axios.post('/api/payment', { token, amount: this.state.amount, rentalid}).then(res => {
-      console.log(res)
+      // console.log(res)
       alert(`Thanks! You paid Lamppost Properties ${formattedAmount}!`)
     })
   }
@@ -85,7 +86,7 @@ class PayRent extends Component {
       <div>
         {user &&
 
-          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginTop: '50px' }}>
+          <div style={styles.input}>
             <p><select style={styles.select}
               name="rentalid" onChange={this.handleChange}>
               <option>Choose Address</option>
@@ -98,6 +99,7 @@ class PayRent extends Component {
               })}
             </select></p>
             Enter Payment Amount:
+                  {/* <p><NumberFormat thousandsSeparator={true} prefix={'$'}>{this.state.amount}</NumberFormat></p> */}
                   <p><input value={this.state.amount}
               type='number'
               onChange={e => this.setState({ amount: +e.target.value })} />
@@ -144,6 +146,11 @@ let styles = {
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center'
-  }
+  },
+  input: {
+    display: 'flex', 
+    flexDirection: 'column', 
+    alignItems: 'center', 
+    marginTop: '50px'}
 }
 
