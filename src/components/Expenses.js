@@ -52,7 +52,7 @@ class Expenses extends Component {
     }
 
     deleteExpense = id => {
-        console.log(2344, id)
+        // console.log(2344, id)
         axios.delete(`/api/expenses/${id}`)
             .then(res => this.setState({ appliances: res.data }))
             .catch(err => console.log(err))
@@ -80,6 +80,7 @@ class Expenses extends Component {
                                 <td style={styles.colFive}><h3>Rental</h3></td>
                                 <td style={styles.colSix}><h3></h3></td>
                             </tr>
+                          
                             {this.state.expenses.map((expense, index) => {
                                 return (
                                     <ListExpenses
@@ -87,9 +88,11 @@ class Expenses extends Component {
                                         index={index}
                                         expense={expense}
                                         updateExpense={this.updateExpense}
-                                        deleteExpense={() => this.deleteExpense(expense.id)} />
+                                        deleteExpense={() => this.deleteExpense(expense.id)} 
+                                        counter={1}/>
                                 )
                             })}
+                            
                         </div>
                     }
 

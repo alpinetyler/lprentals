@@ -16,10 +16,9 @@ module.exports = {
     update: (req, res) => {
         let { id } = req.params
         let db = req.app.get('db')
-        let rentals = req.body
-
-        rentals.id = id
-        db.updateExpense(rentals).then(response => {
+        let expenses = req.body
+        expenses.id = id
+        db.updateExpense(expenses).then(response => {
             res.send(response)
         }).catch(err => console.log(err))
     },

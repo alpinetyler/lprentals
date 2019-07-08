@@ -29,8 +29,8 @@ class PayRent extends Component {
     this.state = {
       amount: '',
       rentalid: '',
-      rentals: []  
-    
+      rentals: []
+
     }
   }
 
@@ -55,14 +55,16 @@ class PayRent extends Component {
   }
 
   onToken = (token) => {
-    console.log(3333, token)
+    // console.log(3333, token)
     let { amount, rentalid } = this.state
-    amount /= 100
-    console.log(amount)
+    console.log(88888, amount)
     let formattedAmount = formatter.format(amount)
     token.card = void 0
-    axios.post('/api/payment', { token, amount: this.state.amount, rentalid}).then(res => {
-      // console.log(res)
+    axios.post('/api/payment', { token, amount: this.state.amount, rentalid }).then(res => {
+      this.setState({
+        amount: '',
+        rentalid: ''
+      })
       alert(`Thanks! You paid Lamppost Properties ${formattedAmount}!`)
     })
   }
@@ -99,11 +101,12 @@ class PayRent extends Component {
               })}
             </select></p>
             Enter Payment Amount:
-                  {/* <p><NumberFormat thousandsSeparator={true} prefix={'$'}>{this.state.amount}</NumberFormat></p> */}
-                  <p><input value={this.state.amount}
+
+            <p>$<input value={this.state.amount}
               type='number'
               onChange={e => this.setState({ amount: +e.target.value })} />
             </p>
+
             <StripeCheckout
               name='Rent payment' //header
               image={LPLogo}
@@ -111,7 +114,7 @@ class PayRent extends Component {
 
               stripeKey={process.env.REACT_APP_STRIPE_PUBLISHABLE_KEY} //public key not secret key
               token={this.onToken} //fires the call back
-              amount={this.state.amount} //this will be in cents
+              amount={this.state.amount * 100} //this will be in cents
               currency="USD"
               // image={imageUrl} // the pop-in header image (default none)
               // ComponentClass="div" //initial default button styling on block scope (defaults to span)
@@ -148,9 +151,10 @@ let styles = {
     alignItems: 'center'
   },
   input: {
-    display: 'flex', 
-    flexDirection: 'column', 
-    alignItems: 'center', 
-    marginTop: '50px'}
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    marginTop: '50px'
+  }
 }
 

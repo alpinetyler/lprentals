@@ -71,4 +71,5 @@ app.post('/api/messages', MessageCtrl.create)//create message
 app.delete('./api/messages/:id', MessageCtrl.delete)//delete message
 
 //get reports from database
-app.get('/api/reports', ReportCtrl.totalPayments)
+app.get('/api/income/:id', ReportCtrl.getPayments)
+app.get('/api/plexpenses/:id', ReportCtrl.getExpenses)

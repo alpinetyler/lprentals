@@ -7,4 +7,4 @@ rentalid = ${rentalid}
 WHERE id = ${id};
 
 SELECT * FROM appliances
-ORDER BY date ASC;
+ORDER BY datepurchased ASC;

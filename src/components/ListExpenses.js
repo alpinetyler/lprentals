@@ -53,8 +53,9 @@ class ListExpenses extends Component {
                         :     
                         
                         <div style={styles.displayexpense}> 
-                            
-                        <tr>
+
+                          
+                        <tr style={styles.shaded}>
                         <td style={styles.colOne}>{expense.name}</td>
                         <td style={styles.colTwo}>{expense.date}</td>
                         <td style={styles.colThree}>{expense.amount}</td>
@@ -126,5 +127,8 @@ let styles = {
     },
     colSix: {
         width: 200
-    }
+    },
+    // shaded: {
+    //     background: 'lightblue'
+    // }
 }

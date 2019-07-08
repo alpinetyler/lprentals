@@ -305,5 +305,13 @@
     opacity: 0.6;
 }
 
+table tr:nth-child(odd) td{
+    background: lightblue;
+}
+
+table tr:nth-child(even) td{
+    background: white;
+}
+
 
 

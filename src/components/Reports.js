@@ -12,21 +12,19 @@ class Reports extends Component{
         return(
             <div style={styles.addappliance}>
                 <h3>Reports</h3>
-                <Link to={'/ListAppliances'}>
-                    <button>List Appliances</button>
-                </Link>
-                <Link to={'/ListExpenses'}>
-                    <button>List Expenses</button>
-                </Link>
                 <Link to={'/Tester'}>
                     <button>Tester</button>
                 </Link>
-                <Link to={'/TotalPayments'}>
-                    <button>Total Payments</button>
+                <Link to={'/PLIncome'}>
+                    <button>P&L Income</button>
+                </Link>
+                <Link to={'/PLExpenses'}>
+                    <button>P&L Expenses</button>
                 </Link>
                 <Link to={'/'}>
                     <button>Main</button>
                 </Link>
+                
                 
                 
             </div>

@@ -2,8 +2,9 @@ const stripe = require('stripe')(process.env.REACT_APP_STRIPE_SECRET_KEY)
 
 module.exports = {
     pay:(req,res)=>{
-        // const db = req.app.get('db')
+        const db = req.app.get('db')
         const {token:{id},amount, rentalid} = req.body;
+        // console.log(req.body)
         //get today's date
         var today = new Date();
         var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
@@ -21,7 +22,7 @@ module.exports = {
                     return res.status(500).send(err)
                 } else {
                     console.log('Successful payment',charge)
-                    let db = req.app.get('db')
+                    // let db = req.app.get('db')
                     db.createPayment({amount, date, rentalid}).then(response => {
                     res.send(response)
                     }).catch(err => console.log(err))
