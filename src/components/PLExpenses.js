@@ -30,12 +30,12 @@ class PLExpenses extends Component {
 
     componentDidMount() {
         //get infor for Total Payments Report
-        axios.get('/api/plexpenses').then((res) => {
-            // console.log(33333, res.data)
-            this.setState({
-                plexpenses: res.data
-            })
-        }).catch(err => console.log('error getting expenses:', err))
+        // axios.get('/api/plexpenses').then((res) => {
+        //     console.log(33333, res.data)
+        //     this.setState({
+        //         plexpenses: res.data
+        //     })
+        // }).catch(err => console.log('error getting expenses:', err))
 
         //get list of rental properties for rental id menu
         axios.get('/api/rentals').then((res) => {
@@ -62,7 +62,7 @@ class PLExpenses extends Component {
     render() {
         let { user } = this.props;
         let admin = user && user.isadmin;
-        
+        console.log(this.state.plexpenses)
         //get total expenses from all categories
         var total = this.state.plexpenses.reduce(function(accumulator, expenses) {
             return accumulator + +expenses.expenses

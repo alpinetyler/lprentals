@@ -1,3 +1,4 @@
+const path = require('path')
 const express = require('express')
 require('dotenv/config')
 const massive = require('massive')
@@ -78,3 +79,7 @@ app.delete('./api/messages/:id', MessageCtrl.delete)//delete message
 //get reports from database
 app.get('/api/income/:id', ReportCtrl.getPayments)
 app.get('/api/plexpenses/:id', ReportCtrl.getExpenses)
+
+app.get('*', (req, res)=>{
+    res.sendFile(path.join(__dirname, '../build/index.html'));
+});
