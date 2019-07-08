@@ -92,7 +92,7 @@ class Expenses extends Component {
                                         counter={1}/>
                                 )
                             })}
-                            
+                        
                         </div>
                     }
 

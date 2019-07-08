@@ -93,7 +93,7 @@ class PLIncome extends Component {
                 </select></p>
                 <tr>
                     <td style={styles.colOne}><h3>Date</h3></td>
-                    <td style={styles.colTwo}><h3>Income</h3></td>
+                    <td style={styles.colTwo}><h3>Payment</h3></td>
                 </tr>
                 {admin &&
                     <>
