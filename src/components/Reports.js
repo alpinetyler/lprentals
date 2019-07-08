@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import { Link } from 'react-router-dom';
 
+
 //connect redux
 import { connect } from 'react-redux'
 import { getUser } from '../redux/reducers/user'
@@ -10,20 +11,15 @@ class Reports extends Component{
 
     render (){
         return(
-            <div style={styles.addappliance}>
+            <div style={styles.menu}>
                 <h3>Reports</h3>
-                <Link to={'/Tester'}>
-                    <button>Tester</button>
-                </Link>
                 <Link to={'/PLIncome'}>
-                    <button>P&L Income</button>
+                    <a>P&L Income</a>
                 </Link>
                 <Link to={'/PLExpenses'}>
-                    <button>P&L Expenses</button>
+                    <a>P&L Expenses</a>
                 </Link>
-                <Link to={'/'}>
-                    <button>Main</button>
-                </Link>
+                
                 
                 
                 
@@ -54,5 +50,11 @@ let styles = {
         flex: 1,
         display: 'flex',
         justifyContent: 'space-between'
+    },
+    menu: {
+        flexDirection: 'column',
+        alignItems: 'center',
+        
+
     }
 }
