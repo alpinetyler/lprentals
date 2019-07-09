@@ -147,6 +147,7 @@
     display: flex;
     align-items: flex-start;
     justify-content: flex-end;
+    transition: 0.3s;
     /* border: 2px green solid; */
    
 
@@ -163,6 +164,7 @@
     margin: 10px 40px 5px 5px;
     font-family: 'Times New Roman', Times, serif;
     box-shadow: 10px 10px 5px grey;
+    transition: 0.3s;
 
     /* font-weight: bold; */
     /* border: blue 2px solid; */
@@ -198,6 +200,7 @@
 
 .addbutton:hover {
     opacity: 0.6;
+    font-size: 25px;
 }
 
 .addbutton img {
