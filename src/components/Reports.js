@@ -12,13 +12,25 @@ class Reports extends Component{
 
     render (){
         return(
-            <div className="reports">
-                <h3>Reports</h3>
+            <div style={styles.reports} className="reports">
+                <h2>Reports</h2><br></br>
                 <Link to={'/PLIncome'}>
-                    <a>Income</a>
+                <h3><span style={styles.icon} className="fa">&#xf155; </span>  Income</h3>
                 </Link>
                 <Link to={'/PLExpenses'}>
-                    <a>Expenses</a>
+                    <h3><span style={styles.icon} className="fa">&#xf200; </span>  Expenses</h3>
+                </Link>
+                <Link to={'/ProfitAndLoss'}>
+                    <h3><span style={styles.icon} className="fa">&#xf080; </span>  Profit & Loss</h3>
+                </Link>
+                <Link to={'/ListMessages'}>
+                    <h3><span style={styles.icon} className="fa">&#xf0e0; </span>   Messages</h3>
+                </Link>
+                <Link to={'/ListUsers'}>
+                    <h3><span style={styles.icon} className="fa">&#xf007; </span>  User List</h3>
+                </Link>
+                <Link to={'/ListPayments'}>
+                    <h3><span style={styles.icon} className="fa">&#xf155; </span>  Payment List</h3>
                 </Link>
                 
                 
@@ -42,14 +54,10 @@ let styles = {
         flexDirection: 'column',
         alignItems: 'center'
     },
-    logo: {
-        flex: 4,
-        display: 'flex',
-        justifyContent: 'flex-start'
+    reports: {
+        lineHeight: '5px'
     },
-    navbar: {
-        flex: 1,
-        display: 'flex',
-        justifyContent: 'space-between'
+    icon: {
+        fontSize: '25px'
     }
 }

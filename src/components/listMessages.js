@@ -1,60 +1,89 @@
 import React, { Component } from 'react'
-
-import EditAppliance from './EditAppliance'
-import Tester from './Tester'
+import axios from 'axios'
 
 //connect redux
 import { connect } from 'react-redux'
 import { getUser } from '../redux/reducers/user'
+import { getRentals } from '../redux/reducers/rental'
 
-class ListAppliances extends Component {
-
+class ListMessages extends Component {
     constructor(props) {
         super(props)
 
         this.state = {
-            edit: false
+            messages: []
         }
     }
 
 
-    //function to toggle between display appliance and edit appliance
-    toggleEdit = () =>
-        this.setState({
-            edit: !this.state.edit
-        })
-
     componentDidMount() {
-        //keep user on state if screen is re-freshed        
-        this.props.getUser();
+        //get list of rental properties for rental id menu
+        axios.get('/api/messages').then((res) => {
+            this.setState({
+                messages: res.data
+            })
+        }).catch(err => console.log('error getting messages:', err))
+
+        //keep user logged in after refresh
+        this.props.getUser()
     }
 
+
     render() {
-        let { message } = this.props
-        let { user } = this.props
-        let admin = user && user.isadmin
+        let { user } = this.props;
+        let admin = user && user.isadmin;
+        console.log(this.state.messages)
+
 
         return (
-                      
-                        <div> 
-            
-                        {messages.title} / 
-                        {messages.text} / 
-                        {messaes.rentalid}                         
-                        <button className="appliancedeletebutton" onClick={this.props.deleteMessage} >delete</button>
-                         
-                        </div>
-                        
-                      
-                       
-                       
+
+            <div style={styles.display}>
+                <h3>Messages</h3>
+                <tr>
+                    <td style={styles.colOne}><h3>Title</h3></td>
+                    <td style={styles.colTwo}><h3>Text</h3></td>
+                    <td style={styles.colThree}><h3>Rental ID</h3></td>
+
+                </tr>
+                {admin &&
+                    <>
+                        <table>
+                            {this.state.messages.map((message, index) => {
+                                return (
+                                    <>
+
+                                        <tr>
+                                            <td style={styles.colOne}>{message.title}</td>
+                                            <td style={styles.colTwo}>{message.text}</td>
+                                            <td style={styles.colThree}>{message.rentalid}</td>
+
+                                        </tr>
+
+
+                                    </>
+                                )
+
+                            })}
+                        </table>
+
+                    </>
                 }
 
 
 
 
-        
-            
+
+
+            </div>
+
+
+
+
+
+
+
+
+
         )
 
 
@@ -70,22 +99,42 @@ let mapStateToProps = state => {
 }
 
 
-export default connect(mapStateToProps, { getUser })(ListAppliances)
+export default connect(mapStateToProps, { getUser, getRentals })(ListMessages)
 
 let styles = {
-    addappliance: {
+    center: {
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center'
     },
-    logo: {
-        flex: 4,
+
+    display: {
         display: 'flex',
-        justifyContent: 'flex-start'
+        flexDirection: 'column',
+        alignItems: 'center',
+        marginTop: 50
     },
-    navbar: {
-        flex: 1,
-        display: 'flex',
-        justifyContent: 'space-between'
+    colOne: {
+        width: 200
+    },
+    colOneB: {
+        width: 200,
+        fontWeight: 'bold'
+    },
+    colTwo: {
+        width: 300
+    },
+    colThree: {
+        width: 100
+    },
+    colFour: {
+        width: 200
+    },
+    colFive: {
+        width: 50
+    },
+    colSix: {
+        width: 200
     }
+
 }

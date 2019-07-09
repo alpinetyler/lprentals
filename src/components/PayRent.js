@@ -161,7 +161,7 @@ let styles = {
     flexDirection: 'column',
     alignItems: 'center',
     border: '1px solid black',
-    width: '450px',
+    width: '330px',
     padding: '20px',
     margin: '10px',
     // background: 'lightblue',

@@ -108,7 +108,7 @@ class EditExpense extends Component {
                         </select>
                     </td>
                     <td style={styles.colSix}>
-                        <button className="editbutton" onClick={this.handleClick}>Save</button>
+                    <span className="fa" style={styles.icon} onClick={this.handleClick}>     &#xf0c7;</span>
                     </td>
                 </tr>
             </>
@@ -147,5 +147,9 @@ let styles = {
     },
     colSix: {
         width: 200
+    },
+    icon: {
+        fontSize: '25px',
+        cursor: 'pointer',
     }
 }

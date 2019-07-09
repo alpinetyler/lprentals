@@ -79,7 +79,7 @@ class Appliances extends Component {
                                 <td style={styles.colThree}><h3>Date </h3></td>
                                 <td style={styles.colFour}><h3>Serial #</h3></td>
                                 <td style={styles.colFive}><h3>Rental</h3></td>
-                                <td style={styles.colSix}><h3></h3></td>
+                                <td style={styles.colSix}><h3>Edit/Delete</h3></td>
                             </tr>
                             <table>
                             {this.state.appliances.map((appliance, index) => {

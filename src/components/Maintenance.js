@@ -119,7 +119,7 @@ class Maintenance extends Component {
                             value={this.state.title} /></p>
                         <p><textarea
                             rows="6"
-                            cols="60"
+                            cols="50"
                             placeholder="Message Text"
                             name="text"
                             onChange={this.handleChange}
@@ -164,7 +164,7 @@ let styles = {
         padding: '10px 10px 10px 50px',
         margin: '10px',
         // background: 'lightblue',
-        width: '450px',
+        width: '330px',
         border: 'black 2px solid',
         boxShadow: '10px 10px 5px grey'
 

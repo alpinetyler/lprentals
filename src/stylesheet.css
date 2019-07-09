@@ -81,6 +81,7 @@
 
 .hoverdelete:hover {
     color: red;
+    /* font-size: 30px; */
 }
 
 .hoveredit {
@@ -90,6 +91,7 @@
 }
 .hoveredit:hover {
     color: green;
+    /* font-size: 30px; */
 }
  
 /*replace the content value with the
@@ -117,7 +119,7 @@ corresponding value from the list below*/
     display: none;
 }
 
-@media screen and (max-width: 1275px){
+@media screen and (max-width: 1265px){
    
     
     .label{

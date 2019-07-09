@@ -38,6 +38,7 @@ class SignUp extends Component {
             isadmin: '',
             rentalid: null
         })
+
     }
 
     createUser = newUser => {
@@ -46,7 +47,9 @@ class SignUp extends Component {
                 this.setState({
                     rentals: res.data
                 })
+                alert(`Your account has been created!`)
             }).catch(err => console.log(err))
+            
     }
 
 
@@ -66,18 +69,20 @@ class SignUp extends Component {
                         placeholder="Name"
                         onChange={this.handleChange}
                         value={this.state.name} /></p>
-                    <p><input
+                    <p><span style={styles.icon} className="fa">&#xf007; </span>
+                    <input
                         style={styles.input}
                         type="text"
                         name="email"
-                        placeholder="E-mail"
+                        placeholder=" E-mail"
                         onChange={this.handleChange}
                         value={this.state.email} /></p>
-                    <p><input
+                    <p><span style={styles.icon} className="fa">&#xf023; </span>
+                    <input
                         style={styles.input}
                         type="password"
                         name="password"
-                        placeholder="Password"
+                        placeholder="  Password"
                         onChange={this.handleChange}
                         value={this.state.password} /></p>
                     <p>Administrator?</p>
@@ -87,7 +92,7 @@ class SignUp extends Component {
                         onChange={this.handleChange}
                         value="true" />Yes</p>
                     <p><input
-                        type="radio"
+                        type="radio" 
                         name="isadmin"
                         onChange={this.handleChange}
                         value="false" />No</p>
@@ -112,18 +117,27 @@ export default connect(mapStateToProps, { getUser })(SignUp)
 let styles = {
     addForm: {
 
-        width: 300,
+        width: 375,
         padding: 15,
         text: 15,
         margin: 20,
         fontFamily: 'Times New Roman, Times, serif',
-        boxShadow: '10px gray'
+        boxShadow: '10px gray',
+        border: '1px black solid',
+        padding: '10px 10px 10px 50px',
+        margin: '10px',
+        // background: 'lightblue',
+        border: 'black 2px solid',
+        boxShadow: '10px 10px 5px grey'
     },
     input: {
         border: 'none',
         borderBottom: '1px solid lightgray',
         width: 300,
         fontSize: 15
+    },
+    icon: {
+        fontSize: '25px'
     }
 
 

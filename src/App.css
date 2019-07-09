@@ -102,11 +102,12 @@
   
   header{
         height: 100px;
-        width: 90%;
+        width: 95%;
         display: flex;
         justify-content: space-between;
         align-items: center;
         background-size: 100%;
+        
         font-size: 15px;
         border-bottom: 1px black solid;
         /* position: fixed; */

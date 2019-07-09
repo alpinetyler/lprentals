@@ -53,18 +53,20 @@ class LoginForm extends Component {
                 <div style={styles.loginbox}>   
                 <h3>User Login</h3>
             
-                <p><input
+                <p><span style={styles.icon} className="fa">&#xf007; </span>
+                <input
                     style={styles.input} 
                     name="email" 
                     type="text" 
-                    placeholder="email" 
+                    placeholder=" E-mail" 
                     onChange={this.handleChange}/>{' '}
                 </p>
+                <span style={styles.icon} className="fa">&#xf023; </span>
                 <input 
                     style={styles.input} 
                     name="password" 
                     type="password" 
-                    placeholder="password" 
+                    placeholder="  Password" 
                     onChange={this.handleChange}/>{' '}
                 <p><button className="saveChangesButton" onClick={this.handleSubmit}>login</button></p>
                 <button className="signupbutton" onClick={this.toggleSignup} >Sign Up</button>
@@ -104,9 +106,12 @@ let styles = {
         padding: '10px 10px 10px 50px',
         margin: '10px',
         // background: 'lightblue',
-        width: '450px',
+        width: '330px',
         border: 'black 2px solid',
         boxShadow: '10px 10px 5px grey'
+    },
+    icon: {
+        fontSize: '25px'
     }
     
 }

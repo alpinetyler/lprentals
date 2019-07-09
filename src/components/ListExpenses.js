@@ -64,7 +64,7 @@ class ListExpenses extends Component {
                         <td style={styles.colFive}>{expense.rentalid}</td>
                         
                         <td style={styles.colSix}>                        
-                        <span style={styles.edit} onClick={this.toggleEdit}><a className="hoveredit">&#9998; </a></span>
+                        <span style={styles.edit} onClick={this.toggleEdit}><a className="hoveredit">&#9998; / </a></span>
                         <span className="fa"  style={styles.edit2} onClick={this.props.deleteExpense} ><a className="hoverdelete"> &#xf014;</a></span>
                         </td>
                         </tr>

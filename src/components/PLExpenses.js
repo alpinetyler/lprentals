@@ -29,14 +29,6 @@ class PLExpenses extends Component {
 
 
     componentDidMount() {
-        //get infor for Total Payments Report
-        // axios.get('/api/plexpenses').then((res) => {
-        //     console.log(33333, res.data)
-        //     this.setState({
-        //         plexpenses: res.data
-        //     })
-        // }).catch(err => console.log('error getting expenses:', err))
-
         //get list of rental properties for rental id menu
         axios.get('/api/rentals').then((res) => {
             this.setState({
@@ -71,7 +63,7 @@ class PLExpenses extends Component {
         return (
 
             <div style={styles.display}>
-                <h3>Total Expenses</h3>
+                <h3>Expenses</h3>
                 <p><select style={styles.select}
                     name="rentalid" onChange={this.getExpenses}>
                     <option>Choose Address</option>

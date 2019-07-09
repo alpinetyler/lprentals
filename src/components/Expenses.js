@@ -78,7 +78,7 @@ class Expenses extends Component {
                                 <td style={styles.colThree}><h3>Amount</h3></td>
                                 <td style={styles.colFour}><h3>Category</h3></td>
                                 <td style={styles.colFive}><h3>Rental</h3></td>
-                                <td style={styles.colSix}><h3></h3></td>
+                                <td style={styles.colSix}><h3>Edit/Delete</h3></td>
                             </tr>
                             <table>
                             {this.state.expenses.map((expense, index) => {
@@ -131,7 +131,7 @@ let styles = {
         width: 200
     },
     colFive: {
-        width: 50
+        width: 75
     },
     colSix: {
         width: 200

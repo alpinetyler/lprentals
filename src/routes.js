@@ -11,6 +11,13 @@ import Tester from './components/Tester'
 import PayRent from './components/PayRent'
 import PLIncome from './components/PLIncome'
 import PLExpenses from './components/PLExpenses'
+import ListUsers from './components/ListUsers'
+import ListPayments from './components/ListPayments'
+import ListMessages from './components/ListMessages'
+import ProfitAndLoss from './components/ProfitAndLoss'
+
+
+
 
 
 
@@ -28,6 +35,12 @@ export default (
     <Route path="/PayRent" component={PayRent}/>
     <Route path="/PLIncome" component={PLIncome}/>
     <Route path="/PLExpenses" component={PLExpenses}/>
+    <Route path="/Listusers" component={ListUsers}/>
+    <Route path="/ListPayments" component={ListPayments}/>
+    <Route path="/ListMessages" component={ListMessages}/>
+    <Route path="/ProfitAndLoss" component={ProfitAndLoss}/>
+    <Route path="/PLExpenses" component={PLExpenses}/>
+
 
   </Switch>
 );
