@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 
 import EditExpense from './EditExpense'
-import Tester from './Tester'
+import '../stylesheet.css'
+
 
 //connect redux
 import { connect } from 'react-redux'
@@ -63,8 +64,8 @@ class ListExpenses extends Component {
                         <td style={styles.colFive}>{expense.rentalid}</td>
                         
                         <td style={styles.colSix}>                        
-                        <button className="editbutton" onClick={this.toggleEdit}>edit</button>{'     '}
-                        <button className="appliancedeletebutton" onClick={this.props.deleteExpense} >delete</button>
+                        <span style={styles.edit} onClick={this.toggleEdit}><a className="hoveredit">&#9998; </a></span>
+                        <span className="fa"  style={styles.edit2} onClick={this.props.deleteExpense} ><a className="hoverdelete"> &#xf014;</a></span>
                         </td>
                         </tr>
                     
@@ -128,7 +129,13 @@ let styles = {
     colSix: {
         width: 200
     },
-    // shaded: {
-    //     background: 'lightblue'
-    // }
+    edit: {
+        fontSize: 25,
+        cursor: 'pointer'
+    },
+    edit2: {
+        fontSize: 23,
+        cursor: 'pointer'
+    }
+   
 }

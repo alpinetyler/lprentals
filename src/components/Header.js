@@ -75,7 +75,7 @@ function Header(props) {
             </section>
             <section className="headerSection2">
                 {user && <LandingPage />}
-                <label for="toggle" class="label">&#9776;</label>
+                <label htmlFor="toggle" className="label">&#9776;</label>
                 
             </section>
         </header>

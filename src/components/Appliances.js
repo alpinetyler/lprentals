@@ -81,6 +81,7 @@ class Appliances extends Component {
                                 <td style={styles.colFive}><h3>Rental</h3></td>
                                 <td style={styles.colSix}><h3></h3></td>
                             </tr>
+                            <table>
                             {this.state.appliances.map((appliance, index) => {
                                 return (
                                     <ListAppliances
@@ -91,6 +92,7 @@ class Appliances extends Component {
                                         deleteAppliance={() => this.deleteAppliance(appliance.id)} />
                                 )
                             })}
+                            </table>
                         </div>
                     }
 

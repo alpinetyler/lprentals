@@ -39,6 +39,74 @@
 
 .menu a:hover {
     color: lightblue;
+    
+}
+
+.reports {
+    text-align: center;
+    font-family: sans-serif;
+    font-weight: bold;
+    color: black;
+}
+
+.reports a {
+    text-decoration: none;
+    line-height: 20px;
+    font-size: 14px;
+    text-align: center;
+    font-family: sans-serif;
+    /* font-weight: bold; */
+    color: black;
+    transition: color 0.3s linear;
+   -webkit-transition: color 0.3s linear;
+   -moz-transition: color 0.3s linear;
+
+
+}
+
+.reports a:hover{
+    color: lightblue;
+}
+
+.edit2 {
+    position: relative;
+}
+
+.hoverdelete {
+    transition: color 0.3s linear;
+   -webkit-transition: color 0.3s linear;
+   -moz-transition: color 0.3s linear;
+}
+
+.hoverdelete:hover {
+    color: red;
+}
+
+.hoveredit {
+    transition: color 0.3s linear;
+   -webkit-transition: color 0.3s linear;
+   -moz-transition: color 0.3s linear;
+}
+.hoveredit:hover {
+    color: green;
+}
+ 
+/*replace the content value with the
+corresponding value from the list below*/
+ 
+.edit2:before {
+    content: "\f014";
+    font-family: FontAwesome;
+    font-style: normal;
+    font-weight: normal;
+    text-decoration: inherit;
+/*--adjust as necessary--*/
+    color: #000;
+    font-size: 18px;
+    padding-right: 0.5em;
+    position: absolute;
+    top: 10px;
+    left: 0;
 }
     
 
@@ -114,6 +182,7 @@
     .logo {
         font-size: 25px;
     }
+    
 
    
     

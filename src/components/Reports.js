@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import { Link } from 'react-router-dom';
+import '../stylesheet.css'
 
 
 //connect redux
@@ -11,13 +12,13 @@ class Reports extends Component{
 
     render (){
         return(
-            <div style={styles.menu}>
+            <div className="reports">
                 <h3>Reports</h3>
                 <Link to={'/PLIncome'}>
-                    <a>P&L Income</a>
+                    <a>Income</a>
                 </Link>
                 <Link to={'/PLExpenses'}>
-                    <a>P&L Expenses</a>
+                    <a>Expenses</a>
                 </Link>
                 
                 
@@ -50,11 +51,5 @@ let styles = {
         flex: 1,
         display: 'flex',
         justifyContent: 'space-between'
-    },
-    menu: {
-        flexDirection: 'column',
-        alignItems: 'center',
-        
-
     }
 }

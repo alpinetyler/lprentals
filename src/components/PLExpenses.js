@@ -64,25 +64,25 @@ class PLExpenses extends Component {
         let admin = user && user.isadmin;
         console.log(this.state.plexpenses)
         //get total expenses from all categories
-        var total = this.state.plexpenses.reduce(function(accumulator, expenses) {
+        var total = this.state.plexpenses.reduce(function (accumulator, expenses) {
             return accumulator + +expenses.expenses
-        },0)
+        }, 0)
 
         return (
 
             <div style={styles.display}>
                 <h3>Total Expenses</h3>
                 <p><select style={styles.select}
-                                name="rentalid" onChange={this.getExpenses}>
-                                <option>Choose Address</option>
-                                {this.state.rentals.map((rental, index) => {
-                                    return (
-                                        <option
-                                            key={rental.id}
-                                            value={rental.id}>{rental.address}</option>
-                                    )
-                                })}
-                            </select></p>
+                    name="rentalid" onChange={this.getExpenses}>
+                    <option>Choose Address</option>
+                    {this.state.rentals.map((rental, index) => {
+                        return (
+                            <option
+                                key={rental.id}
+                                value={rental.id}>{rental.address}</option>
+                        )
+                    })}
+                </select></p>
                 <tr>
                     <td style={styles.colOne}><h3>Address</h3></td>
                     <td style={styles.colTwo}><h3>Category</h3></td>
@@ -90,31 +90,32 @@ class PLExpenses extends Component {
 
                 </tr>
                 {admin &&
-                <>
-                {this.state.plexpenses.map((plexpenses, index) => {
-                    return (
-                        <>
+                    <>
                         <table>
+                            {this.state.plexpenses.map((plexpenses, index) => {
+                                return (
+                                    <>
+
+                                        <tr>
+                                            <td style={styles.colOne}>{plexpenses.address}</td>
+                                            <td style={styles.colTwo}>{plexpenses.category}</td>
+                                            <td style={styles.colThree}>{formatter.format(plexpenses.expenses)}</td>
+
+                                        </tr>
+
+
+                                    </>
+                                )
+
+                            })}
+                        </table>
                         <tr>
-                            <td style={styles.colOne}>{plexpenses.address}</td>
-                            <td style={styles.colTwo}>{plexpenses.category}</td>
-                            <td style={styles.colThree}>{formatter.format(plexpenses.expenses)}</td>
-
-                        </tr> 
-
-                        </table> 
-                        </>
-                    )                    
-                        
-                })}
-
-                <tr>
-                <br></br>
-                <td style={styles.colOneB}>Total Expenses:</td>
-                <td style={styles.colTwo}></td>
-                <td style={styles.colThree}>{formatter.format(total)}</td>
-                </tr>
-                </>
+                            <br></br>
+                            <td style={styles.colOneB}>Total Expenses:</td>
+                            <td style={styles.colTwo}></td>
+                            <td style={styles.colThree}>{formatter.format(total)}</td>
+                        </tr>
+                    </>
                 }
 
 
