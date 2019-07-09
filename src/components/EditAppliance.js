@@ -55,7 +55,7 @@ class EditAppliance extends Component {
     render() {
         return (
 
-            <div>
+            <>
                 <tr>
                 <td style={styles.colOne}>
                     <input
@@ -111,7 +111,7 @@ class EditAppliance extends Component {
                 </td>
                 </tr>
                 
-            </div>
+            </>
         )
     }
 

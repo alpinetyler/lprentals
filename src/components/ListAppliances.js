@@ -37,25 +37,25 @@ class ListAppliances extends Component {
         return (
 
             
-            <div>
+            <>
                
                 
                 {
                     this.state.edit ?
-                        <div>
+                        <>
+                        
                             <EditAppliance
                                 appliance={appliance}
                                 toggleEdit={this.toggleEdit}
                                 updateAppliance={updateAppliance} />
-                            {/* <button className="cancelbutton" onClick={this.toggleEdit}>cancel</button> */}
-
-                        </div>
+                        
+                        </>
                         :
                         
                       
-                        <div style={styles.displayappliance}> 
+                        <> 
                             
-                            <tr>
+                            <tr style={styles.displayappliance}>
                             <td style={styles.colOne}>{appliance.name}</td>
                             <td style={styles.colTwo}>{appliance.brand}</td>
                             <td style={styles.colThree}>{appliance.datepurchased}</td>
@@ -68,7 +68,7 @@ class ListAppliances extends Component {
                             </td>
                             </tr>
                         
-                        </div>
+                        </>
                         
                       
                        
@@ -79,7 +79,7 @@ class ListAppliances extends Component {
 
 
             
-            </div>
+            </>
             
         )
 

@@ -57,9 +57,9 @@
     font-family: sans-serif;
     /* font-weight: bold; */
     color: black;
-    transition: color 0.3s linear;
-   -webkit-transition: color 0.3s linear;
-   -moz-transition: color 0.3s linear;
+    transition: color 0.2s linear;
+   -webkit-transition: color 0.2s linear;
+   -moz-transition: color 0.2s linear;
 
 
 }
@@ -73,9 +73,9 @@
 }
 
 .hoverdelete {
-    transition: color 0.3s linear;
-   -webkit-transition: color 0.3s linear;
-   -moz-transition: color 0.3s linear;
+    transition: color 0.2s linear;
+   -webkit-transition: color 0.2s linear;
+   -moz-transition: color 0.2s linear;
 }
 
 .hoverdelete:hover {
