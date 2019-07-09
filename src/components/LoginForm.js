@@ -50,8 +50,8 @@ class LoginForm extends Component {
                     <button className="cancelbutton" onClick={this.toggleSignup}>Cancel</button>
                 </div>
                 :
-                <div>   
-                <div style={styles.login}>User Login</div>
+                <div style={styles.loginbox}>   
+                <h3>User Login</h3>
             
                 <p><input
                     style={styles.input} 
@@ -66,8 +66,8 @@ class LoginForm extends Component {
                     type="password" 
                     placeholder="password" 
                     onChange={this.handleChange}/>{' '}
-                <p><button onClick={this.handleSubmit}>login</button></p>
-                <button style={styles.button} onClick={this.toggleSignup} >Sign Up</button>
+                <p><button className="saveChangesButton" onClick={this.handleSubmit}>login</button></p>
+                <button className="signupbutton" onClick={this.toggleSignup} >Sign Up</button>
                 </div>
                 
                 }
@@ -93,9 +93,20 @@ let styles = {
         width: 300,
         fontSize: 15
     },
-    button: {
-        border: 'none',
-        color: 'gray',
-        fontSize: 15
+    // button: {
+    //     border: 'none',
+    //     color: 'gray',
+    //     fontSize: 15
+    // },
+    loginbox: {
+
+        border: '1px black solid',
+        padding: '10px 10px 10px 50px',
+        margin: '10px',
+        // background: 'lightblue',
+        width: '450px',
+        border: 'black 2px solid',
+        boxShadow: '10px 10px 5px grey'
     }
+    
 }

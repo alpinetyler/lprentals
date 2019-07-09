@@ -104,19 +104,20 @@ class DisplayRental extends Component {
                 }
                 {admin ?
                     <div>
-                        {this.state.edit ?
-                            <button className="cancelbutton" onClick={this.toggleEdit}>cancel</button>
-                            :
+                        {!this.state.edit &&
+                            // <button className="cancelbutton" onClick={this.toggleEdit}></button>
+                            <>
                             <button className="editbutton" onClick={this.toggleEdit}>edit</button>
+                            <button className="deletebutton" onClick={this.props.deleteRental}>delete</button>
+                            </>
+
                         }
 
-                        {/* {admin && <button>Admin</button>} */}
 
-                        <button className="deletebutton" onClick={this.props.deleteRental}>delete</button>
                     </div>
                     :
                     <div>
-                        <button className="editbutton">More Photos</button>
+                        <button className="morephotosbutton">More Photos</button>
                     </div>
 
                 }

@@ -11,7 +11,7 @@ function Landing(props) {
     return (
         <div>
             <span className="userNameDisplay">
-            { user ? <div style={styles.logout} onClick={props.logout}>Logout</div>   : <LoginForm></LoginForm>}
+            { user ? <div className="mainlogout" onClick={props.logout}>Logout</div>   : <LoginForm></LoginForm>}
             </span>
 
         </div>

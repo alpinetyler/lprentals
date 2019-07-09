@@ -161,11 +161,12 @@ let styles = {
         justifyContent: 'space-between'
     },
     maintenance: {
-        border: '1px black solid',
-        padding: '20px',
+        padding: '10px 10px 10px 50px',
         margin: '10px',
-        background: 'lightblue',
-        width: '400px'
+        // background: 'lightblue',
+        width: '450px',
+        border: 'black 2px solid',
+        boxShadow: '10px 10px 5px grey'
 
     }
 }

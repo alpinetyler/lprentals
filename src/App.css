@@ -212,7 +212,7 @@
 
 .saveChangesButton{
    width: 110px;
-   background: green;
+   background: blue;
     border-radius: 5px;
     color: white;
     font-weight: bold;
@@ -224,6 +224,25 @@
 
 
 }
+
+.morephotosbutton{
+    width: 110px;
+    background: blue;
+     border-radius: 5px;
+     color: white;
+     font-weight: bold;
+     font-size: 12px;
+     /* margin: 40px 0 0 0; */
+     opacity: 1;
+     transition: 0.3s;
+     cursor: pointer;
+ 
+ 
+ }
+
+ .morephotosbutton:hover {
+     opacity: 0.6;
+ }
 
 .saveChangesButton:hover {
     opacity: 0.6;
@@ -246,6 +265,19 @@
 
 .deletebutton:hover {
     opacity: 0.6;
+}
+
+.signupbutton {
+    border: none;
+    font-size: 15px;
+    color: gray;
+    opacity: 1;
+    transition: 0.2s;
+    cursor: pointer;
+
+}
+.signupbutton:hover {
+    color: black;
 }
 
 .editbutton{
@@ -310,6 +342,23 @@ table tr:nth-child(odd) td{
 
 table tr:nth-child(even) td{
     background: white;
+}
+
+.mainlogout {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        padding-top: 10;
+        color: gray;
+        opacity: 1;
+        transition: 0.3s;
+        cursor: pointer;
+        font-size: 15px;
+}
+
+.mainlogout:hover {
+    color: black;
+    font-size: 20px; 
 }
 
 

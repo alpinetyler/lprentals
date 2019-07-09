@@ -161,10 +161,12 @@ let styles = {
     flexDirection: 'column',
     alignItems: 'center',
     border: '1px solid black',
-    width: '400px',
+    width: '450px',
     padding: '20px',
     margin: '10px',
-    background: 'lightblue'
+    // background: 'lightblue',
+    border: 'black 2px solid',
+    boxShadow: '10px 10px 5px grey'
   }
 }
 
