@@ -55,7 +55,7 @@ class EditExpense extends Component {
     render() {
         return (
 
-            <div>
+            <>
                 <tr>
                     <td style={styles.colOne}>
                         <input
@@ -111,7 +111,7 @@ class EditExpense extends Component {
                         <button className="editbutton" onClick={this.handleClick}>Save</button>
                     </td>
                 </tr>
-            </div>
+            </>
         )
     }
 

@@ -97,7 +97,7 @@ class Maintenance extends Component {
 
             <div style={styles.addappliance}>
                 {user &&
-                    <>
+                    <div style={styles.maintenance}>
                         <h3>Send Maintenance Request</h3>
                         <p><select name="rentalid" onChange={this.handleSelect}>
                             <option>Choose Address</option>
@@ -128,7 +128,7 @@ class Maintenance extends Component {
                         </p>
                         <button className="saveChangesButton" onClick={this.handleClick}>Send Message</button>
 
-                    </>
+                    </div>
                 }
 
             </div>
@@ -148,7 +148,7 @@ let styles = {
     addappliance: {
         display: 'flex',
         flexDirection: 'column',
-        alignItems: 'center'
+        alignItems: 'center',
     },
     logo: {
         flex: 4,
@@ -159,5 +159,13 @@ let styles = {
         flex: 1,
         display: 'flex',
         justifyContent: 'space-between'
+    },
+    maintenance: {
+        border: '1px black solid',
+        padding: '20px',
+        margin: '10px',
+        background: 'lightblue',
+        width: '400px'
+
     }
 }

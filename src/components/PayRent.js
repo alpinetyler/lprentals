@@ -85,10 +85,10 @@ class PayRent extends Component {
 
     return (
 
-      <div>
+      <div style={styles.addappliance}>
         {user &&
 
-          <div style={styles.input}>
+          <div style={styles.payment}>
             <p><select style={styles.select}
               name="rentalid" onChange={this.handleChange}>
               <option>Choose Address</option>
@@ -155,6 +155,16 @@ let styles = {
     flexDirection: 'column',
     alignItems: 'center',
     marginTop: '50px'
+  },
+  payment: {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    border: '1px solid black',
+    width: '400px',
+    padding: '20px',
+    margin: '10px',
+    background: 'lightblue'
   }
 }
 

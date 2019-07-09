@@ -38,25 +38,25 @@ class ListExpenses extends Component {
         return (
 
             
-            <div>
+            <>
                
 
                 {
                     this.state.edit ?
-                        <div>
+                        <>
                             <EditExpense
                                 expense={expense}
                                 toggleEdit={this.toggleEdit}
                                 updateExpense={updateExpense} />
                             {/* <button className="cancelbutton" onClick={this.toggleEdit}>cancel</button> */}
 
-                        </div>
+                        </>
                         :     
                         
-                        <div style={styles.displayexpense}> 
+                        <> 
 
                           
-                        <tr style={styles.shaded}>
+                        <tr style={styles.displayexpense}>
                         <td style={styles.colOne}>{expense.name}</td>
                         <td style={styles.colTwo}>{expense.date}</td>
                         <td style={styles.colThree}>{expense.amount}</td>
@@ -69,7 +69,7 @@ class ListExpenses extends Component {
                         </td>
                         </tr>
                     
-                        </div>
+                        </>
                        
                         
                       
@@ -81,7 +81,7 @@ class ListExpenses extends Component {
 
 
             
-            </div>
+            </>
             
         )
 

@@ -80,7 +80,7 @@ class Expenses extends Component {
                                 <td style={styles.colFive}><h3>Rental</h3></td>
                                 <td style={styles.colSix}><h3></h3></td>
                             </tr>
-                          
+                            <table>
                             {this.state.expenses.map((expense, index) => {
                                 return (
                                     <ListExpenses
@@ -92,7 +92,7 @@ class Expenses extends Component {
                                         counter={1}/>
                                 )
                             })}
-                        
+                            </table>
                         </div>
                     }
 
