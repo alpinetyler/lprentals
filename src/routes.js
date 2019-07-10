@@ -39,7 +39,6 @@ export default (
     <Route path="/ListPayments" component={ListPayments}/>
     <Route path="/ListMessages" component={ListMessages}/>
     <Route path="/ProfitAndLoss" component={ProfitAndLoss}/>
-    <Route path="/PLExpenses" component={PLExpenses}/>
 
 
   </Switch>
