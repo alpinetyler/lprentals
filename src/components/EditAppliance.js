@@ -131,7 +131,9 @@ export default connect(mapStateToProps, { getUser, getRentals })(EditAppliance)
 
 let styles = {
     colOne: {
-        width: 200
+        width: 200,
+        backgroundColor: 'lightblue'
+        
     },
     colTwo: {
         width: 100
