@@ -26,7 +26,9 @@ module.exports = {
 
             client.messages.create({
                 //get message from front end and send it in a text to the rental property manager
-                body: `Message from ${address} Title: ${title}, Text: ${text}`, 
+                body: `Message from ${address} 
+                Title: ${title}, 
+                Text: ${text}`,
                 to: TWILIO_TO_NUMBER,  // Text this number
                 from: TWILIO_NUMBER // From a valid Twilio number
             })

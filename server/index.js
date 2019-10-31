@@ -62,10 +62,10 @@ app.put('/api/appliances/:id', ApplianceCtrl.update)//update appliance
 app.delete('/api/appliances/:id', ApplianceCtrl.delete)//delete appliance
 
 // Full CRUD for managing expenses
-app.post('/api/expenses', ExpenseCtrl.create)//create appliance
-app.get('/api/expenses', ExpenseCtrl.read)//read appliances
-app.put('/api/expenses/:id', ExpenseCtrl.update)//update appliance
-app.delete('/api/expenses/:id', ExpenseCtrl.delete)//delete appliance
+app.post('/api/expenses', ExpenseCtrl.create)//create expense
+app.get('/api/expenses', ExpenseCtrl.read)//read expenses
+app.put('/api/expenses/:id', ExpenseCtrl.update)//update expense
+app.delete('/api/expenses/:id', ExpenseCtrl.delete)//delete expense
 
 //accept rental payments
 app.post('/api/payment', PayCtrl.pay)

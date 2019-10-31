@@ -48,6 +48,7 @@ class SignUp extends Component {
                     rentals: res.data
                 })
                 alert(`Your account has been created!`)
+                
             }).catch(err => console.log(err))
             
     }
