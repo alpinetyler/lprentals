@@ -4,4 +4,5 @@ VALUES(${imageurl}, ${price}, ${bd}, ${bth}, ${sqfeet}, ${address},
          ${zip});
 
 
-SELECT * FROM rentals;
+SELECT * FROM rentals
+ORDER BY id ASC;

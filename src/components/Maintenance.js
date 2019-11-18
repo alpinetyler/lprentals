@@ -53,11 +53,12 @@ class Maintenance extends Component {
 
     }
 
-    deleteMessage = id => {
-        axios.delete(`/api/messages/${id}`)
-            .then(res => this.setState({ messages: res.data }))
-            .catch(err => console.log(err))
-    }
+    // moved this function to ListMessages.js
+    // deleteMessage = id => {
+    //     axios.delete(`/api/messages/${id}`)
+    //         .then(res => this.setState({ messages: res.data }))
+    //         .catch(err => console.log(err))
+    // }
 
     handleChange = e => {
         let { value, name } = e.target

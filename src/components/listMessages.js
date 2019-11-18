@@ -28,6 +28,13 @@ class ListMessages extends Component {
         this.props.getUser()
     }
 
+    deleteMessage = id => {
+        console.log(555, id)
+        axios.delete(`/api/messages/${id}`)
+            .then(res => this.setState({ messages: res.data }))
+            .catch(err => console.log(err))
+    }
+
 
     render() {
         let { user } = this.props;
@@ -56,6 +63,7 @@ class ListMessages extends Component {
                                             <td style={styles.colOne}>{message.title}</td>
                                             <td style={styles.colTwo}>{message.text}</td>
                                             <td style={styles.colThree}>{message.rentalid}</td>
+                                            <td styles={styles.colThree}><button onClick={() => this.deleteMessage(message.id)}>delete</button></td>
 
                                         </tr>
 

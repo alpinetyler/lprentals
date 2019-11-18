@@ -52,7 +52,7 @@ class Expenses extends Component {
     }
 
     deleteExpense = id => {
-        // console.log(2344, id)
+        console.log(444, id)
         axios.delete(`/api/expenses/${id}`)
             .then(res => this.setState({ appliances: res.data }))
             .catch(err => console.log(err))

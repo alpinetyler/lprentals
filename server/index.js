@@ -71,10 +71,10 @@ app.delete('/api/expenses/:id', ExpenseCtrl.delete)//delete expense
 app.post('/api/payment', PayCtrl.pay)
 app.get('/api/payments', PayCtrl.read)
 
-//accept messages to send out as texts or email?
+//accept messages to send out as texts, delete message
 app.get('/api/messages', MessageCtrl.read)//read messages
 app.post('/api/messages', MessageCtrl.create)//create message
-app.delete('./api/messages/:id', MessageCtrl.delete)//delete message
+app.delete('/api/messages/:id', MessageCtrl.delete)//delete message
 
 //get reports from database
 app.get('/api/income/:id', ReportCtrl.getPayments)

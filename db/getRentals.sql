@@ -1,2 +1,2 @@
 SELECT * FROM rentals
-ORDER BY id;
+ORDER BY id ASC;

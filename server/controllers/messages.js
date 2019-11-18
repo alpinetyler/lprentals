@@ -41,7 +41,6 @@ module.exports = {
     delete: (req, res) => {
         let db = req.app.get('db');
         const { id } = req.params;//get this from param on url
-
         db.deleteMessage([id]).then(response => {
             res.status(200).send(response);
         });
