@@ -145,4 +145,8 @@ let styles = {
         width: 200
     }
 
+<<<<<<< HEAD:src/components/listMessages.js
 }//
+=======
+}
+>>>>>>> 911e54531a2c694097fe046bea097d17a44501f9:src/components/ListMessages.js
