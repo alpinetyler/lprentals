@@ -46,8 +46,11 @@ class LoginForm extends Component {
             <div>
                 {this.state.signup ?
                 <div>
-                    <SignUp />
-                    <button className="cancelbutton" onClick={this.toggleSignup}>Cancel</button>
+                    <SignUp 
+                        toggleSignup={this.toggleSignup}
+                    />
+                    
+                    
                 </div>
                 :
                 <div style={styles.loginbox}>   

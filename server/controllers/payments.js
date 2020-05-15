@@ -21,7 +21,7 @@ module.exports = {
                     console.log(err)
                     return res.status(500).send(err)
                 } else {
-                    console.log('Successful payment',charge)
+                    // console.log('Successful payment',charge)
                     // let db = req.app.get('db')
                     db.createPayment({amount, date, rentalid}).then(response => {
                     res.send(response)

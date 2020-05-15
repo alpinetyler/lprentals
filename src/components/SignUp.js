@@ -17,7 +17,7 @@ class SignUp extends Component {
             email: '',
             password: '',
             isadmin: '',
-            rentalid: null,
+            rentalid: null
         }
     }
     handleChange = e => {
@@ -48,7 +48,7 @@ class SignUp extends Component {
                     rentals: res.data
                 })
                 alert(`Your account has been created!`)
-                
+
             }).catch(err => console.log(err))
             
     }
@@ -98,6 +98,10 @@ class SignUp extends Component {
                         onChange={this.handleChange}
                         value="false" />No</p>
                     <button className="saveChangesButton" onClick={this.handleClick}>Submit</button>
+                    <div>
+                        <p><button className="cancelbutton" onClick={this.props.toggleSignup}>Cancel</button></p>
+                    </div>
+                    
 
 
                 </div>

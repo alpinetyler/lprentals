@@ -8,10 +8,18 @@ import { logout } from '../redux/reducers/user'
 function Landing(props) {
 console.log(props)
     let { user } = props
+    console.log(33333, props.user)
     return (
         <div>
+            {/* <div>Logged In:</div>  */}
             <span className="userNameDisplay">
-            { user ? <div className="mainlogout" onClick={props.logout}>Logout</div>   : <LoginForm></LoginForm>}
+            { user ? <div className="mainlogout" onClick={props.logout}>Logout</div> 
+             
+            
+            : 
+            
+            <LoginForm></LoginForm>}
+            
             </span>
 
         </div>
